@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import './Search.css'
+import { useNavigate } from "react-router-dom";
 
 function Search({setResults}) {
   const [inputValue, setInput] = useState('')
+  const navigate = useNavigate()
 
   function searchAlbums(query) {
     return fetch(`https://api.discogs.com/database/search?q=${query}&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl`)
@@ -30,9 +32,12 @@ function Search({setResults}) {
   function handleClick(event) {
     event.preventDefault()
     searchAlbums(inputValue)
-      .then(results => setResults(results))
+      .then(results => {
+        setResults(results)
+        setInput('')
+        navigate('/results')
+      })
       .catch(error => alert(error.message))
-    setInput('')
   }
 
   return (
