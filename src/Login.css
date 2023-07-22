@@ -1,11 +1,28 @@
 .login-container {
     position: relative;
+    margin-bottom: 200px;
   }
     
   .username-field,
   .password-field {
     padding: 8px;
     margin-right: 10px;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-bottom: -80px;
+}
+  
+  
+  .logo {
+    width: 400px;
+    height: 330px;
+    background-color: transparent;
+    
   }
   
   .login-button {
@@ -18,4 +35,8 @@
   
   .login-button:hover {
     background-color: #6546C4;
+  }
+
+  .navbar {
+    box-shadow: rgba(99, 99, 99, 0)
   }
