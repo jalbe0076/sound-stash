@@ -16,10 +16,16 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 
-
+.login-container {
+  position: relative;
+  margin-bottom: 70px;
+  width: 400px;
+  padding: 20px;
+}
 
 
 
