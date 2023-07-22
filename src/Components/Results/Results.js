@@ -5,9 +5,11 @@ import './Results.css'
 function Results({results}) {
   return (
     <section className='results'>
-      {results.map(result => {
-        return <Card key={result.masterId}result={result}/>
-      })}
+      <div className='results--grid'>
+        {results.map(result => {
+          return <Card key={result.masterId}result={result}/>
+        })}
+      </div>
     </section>
   )
 }

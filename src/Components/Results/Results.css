@@ -1,6 +1,22 @@
 .results {
+  background-color: rgb(20, 18, 17);
+}
+
+.results--grid {
   display: grid;
+  padding-left: 32px;
+  padding-right: 32px;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 12px;
+  column-gap: 32px;
   justify-content: center;
 }
+
+/* @media screen and (max-width: 600px) {
+
+  .results--grid {
+    grid-template-columns: repeat(6, 1fr);
+    padding-left: 20%;
+    padding-right: 20%;
+  } */
+
+/* } */

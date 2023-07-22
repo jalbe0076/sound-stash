@@ -35,7 +35,7 @@ function Search({setResults}) {
       .then(results => {
         setResults(results)
         setInput('')
-        navigate('/results')
+        navigate('/albums')
       })
       .catch(error => alert(error.message))
   }
