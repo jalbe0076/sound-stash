@@ -1,0 +1,21 @@
+.login-container {
+    position: relative;
+  }
+    
+  .username-field,
+  .password-field {
+    padding: 8px;
+    margin-right: 10px;
+  }
+  
+  .login-button {
+    background-color: #865DFF;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+  }
+  
+  .login-button:hover {
+    background-color: #6546C4;
+  }
