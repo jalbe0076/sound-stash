@@ -1,12 +1,16 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-const Album = ({ title, coverImg }) => {
+const Album = ({ id, title, coverImg }) => {
 
     return (
-        <div className='album'>
-            <img src={coverImg} alt={`cover art for ${title}`}/>
-            <p>{title}</p>
-        </div>
+        <Link to={`album/${id}`}>
+            <div className='album'>
+                <img src={coverImg} alt={`cover art for ${title}`}/>
+                <p>{title}</p>
+            </div>
+        </Link>
+        
     )
 }
 

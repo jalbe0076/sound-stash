@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import './App.css';
-import Trending from '../Trending/Trending'
+import Recommended from '../Recommended/Recommended'
 
 const App = () => {
   const [trendingData, setTrendingData] = useState()
 
   useEffect(() => {
+    // if user has a collection, fetch data based on genres/bands found in collection
     fetch('https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=1&per_page=5&sort=hot')
       .then(res => {
         if (res.ok) {
@@ -21,7 +22,7 @@ const App = () => {
   return (
     <main>
       <Routes>
-        <Route path='/' element={<Trending trendingData={trendingData}/>}/>
+        <Route path='/' element={<Recommended trendingData={trendingData}/>}/>
       </Routes>
     </main>
   )
