@@ -1,15 +1,14 @@
 import './App.css';
-import Nav from './components/Nav/Nav';
+import Nav from '../Nav/Nav';
 import { Route, Routes } from 'react-router-dom';
-import Discover from './components/Discover/Discover';
-import Collections from './components/Collections/Collections';
-import Journal from './components/Journal/Journal';
-import EmptyState from './components/EmptyState/EmptyState';
+import Discover from '../Discover/Discover';
+import Collections from '../Collections/Collections';
+import Journal from '../Journal/Journal';
+import EmptyState from '../EmptyState/EmptyState';
 
 function App() {
   return (
-    <>
-      <h1>SOUND STASH</h1>
+    <body>
       <Nav />
       <main className="App">
         <Routes>
@@ -20,7 +19,7 @@ function App() {
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>
-    </>
+    </body>
   );
 }
 
