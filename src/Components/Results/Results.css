@@ -1,5 +1,15 @@
 .results {
   background-color: rgb(20, 18, 17);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.results--loading {
+  height: 100vh;
+  background-color: rgb(20, 18, 17);
+  color: white;
+  padding-top: 60px;
 }
 
 .results--grid {
@@ -10,6 +20,14 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 32px;
   justify-content: center;
+}
+
+.results--pages {
+  display: flex;
+  width: 15%;
+  align-self: center;
+  justify-content: space-around;
+  margin-bottom: 120px;
 }
 
 @media screen and (min-width: 600px) {
