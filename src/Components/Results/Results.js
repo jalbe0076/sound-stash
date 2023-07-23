@@ -24,13 +24,15 @@ function Results() {
   }, [query, page])
 
   const handleClick = (direction) => {
+    let newPage
     setLoading(true)
     if (direction === 'last') {
-      navigate(`/search/${query}/${parseInt(page)-1}`)
+      newPage = parseInt(page)-1
     }
     if (direction === 'next') {
-      navigate(`/search/${query}/${parseInt(page)+1}`)
+      newPage = parseInt(page)+1
     }
+    navigate(`/search/${query}/${newPage}`)
   }
 
   return (
