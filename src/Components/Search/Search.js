@@ -2,15 +2,14 @@ import React, {useState} from "react";
 import './Search.css'
 import { useNavigate } from "react-router-dom";
 
-function Search({setQuery}) {
+function Search() {
   const [inputValue, setInput] = useState('')
   const navigate = useNavigate()
   
   function handleClick(event) {
     event.preventDefault()
-    setQuery(inputValue)
     setInput('')
-    navigate('/albums')
+    navigate(`/search/${inputValue}/1`)
   }
 
   return (

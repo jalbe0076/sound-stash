@@ -6,14 +6,13 @@ import Album from '../Album/Album'
 import './App.css';
 
 function App() {
-  const [query, setQuery] = useState('')
   
   return (
     <div className="App">
-      <Search setQuery={setQuery}/>
+      <Search/>
       <Routes>
         <Route path='/'/>
-        <Route path='/albums' element={<Results query ={query}/>}/>
+        <Route path='/search/:query/:page' element={<Results/>}/>
         <Route path='/albums/:id' element={<Album/>}/>
       </Routes>
     </div>
