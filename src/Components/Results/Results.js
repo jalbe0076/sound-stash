@@ -31,7 +31,6 @@ function Results({query}) {
       .catch(error => alert(error.message))
     }
     if (direction === 'next') {
-      console.log('hello')
       searchAlbums(query, pagination.page + 1)
       .then(data => {
         setResults(data.results)
@@ -51,11 +50,11 @@ function Results({query}) {
         })}
       </div>
       <div className='results--pages'>
-        {pagination.page > 1 && <button onClick={() => handleClick('last')}>last</button>}
+        {pagination.page > 1 && <button className='results--last'onClick={() => handleClick('last')}>last</button>}
           <p>{pagination.page}</p>
           <p> of </p>
           <p>{pagination.pages}</p>
-        {pagination.page < pagination.pages && <button onClick={() => handleClick('next')}>next</button>}
+        {pagination.page < pagination.pages && <button className='results--next' onClick={() => handleClick('next')}>next</button>}
       </div>
     </section>) : (<div className ='results--loading'><h2 > loading... </h2></div>)
   )
