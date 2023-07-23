@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Login from './Login'; 
-import mockUsers from '../src/mockusers'; // Update the import path if needed
+import mockUsers from '../src/mockusers'; 
 
 const App = () => { 
   const [loggedInUser, setLoggedInUser] = useState(null);
