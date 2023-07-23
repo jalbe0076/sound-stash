@@ -29,7 +29,7 @@
 
 .results--pages {
   display: flex;
-  width: 15%;
+  width: 40%;
   align-self: center;
   justify-content: space-around;
   margin-bottom: 120px;
@@ -44,6 +44,10 @@
     padding-right: 20%;
   }
 
+  .results--pages {
+    width: 30%;
+  }
+
 }
 
 @media screen and (min-width: 800px) {
@@ -52,12 +56,19 @@
     grid-template-columns: repeat(4, 1fr);
   }
 
+  .results--pages {
+    width: 20%;
+  }
 }
 
 @media screen and (min-width: 1000px) {
 
   .results--grid {
     grid-template-columns: repeat(5, 1fr);
+  }
+
+  .results--pages {
+    width: 15%;
   }
 
 }
