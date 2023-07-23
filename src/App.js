@@ -20,11 +20,7 @@ const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        {loggedInUser ? (
-          <h1>Welcome, {loggedInUser}!</h1>
-        ) : (
           <Login onLogin={handleLogin} />
-        )}
       </header>
     </div>
   );
