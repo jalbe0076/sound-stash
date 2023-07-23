@@ -43,7 +43,7 @@ function Results() {
             ))}
           </div>
           <div className='results--pages'>
-            {pagination.page > 1 && <button className='results--last'onClick={() => handleClick('last')}>last</button>}
+            {pagination.page > 1 && <button className='results--last'onClick={() => handleClick('last')}>previous</button>}
               <p>{pagination.page}</p>
               <p> of </p>
               <p>{pagination.pages}</p>

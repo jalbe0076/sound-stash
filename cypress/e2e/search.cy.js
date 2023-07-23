@@ -5,8 +5,8 @@ describe('Search', () => {
       {fixture: 'results.json'})
     cy.intercept('GET', 'https://api.discogs.com/database/search?q=outkast&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=2',
       {fixture: 'resultspage2.json'})
-    cy.intercept('GET', 'https://api.discogs.com/database/search?q=awefdfi&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=2',
-      {fixture: 'resultspage2.json'})
+    cy.intercept('GET', 'https://api.discogs.com/database/search?q=awefdfi&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=1',
+      {fixture: 'noresults.json'})
   })
 
 
