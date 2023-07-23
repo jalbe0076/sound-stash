@@ -11,7 +11,7 @@ const App = () => {
   useEffect(() => {
     // if user has a collection, fetch data based on genres/bands found in collection
     if (!user.collection.length) {
-      fetch('https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=1&per_page=5&sort=hot')
+      fetch('https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=1&per_page=5&sort=hot', {mode:'cors'})
         .then(res => {
           if (res.ok) {
             return res.json()
@@ -29,7 +29,7 @@ const App = () => {
           }
           throw new Error('Something went wrong')
         })
-        .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=1&per_page=5&genre=${data.genres[0]}`))
+        .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=1&per_page=5&genre=${data.genres[0]}`, {mode:'cors'}))
         .then(res => {
           if (res.ok) {
             return res.json()
