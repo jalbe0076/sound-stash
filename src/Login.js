@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Login.css';
 import logo from './Assets/logo.png';
+import mockUsers from '../src/mockusers';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -8,7 +9,14 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin(username, password);
+    const user = mockUsers.find(
+      (user) => user.username === username && user.password === password
+    );
+    if (user) {
+      onLogin(username, password);
+    } else {
+      alert('Invalid username or password');
+    }
   };
 
   return (
