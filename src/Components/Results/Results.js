@@ -5,7 +5,7 @@ import { searchAlbums } from '../../api'
 
 function Results({query}) {
   const [results, setResults] = useState([])
-  const [pagination, setPagination] = useState(null)
+  const [pagination, setPagination] = useState({page: 1, pages: 1})
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function Results({query}) {
             ))}
         </div>
         ) : <div className='results--none'><p>No results for {query}</p></div>}
-      {results.length && pagination.page && <div className='results--pages'>
+      {results.length && <div className='results--pages'>
         {pagination.page > 1 && <button className='results--last'onClick={() => handleClick('last')}>last</button>}
           <p>{pagination.page}</p>
           <p> of </p>
