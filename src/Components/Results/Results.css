@@ -5,11 +5,16 @@
   flex-direction: column;
 }
 
-.results--loading {
+.results--loading, .results--none {
   height: 100vh;
   background-color: rgb(20, 18, 17);
   color: white;
   padding-top: 60px;
+}
+
+.results--none {
+  justify-content: center;
+  width: 100%;
 }
 
 .results--grid {

@@ -5,6 +5,8 @@ describe('Search', () => {
       {fixture: 'results.json'})
     cy.intercept('GET', 'https://api.discogs.com/database/search?q=outkast&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=2',
       {fixture: 'resultspage2.json'})
+    cy.intercept('GET', 'https://api.discogs.com/database/search?q=awefdfi&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=2',
+      {fixture: 'resultspage2.json'})
   })
 
 
@@ -57,5 +59,13 @@ describe('Search', () => {
       .get('.results--image').eq(1).should('have.attr', 'src').should('include', "https://i.discogs.com/H2bUY4mwkSHPDGNhfDWoSjXU4PTsPpiBc9xavmQWmXA/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTIyNTE4/MS0xNjU2MzY4NDE3/LTI3MjMuanBlZw.jpeg")
       .get('.results--card').eq(1).contains('p', 'Stankonia')
       .get('.results--card').eq(1).contains('p', 'OutKast')
+  })
+
+  it('As a user, if there are no results I should see a no results for query message', () => {
+    cy.get('.search--form').should('be.visible')
+      .get('.search--input').type('awefdfi')
+      .get('.search--button').click()
+      .get('.results--none').should('be.visible')
+      .get('.results--none').contains('awefdfi')
   })
 })

@@ -5,7 +5,7 @@ import { searchAlbums } from '../../api'
 
 function Results({query}) {
   const [results, setResults] = useState([])
-  const [pagination, setPagination] = useState({ page: 1, pages: 1 })
+  const [pagination, setPagination] = useState(null)
   const [isLoading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -44,18 +44,20 @@ function Results({query}) {
 
   return (
     !isLoading ? (<section className='results'>
-      <div className='results--grid'>
-        {results.map(result => {
-          return <Card key={result.masterId}result={result}/>
-        })}
-      </div>
-      <div className='results--pages'>
+      {results.length ? (
+        <div className='results--grid'>
+            {results.map(result => (
+              <Card key={result.masterId} result={result}/>
+            ))}
+        </div>
+        ) : <div className='results--none'><p>No results for {query}</p></div>}
+      {results.length && pagination.page && <div className='results--pages'>
         {pagination.page > 1 && <button className='results--last'onClick={() => handleClick('last')}>last</button>}
           <p>{pagination.page}</p>
           <p> of </p>
           <p>{pagination.pages}</p>
         {pagination.page < pagination.pages && <button className='results--next' onClick={() => handleClick('next')}>next</button>}
-      </div>
+      </div>}
     </section>) : (<div className ='results--loading'><h2 > loading... </h2></div>)
   )
 }
