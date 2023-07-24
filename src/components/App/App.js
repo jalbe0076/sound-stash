@@ -8,7 +8,7 @@ import EmptyState from '../EmptyState/EmptyState';
 
 function App() {
   return (
-    <body>
+    <>
       <Nav />
       <main className="App">
         <Routes>
@@ -19,7 +19,7 @@ function App() {
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>
-    </body>
+    </>
   );
 }
 
