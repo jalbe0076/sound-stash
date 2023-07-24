@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 function Search() {
   const [inputValue, setInput] = useState('')
   const navigate = useNavigate()
-  
+
   function handleClick(event) {
     event.preventDefault()
     setInput('')

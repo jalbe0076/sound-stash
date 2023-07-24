@@ -1,11 +1,10 @@
 import React, {useState, useEffect} from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import Card from '../Card/Card'
 import './Results.css'
 import { searchAlbums } from '../../api'
 
 function Results() {
-  const navigate = useNavigate()
   const {query, page} =useParams()
   const [results, setResults] = useState([])
   const [pagination, setPagination] = useState({page: 1, pages: 1})
@@ -23,18 +22,6 @@ function Results() {
       window.scrollTo(0, 0);
   }, [query, page])
 
-  const handleClick = (direction) => {
-    let newPage
-    setLoading(true)
-    if (direction === 'last') {
-      newPage = parseInt(page)-1
-    }
-    if (direction === 'next') {
-      newPage = parseInt(page)+1
-    }
-    navigate(`/search/${query}/${newPage}`)
-  }
-
   return (
     !isLoading ? (<section className='results'>      
       {results.length ? (
@@ -45,11 +32,11 @@ function Results() {
             ))}
           </div>
           <div className='results--pages'>
-            {pagination.page > 1 && <button className='results--last'onClick={() => handleClick('last')}>previous</button>}
+            {pagination.page > 1 && <Link className='results--last' to={`/search/${query}/${parseInt(page)-1}`}>previous</Link>}
               <p>{pagination.page}</p>
               <p> of </p>
               <p>{pagination.pages}</p>
-            {pagination.page < pagination.pages && <button className='results--next' onClick={() => handleClick('next')}>next</button>}
+            {pagination.page < pagination.pages && <Link className='results--last' to={`/search/${query}/${parseInt(page)+1}`}>next</Link>}
           </div>
         </>
         ) : <div className='results--none'><p>No results for {query}</p></div>}

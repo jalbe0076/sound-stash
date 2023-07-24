@@ -6,6 +6,21 @@
   min-height: 100vh;
 }
 
+.results--last, .results--next {
+  border: none;
+  color: inherit;
+  align-self: center;
+  text-decoration: none;
+}
+
+.results--last:hover, .results--next:hover {
+  color: rgb(252, 139, 252);
+}
+
+.results--card:hover {
+  color: rgb(252, 139, 252);
+}
+
 .results--loading, .results--none {
   height: 100vh;
   background-color: rgb(20, 18, 17);
@@ -67,7 +82,7 @@
   }
 
   .results--pages {
-    width: 20%;
+    width: 30%;
   }
 }
 
@@ -78,7 +93,7 @@
   }
 
   .results--pages {
-    width: 15%;
+    width: 16%;
   }
 
 }
