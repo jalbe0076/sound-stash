@@ -3,6 +3,7 @@
   color: white;
   display: flex;
   flex-direction: column;
+  min-height: 100vh;
 }
 
 .results--loading, .results--none {
@@ -40,8 +41,6 @@
   .results--grid {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 42px;
-    padding-left: 32px;
-    padding-right: 32px;
   }
 
 }
