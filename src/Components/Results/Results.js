@@ -36,7 +36,7 @@ function Results() {
               <p>{pagination.page}</p>
               <p> of </p>
               <p>{pagination.pages}</p>
-            {pagination.page < pagination.pages && <Link className='results--last' to={`/search/${query}/${parseInt(page)+1}`}>next</Link>}
+            {pagination.page < pagination.pages && <Link className='results--next' to={`/search/${query}/${parseInt(page)+1}`}>next</Link>}
           </div>
         </>
         ) : <div className='results--none'><p>No results for {query}</p></div>}
