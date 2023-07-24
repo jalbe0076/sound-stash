@@ -8,7 +8,7 @@ const Nav = () => {
       <nav className='navigation-tabs'>
         <NavLink to="/collections" className='nav'>COLLECTIONS</NavLink>
         <NavLink to="/journal" className='nav'>JOURNAL</NavLink>
-        <NavLink to="/DISCOVER" className='nav'>DISCOVER</NavLink>
+        <NavLink to="/discover" className='nav'>DISCOVER</NavLink>
       </nav>
       <p className='user-profile'>User</p>
     </section>
