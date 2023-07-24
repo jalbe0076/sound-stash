@@ -1,8 +1,12 @@
+function handleError(res) {
+  throw new Error(`HTTP Error: ${res.status} -- Please try again later`)
+}
+
 function searchAlbums(query, page) {
   return fetch(`https://api.discogs.com/database/search?q=${query}&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=${page}`)
     .then(res => {
       if (!res.ok) {
-      throw new Error('Albums not found')
+        handleError(res)
       }
       return res.json()})
     .then(data => ({
