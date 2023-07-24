@@ -15,7 +15,9 @@ function App() {
   const [user, setUser] = useState(userData[0])
 
   useEffect(() => {
-      getTrendingAlbums(setRecommendedData)
+      getTrendingAlbums()
+        .then(data => setRecommendedData(data))
+        .catch(err => console.error(err))
   }, [])
   
   return (
