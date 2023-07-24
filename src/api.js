@@ -1,5 +1,5 @@
 const getTrendingAlbums = (setRecommendedData) => {
-    return fetch('https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=1&per_page=5&sort=hot', {mode:'cors'})
+    return fetch('https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot')
         .then(res => {
         if (res.ok) {
             return res.json()
@@ -18,7 +18,7 @@ const getRecommendedAlbums = (albumID, setRecommendedData) => {
           }
           throw new Error('Something went wrong')
         })
-        .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=1&per_page=5&genre=${data.genres[0]}`, {mode:'cors'}))
+        .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&genre=${data.genres[0]}`))
         .then(res => {
           if (res.ok) {
             return res.json()
