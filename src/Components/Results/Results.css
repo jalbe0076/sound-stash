@@ -19,10 +19,10 @@
 
 .results--grid {
   display: grid;
-  padding-left: 32px;
-  padding-right: 32px;
   padding-bottom: 100px;
-  grid-template-columns: repeat(2, 1fr);
+  padding-left: 50%;
+  padding-right: 50%;
+  grid-template-columns: repeat(1, 1fr);
   column-gap: 32px;
   justify-content: center;
 }
@@ -33,6 +33,17 @@
   align-self: center;
   justify-content: space-around;
   margin-bottom: 120px;
+}
+
+@media screen and (min-width: 300px) {
+
+  .results--grid {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 42px;
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+
 }
 
 @media screen and (min-width: 600px) {
