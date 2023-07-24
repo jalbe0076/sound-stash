@@ -14,11 +14,11 @@
 }
 
 .results--last:hover, .results--next:hover {
-  color: rgb(252, 139, 252);
+  color: rgb(255, 163, 253);
 }
 
 .results--card:hover {
-  color: rgb(252, 139, 252);
+  color: rgb(255, 163, 253);
 }
 
 .results--loading, .results--none {
@@ -26,6 +26,7 @@
   background-color: rgb(20, 18, 17);
   color: white;
   padding-top: 60px;
+  text-align: center;
 }
 
 .results--none {

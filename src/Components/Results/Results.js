@@ -40,7 +40,7 @@ function Results() {
           </div>
         </>
         ) : <div className='results--none'><p>No results for {query}</p></div>}
-    </section>) : (<div className ='results--loading'><h2 > loading... </h2></div>)
+    </section>) : (<div className ='results--loading'><p> loading... </p></div>)
   )
 }
 
