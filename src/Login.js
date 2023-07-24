@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import './Login.css';
 import logo from './Assets/logo.png';
 import mockUsers from '../src/mockusers';
+import { useNavigate } from 'react-router-dom'; 
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loginError, setLoginError] = useState('');
+  const navigate = useNavigate(); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,8 +17,12 @@ const Login = ({ onLogin }) => {
     );
     if (user) {
       onLogin(username, password);
+      setUsername('');
+      setPassword('');
+      setLoginError('');
+      navigate('/'); 
     } else {
-      alert('Invalid username or password');
+      setLoginError('Invalid username or password');
     }
   };
 
@@ -40,9 +47,10 @@ const Login = ({ onLogin }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="submit" className="login-button">
+          <button className="login-button" type="submit">
             Login
           </button>
+          {loginError && <p className="error-message">{loginError}</p>}
         </form>
       </div>
     </div>
