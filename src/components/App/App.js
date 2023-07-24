@@ -7,7 +7,7 @@ import { getTrendingAlbums, getRecommendedAlbums } from '../../api'
 
 const App = () => {
   const [recommendedData, setRecommendedData] = useState()
-  const [user, setUser] = useState(userData[0])
+  const [user, setUser] = useState(userData[1])
 
   useEffect(() => {
     if (!user.collection.length) {

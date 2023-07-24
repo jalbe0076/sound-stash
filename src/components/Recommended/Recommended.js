@@ -9,7 +9,7 @@ const Recommended = ({ recommendedData, collection }) => {
 
         return (
             <section className='recommendedContainer'>
-                <h2>{collection ? 'Recommended albums for you' : 'Albums trending today'}</h2>
+                <h2>{collection.length ? 'Recommended albums for you' : 'Albums trending today'}</h2>
                 {recommendedAlbums}
             </section>
         )
