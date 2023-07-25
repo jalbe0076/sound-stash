@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Recommended from '../Recommended/Recommended';
 import { userData } from './userData';
-import { getTrendingAlbums, getRecommendedAlbums } from '../../api';
+import { getTrendingAlbums, getRecommendedAlbums } from '../api';
 import Nav from '../Nav/Nav';
 import { BrowserRouter as Router, Navigate } from 'react-router-dom';
 import Discover from '../Discover/Discover';
