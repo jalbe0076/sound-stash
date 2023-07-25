@@ -1,11 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import Recommended from '../Recommended/Recommended';
 import { userData } from './userData';
 import { getTrendingAlbums, getRecommendedAlbums } from '../api';
 import Nav from '../Nav/Nav';
-import { BrowserRouter as Router, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Discover from '../Discover/Discover';
 import Collections from '../Collections/Collections';
 import Journal from '../Journal/Journal';
@@ -17,6 +17,7 @@ import Login from '../Login/Login';
 import mockUsers from '../MockData/mockusers';
 
 function App() {
+
   const [recommendedData, setRecommendedData] = useState()
   const [user, setUser] = useState(userData[0])
 
@@ -25,7 +26,7 @@ function App() {
         .then(data => setRecommendedData(data))
         .catch(err => console.error(err))
   }, [])
-  
+
   const [loggedInUser, setLoggedInUser] = useState(null);
 
   const handleLogin = (username, password) => {
@@ -38,10 +39,6 @@ function App() {
       alert('Invalid username or password');
     }
   };
-  
-  // const handleLogout = () => {
-  //   setLoggedInUser(null);
-  // };
 
   return (
     <>
