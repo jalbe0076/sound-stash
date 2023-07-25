@@ -12,3 +12,10 @@ body {
   margin: auto;
   max-width: 1200px;
 }
+
+main {
+    display: flex;
+    justify-content: center;
+    background-color: #191825;
+    color: white;
+}
