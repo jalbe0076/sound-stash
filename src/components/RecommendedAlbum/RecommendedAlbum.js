@@ -5,7 +5,7 @@ import './RecommendedAlbum.css'
 const RecommendedAlbum = ({ id, title, coverImg }) => {
 
     return (
-        <Link to={`album/${id}`} className='link'>
+        <Link to={`/albums/${id}`} className='link'>
             <div className='album'>
                 <img src={coverImg} alt={`cover art for ${title}`}/>
                 <p>{title}</p>
