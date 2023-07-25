@@ -38,10 +38,11 @@
 }
 
 .logo {
-  width: 100%;
+  width: 87%;
   max-width: 400px;
   height: auto;
 }
+
 
 .username-field,
 .password-field {
@@ -60,20 +61,10 @@
   background-color: #6546C4;
 }
 
-  .logo {
-    width: 87%;
-    max-width: 400px;
-    height: auto;
-  }
-
   .username-field,
   .password-field {
     padding: 6px;
 
-  }
-
-  .login-button {
-    padding: 6px 16px;
   }
   
   .navbar {
@@ -82,7 +73,7 @@
     align-items: center;
     flex-wrap: wrap; 
   }
-  
+
   @media (max-width: 437px) {
     form {
       display: grid; 
