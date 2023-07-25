@@ -6,6 +6,9 @@ import Discover from '../Discover/Discover';
 import Collections from '../Collections/Collections';
 import Journal from '../Journal/Journal';
 import EmptyState from '../EmptyState/EmptyState';
+import Search from '../Search/Search'
+import Results from '../Results/Results'
+import Album from '../Album/Album'
 import Login from '../Login/Login';
 import mockUsers from '../MockData/mockusers';
 
@@ -30,16 +33,18 @@ function App() {
   return (
     <>
       <Nav />
+      <Search/>
       <main className="App">
-          <Routes>
-            <Route path="/login" element={<Login onLogin={handleLogin} />} />
-            <Route path="/trending" />  
-            {/* This is what "itMatched leaf route at location "/trending" does not have an element" */}
-            <Route path="/journal" element={<Journal />} />
-            <Route path="/collections" element={<Collections />} />
-            <Route path="/discover" element={<Discover />} />
-            <Route path="*" element={<EmptyState />} />
-          </Routes>
+        <Routes>
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/trending" />
+          <Route path="/journal" element={<Journal />} />
+          <Route path="/collections" element={<Collections />} />
+          <Route path="/discover" element={<Discover />} />
+          <Route path='/search/:query/:page' element={<Results/>}/>
+          <Route path='/albums/:id' element={<Album/>}/>
+          <Route path="*" element={<EmptyState />} />
+        </Routes>
       </main>
           
     </>
