@@ -50,8 +50,8 @@ function App() {
       <main className="App">
         <Routes>
           <Route path="/" />
-          <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
           <Route path="/journal" element={<Journal />} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/discover" element={<Discover />} />
