@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './Login.css';
-import logo from './Assets/logo.png';
-import mockUsers from '../src/mockusers';
+import mockUsers from '../MockData/mockusers';
 import { useNavigate } from 'react-router-dom'; 
 
 const Login = ({ onLogin }) => {
@@ -20,16 +19,17 @@ const Login = ({ onLogin }) => {
       setUsername('');
       setPassword('');
       setLoginError('');
-      navigate('/'); 
+      navigate('/trending'); // next state
     } else {
       setLoginError('Invalid username or password');
     }
   };
 
   return (
+    <header className="App-header">
     <div className="login-container">
       <div className="logo-container">
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt="sound-stash logo" className="logo" />
       </div>
       <div className="navbar">
         <form onSubmit={handleSubmit}>
@@ -54,6 +54,7 @@ const Login = ({ onLogin }) => {
         </form>
       </div>
     </div>
+    </header>
   );
 };
 
