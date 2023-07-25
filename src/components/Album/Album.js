@@ -1,18 +1,10 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react"
+import { useParams } from "react-router-dom"
 import './Album.css'
-
-const Album = ({ id, title, coverImg }) => {
-
-    return (
-        <Link to={`album/${id}`} className='link'>
-            <div className='album'>
-                <img src={coverImg} alt={`cover art for ${title}`}/>
-                <p>{title}</p>
-            </div>
-        </Link>
-        
-    )
+function Album() {
+  const {id} = useParams()
+  return (
+    <p>{id} hello</p>
+  )
 }
-
 export default Album

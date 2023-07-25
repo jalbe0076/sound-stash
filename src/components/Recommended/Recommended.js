@@ -1,11 +1,11 @@
 import React from 'react'
-import Album from '../Album/Album'
+import RecommendedAlbum from '../RecommendedAlbum/RecommendedAlbum'
 import './Recommended.css'
 
 const Recommended = ({ recommendedData }) => {
     
     if (recommendedData) {
-        const recommendedAlbums = recommendedData.results.map(item => <Album key={item.id} id={item.id} title={item.title} coverImg={item.cover_image}/>)
+        const recommendedAlbums = recommendedData.results.map(item => <RecommendedAlbum key={item.id} id={item.id} title={item.title} coverImg={item.cover_image}/>)
 
         return (
             <section className='recommendedContainer'>
