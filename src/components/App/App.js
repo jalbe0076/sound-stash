@@ -42,10 +42,10 @@ function App() {
       <main className="App">
         <Routes>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/" />
+          {/* <Route path="/" /> */}
           <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
           <Route path="/journal" element={<Journal />} />
-          <Route path="/collections" element={<Collections loggedInUser={loggedInUser} />} />
+          <Route path="/collections" element={<Collections currentUser={loggedInUser} />} />
           <Route path="/discover" element={<Discover />} />
           <Route path='/search/:query/:page' element={<Results/>}/>
           <Route path='/albums/:id' element={<Album/>}/>
