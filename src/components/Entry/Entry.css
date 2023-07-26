@@ -51,6 +51,13 @@
 
 .entry-delete {
   margin-left: auto;
+  filter: brightness(0) invert(1);
+  height: auto;
+  width: 24px;
+}
+
+.entry-delete:hover {
+  cursor: pointer;
 }
 
 .entry-notes {
@@ -65,6 +72,10 @@
   height: auto;
   width: 24px;
   margin-right: 24px;
+}
+
+.notes-icon:hover {
+  cursor: pointer;
 }
 
 .icon-pink {

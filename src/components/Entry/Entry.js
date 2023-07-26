@@ -2,13 +2,20 @@ import React, {useState} from 'react'
 import { Rating } from 'react-simple-star-rating'
 import'./Entry.css'
 
-function Entry ({id, title, artists, date, notes, image, rating}) {
+function Entry ({setUser, id, title, artists, date, notes, image, rating}) {
   const [notesHidden, setNotesHidden] = useState(true)
   const [notesIcon, setIcon] = useState('/images/sticky-note-white.png')
   
   const showNotes = () => {
     notesHidden ? setNotesHidden(false) : setNotesHidden(true)
     notesIcon === '/images/sticky-note-white.png' ? setIcon('/images/sticky-note-pink.png') : setIcon('/images/sticky-note-white.png')
+  }
+
+  const handleDelete = (event) => {
+    setUser(prevUser => ({
+      ...prevUser,
+      journal: prevUser.journal.filter(entry => entry.id !== parseInt(event.target.id))
+    }))
   }
 
   return (
@@ -24,7 +31,7 @@ function Entry ({id, title, artists, date, notes, image, rating}) {
           {rating>0 && <Rating initialValue={rating} readonly={true} size='12'/>}
         </div>
         {!notes ? null : <img className={`notes-icon`} src={notesIcon} onClick={showNotes}/>}
-        <button className='entry-delete'>DELETE</button>
+        <img id={id} className='entry-delete' src={process.env.PUBLIC_URL + "/images/trash.png"}onClick={handleDelete}/>
       </div>
       {!notesHidden && <p className='entry-notes'>{notes}</p>}
     </>

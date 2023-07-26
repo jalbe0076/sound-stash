@@ -31,7 +31,7 @@ function App() {
         <Routes>
           <Route path="/" />
           <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
-          <Route path="/journal" element={<Journal user={user}/>} />
+          <Route path="/journal" element={<Journal user={user} setUser={setUser}/>} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/discover" element={<Discover />} />
           <Route path='/search/:query/:page' element={<Results/>}/>

@@ -48,6 +48,7 @@ function Form ({title, artists, images, setUser}) {
                 { altFormat: true,
                   dateFormat: "F j, Y",
                   maxDate: "today",
+                  disableMobile: true,
                   onChange: function updateDate (selectedDates, dateStr) {
                     setDate(dateStr)
                   }
