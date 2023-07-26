@@ -26,7 +26,9 @@ function Results() {
         <>
           <div className='results--grid'>
             {results.map(result => (
-              <Card key={result.masterId} result={result}/>
+              <Link key={result.masterId} to={`/albums/${result.masterId}`} className='link'>
+                <Card result={result}/>
+              </Link>
             ))}
           </div>
           <div className='results--pages'>
