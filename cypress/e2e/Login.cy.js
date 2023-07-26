@@ -1,6 +1,6 @@
 describe('Login Page', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/');
+    cy.visit('http://localhost:3000/login');
     cy.fixture('mockUsers').as('users'); 
   });
   it('should log in with valid user1 credentials', () => {
