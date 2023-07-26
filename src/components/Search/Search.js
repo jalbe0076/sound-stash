@@ -11,12 +11,13 @@ function Search() {
     setInput('')
     navigate(`/search/${inputValue}/1`)
   }
-  
+
   return (
-    <form className="search--form">
+    <form className="search--form" name="search">
       <div className='search--container'>
         <input
           className='search--input'
+          name="search"
           type='text'
           placeholder="Search albums"
           value= {inputValue}

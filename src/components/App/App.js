@@ -1,56 +1,51 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import './App.css';
-import Recommended from '../Recommended/Recommended';
-import { userData } from './userData';
-import { getTrendingAlbums, getRecommendedAlbums } from '../api';
+import Recommended from '../Recommended/Recommended'
+import { getTrendingAlbums } from '../api'
 import Nav from '../Nav/Nav';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import {  Routes, Route } from 'react-router-dom';
 import Discover from '../Discover/Discover';
 import Collections from '../Collections/Collections';
 import Journal from '../Journal/Journal';
 import EmptyState from '../EmptyState/EmptyState';
-import Search from '../Search/Search';
-import Results from '../Results/Results';
-import Album from '../Album/Album';
+import Search from '../Search/Search'
+import Results from '../Results/Results'
+import Album from '../Album/Album'
 import Login from '../Login/Login';
 import mockUsers from '../MockData/mockusers';
 
 function App() {
-
-  const [recommendedData, setRecommendedData] = useState()
-  const [user, setUser] = useState(userData[0])
-
-  useEffect(() => {
-      getTrendingAlbums()
-        .then(data => setRecommendedData(data))
-        .catch(err => console.error(err))
-  }, [])
-
-  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [trendingData, setTrendingData] = useState()
+  const [loggedInUser, setLoggedInUser] = useState(mockUsers[1]);
 
   const handleLogin = (username, password) => {
     const user = mockUsers.find(
       (user) => user.username === username && user.password === password
     );
     if (user) {
-      setLoggedInUser(user.username);
+      setLoggedInUser(user);
     } else {
       alert('Invalid username or password');
     }
   };
 
+  useEffect(() => {
+      getTrendingAlbums()
+        .then(data => setTrendingData(data))
+        .catch(err => console.error(err))
+  }, [])
+  
   return (
     <>
       <Nav />
       <Search/>
       <main className="App">
         <Routes>
-          {/* <Route path="/" /> */}
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
+          <Route path="/" />
+          <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
           <Route path="/journal" element={<Journal />} />
-          <Route path="/collections" element={<Collections />} />
+          <Route path="/collections" element={<Collections loggedInUser={loggedInUser} />} />
           <Route path="/discover" element={<Discover />} />
           <Route path='/search/:query/:page' element={<Results/>}/>
           <Route path='/albums/:id' element={<Album/>}/>
