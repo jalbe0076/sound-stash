@@ -1,27 +1,19 @@
 import './Collections.css';
-import { getAlbumsByMasterId } from '../api';
-import { useEffect, useState } from 'react';
+import Card from '../Card/Card';
 
 const Collections = ({currentUser}) => {
   const { collections } = currentUser;
-  const [userCollection, setUserCollection] = useState([])
-console.log('collection IDS', collections)
 
-  useEffect(() => {
-    collections.forEach(album => {
-      console.log(album)
-      getAlbumsByMasterId(album)
-        .then(data => {
-          console.log(data)
-          setUserCollection(prevCollection => [...prevCollection, data])
-        })
-    })
-  }, [])
-  console.log('userCollection', userCollection)
-  
-  
+  const savedAlbums = collections.map(album => {
+    console.log('album', album)
+    return (<Card key={album.masterId} result={album} />)
+  });
 
-  return <h2>I'm the collection</h2>
+  return (
+    <>
+      {savedAlbums}
+    </>
+  );
 };
 
 export default Collections;
