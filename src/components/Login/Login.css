@@ -1,0 +1,87 @@
+.App-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../../public/images/Band2.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.login-container { 
+  margin-bottom: 70px;
+  padding: 20px;
+}
+
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(134, 93, 255, 0.377);
+  border-radius: 8px;
+  min-width: 189px;
+}
+
+.logo {
+  width: 87%;
+  max-width: 400px;
+  height: auto;
+}
+
+
+.username-field,
+.password-field {
+  padding: 8px;
+}
+
+.login-button {
+  background-color: #865DFF;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #6546C4;
+}
+
+  .username-field,
+  .password-field {
+    padding: 6px;
+
+  }
+  
+  .navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap; 
+  }
+
+  @media (max-width: 437px) {
+    form {
+      display: grid; 
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logo-container {
+      margin-right: 0px;
+    }
+}
