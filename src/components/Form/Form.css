@@ -101,3 +101,7 @@
   border: none;
   border-radius: 6px; 
 }
+
+.form-submit:hover {
+  cursor: pointer;
+}
