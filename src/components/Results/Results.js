@@ -7,8 +7,9 @@ import { searchAlbums } from '../api'
 function Results() {
   const {query, page} = useParams()
   const [results, setResults] = useState([])
-  const [pagination, setPagination] = useState({page: 1, pages: 1})
+  const [pagination, setPagination] = useState({})
   const [isLoading, setLoading] = useState(true)
+
   useEffect(() => {
     setLoading(true)
     searchAlbums(query, page)
@@ -19,7 +20,13 @@ function Results() {
       })
       .catch(error => alert(error.message))
       window.scrollTo(0, 0);
+
+      return () => {
+        setPagination({});
+        setResults([])
+      };
   }, [query, page])
+
   return (
     !isLoading ? (<section className='results'>
       {results.length ? (
@@ -30,11 +37,11 @@ function Results() {
             ))}
           </div>
           <div className='results--pages'>
-            {pagination.page > 1 && <Link className='results--last' to={`/search/${query}/${parseInt(page)-1}`}>previous</Link>}
+            {pagination.page > 1 && <Link className='results--last' to={`/search/${query}/${pagination.page-1}`}>previous</Link>}
               <p>{pagination.page}</p>
               <p> of </p>
               <p>{pagination.pages}</p>
-            {pagination.page < pagination.pages && <Link className='results--next' to={`/search/${query}/${parseInt(page)+1}`}>next</Link>}
+            {pagination.page < pagination.pages && <Link className='results--next' to={`/search/${query}/${pagination.page+1}`}>next</Link>}
           </div>
         </>
         ) : <div className='results--none'><p>No results for {query}</p></div>}

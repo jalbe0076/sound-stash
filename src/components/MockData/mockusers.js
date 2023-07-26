@@ -1,6 +1,6 @@
 const mockusers = [
   { username: 'user1', password: 'password' },
-  { username: 'user2', password: 'password2' },
+  { username: 'user2', password: 'password2', collection: [3132672] },
     
   ];
   
