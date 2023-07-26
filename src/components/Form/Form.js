@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import { useNavigate } from 'react-router-dom'
 import Flatpickr from 'react-flatpickr'
 import { Rating } from 'react-simple-star-rating'
 import "flatpickr/dist/themes/dark.css"
@@ -6,19 +7,31 @@ import './Form.css'
 // import calendar from '../../../public/images/calendar.png'
 
 
-function Form ({title, artists, images}) {
+function Form ({title, artists, images, setUser}) {
+  const navigate = useNavigate()
   const currentDate = new Date()
   const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(currentDate)
   const [date, setDate] = useState(formattedDate)
   const [notes, setNotes] = useState('')
   const [rating, setRating] = useState(0)
   
-  // const openFlatpickr = () => {
-  //   const dateInput = document.querySelector('.dateinput');
-  //   if (dateInput) {
-  //     flatpickr(dateInput, options).open();
-  //   }
-  // }
+  const handleSubmit = (event) => {
+    const newEntry = {
+      id: Date.now(),
+      title: title,
+      artists: artists.map(artist => artist.name).join(' / '),
+      image: images[0].uri,
+      date: date,
+      rating: rating,
+      notes: notes
+    }
+    event.preventDefault()
+    setUser(prev => ({
+      ...prev,
+      journal: [...prev.journal, newEntry]
+    }))
+    navigate('/journal')
+  }
 
   return (
     <form name='journal-form' className='journal-form'>
@@ -58,7 +71,7 @@ function Form ({title, artists, images}) {
         placeholder='Add some notes...'
         id='form-notes'>
       </textarea>
-      <button className='form-submit' type='submit'>Submit</button>
+      <button className='form-submit' type='submit' onClick={handleSubmit}>Submit</button>
     </form>
   )
 }

@@ -2,7 +2,8 @@ export const userData = [
     {
         userId: 1,
         name: "",
-        collection: []
+        collection: [],
+        journal: []
     },
     {
         userId: 2,

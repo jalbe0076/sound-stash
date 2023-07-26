@@ -4,7 +4,7 @@ import './Album.css'
 import Form from '../Form/Form'
 import { getAlbumById } from "../../api"
 
-function Album() {
+function Album({setUser}) {
   const [album, setAlbum] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   
@@ -22,7 +22,7 @@ function Album() {
     return (
       <>
       <p>{id} hello</p>
-      <Form {...album}/>
+      <Form {...album} setUser={setUser}/>
       </>
     )
   } 

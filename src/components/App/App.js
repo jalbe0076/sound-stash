@@ -31,11 +31,11 @@ function App() {
         <Routes>
           <Route path="/" />
           <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
-          <Route path="/journal" element={<Journal />} />
+          <Route path="/journal" element={<Journal user={user}/>} />
           <Route path="/collections" element={<Collections />} />
           <Route path="/discover" element={<Discover />} />
           <Route path='/search/:query/:page' element={<Results/>}/>
-          <Route path='/albums/:id' element={<Album/>}/>
+          <Route path='/albums/:id' element={<Album setUser={setUser}/>}/>
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>
