@@ -9,6 +9,7 @@ describe('Login Page', () => {
       cy.get('.username-field').type(user.username);
       cy.get('.password-field').type(user.password);
       cy.get('.login-button').click();
+      cy.url().should('include', '/trending');
     });
   })
   it('should log in with valid user2 credentials', () => {
@@ -17,6 +18,8 @@ describe('Login Page', () => {
       cy.get('.username-field').type(user.username);
       cy.get('.password-field').type(user.password);
       cy.get('.login-button').click();
+      cy.url().should('include', '/trending');
+
     });
   })
   it('should show an error message with invalid user credentials', () => {

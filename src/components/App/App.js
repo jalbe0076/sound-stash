@@ -15,7 +15,7 @@ import Login from '../Login/Login';
 import mockUsers from '../MockData/mockusers';
 
 function App() {
-  const [trendingData, setTrendingData] = useState()
+  const [recommendedData, setRecommendedData] = useState()
   const [loggedInUser, setLoggedInUser] = useState(mockUsers[1]);
 
   const handleLogin = (username, password) => {
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
       getTrendingAlbums()
-        .then(data => setTrendingData(data))
+        .then(data => setRecommendedData(data))
         .catch(err => console.error(err))
   }, [])
   
