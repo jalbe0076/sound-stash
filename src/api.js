@@ -13,7 +13,7 @@ const getTrendingAlbums = () => {
       
 }
 
-const getRecommendedAlbums = (albumID) => {
+const getAlbumById = (albumID) => {
   return fetch(`https://api.discogs.com/masters/${albumID}?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ`)
       .then(res => {
         if (res.ok) {
@@ -21,13 +21,14 @@ const getRecommendedAlbums = (albumID) => {
         }
         handleError(res)
       })
-      .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&genre=${data.genres[0]}`))
-      .then(res => {
-        if (res.ok) {
-          return res.json()
-        }
-        handleError(res)
-      })
+
+      // .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&genre=${data.genres[0]}`))
+      // .then(res => {
+      //   if (res.ok) {
+      //     return res.json()
+      //   }
+      //   handleError(res)
+      // })
 }
 
 function searchAlbums(query, page) {
@@ -57,4 +58,4 @@ function searchAlbums(query, page) {
     }))
 }
 
-export { getTrendingAlbums, getRecommendedAlbums, searchAlbums }
+export { getTrendingAlbums, getAlbumById, searchAlbums }

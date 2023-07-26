@@ -6,7 +6,7 @@ import './Form.css'
 // import calendar from '../../../public/images/calendar.png'
 
 
-function Form ({coverImg}) {
+function Form ({title, artists, images}) {
   const currentDate = new Date()
   const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(currentDate)
   const [date, setDate] = useState(formattedDate)
@@ -21,11 +21,11 @@ function Form ({coverImg}) {
   // }
 
   return (
-    <form className='journal-form'>
+    <form name='journal-form' className='journal-form'>
       <div className='form-container'>
-        <img className='form-image' src={process.env.PUBLIC_URL + "/images/broken-record.png"}/>
+        <img className='form-image' src={images[0].uri || process.env.PUBLIC_URL + "/images/broken-record.png"}/>
         <div>
-          <p><span>Title</span> Artist</p>
+          <p><span className='form-title'>{title}</span>  {artists.map(artist => artist.name).join(' / ')}</p>
           <p className='form-listen'>Listened</p>
           <div className='date-container'>
             <Flatpickr 
@@ -44,7 +44,7 @@ function Form ({coverImg}) {
           </div>
         </div>
       </div>
-      <Rating className='form-rating' size='24' allowFraction={true} onClick={(rate) => setRating(rate)}/>
+      <Rating className='form-rating' value={rating} size='24' allowFraction={true} onClick={(rate) => setRating(rate)}/>
       <label className='form-notes-label' htmlFor='form-notes'>Listening Notes</label>
       <textarea 
         value={notes}
