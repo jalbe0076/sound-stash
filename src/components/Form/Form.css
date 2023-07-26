@@ -1,0 +1,97 @@
+.journal-form {
+  max-width: 1200px;
+  width: 80%;
+  z-index: 1;
+  position: absolute;
+  top: 23%;
+  margin: auto;
+  min-height: 66vh;
+  background-color: #191725;
+  border-radius: 10px;
+  padding: 2%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  display: flex;
+}
+
+.form-image {
+  width: auto; 
+  height: 72px;
+  margin-right: 12px;
+  background-color: lightcoral;
+}
+
+.form-date {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.form-listen {
+  margin-top: .5em;
+  font-size: .8em;
+}
+
+.date-container {
+  position: relative;
+}
+
+.date-input {
+  margin-top: .5em;
+  padding: 2px;
+  padding-left: 5px;
+  width: 140px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  z-index: 2;
+}
+
+.calendar-icon {
+  width: 12px;
+  height: auto;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.calendar-icon:hover {
+  cursor: pointer;
+  z-index: 0;
+}
+
+.form-notes-label {
+  display:inline-block;
+  margin-top: 1em;
+}
+
+.form-notes {
+  padding: 10px;
+  margin-top: 1em;
+  max-height: 190px;
+  max-width: 100%;
+  color: white;
+  background-color: transparent;
+}
+
+.form-rating {
+  margin-top: 12px;
+}
+
+.form-submit {
+  width: 64px;
+  padding: 4px;
+  color: white;
+  margin-top: auto;
+  background-color: #865DFF;
+  border: none;
+  border-radius: 6px; 
+}
