@@ -13,6 +13,10 @@ function Form ({title, artists, images, setUser}) {
   const [notes, setNotes] = useState('')
   const [rating, setRating] = useState(0)
   
+  const onImageError = (e) => {
+    e.target.src = process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"
+  }
+
   const handleSubmit = (event) => {
     const newEntry = {
       id: Date.now(),
@@ -34,7 +38,7 @@ function Form ({title, artists, images, setUser}) {
   return (
     <form name='journal-form' className='journal-form'>
       <div className='form-container'>
-        <img className='form-image' src={images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"}/>
+        <img className='form-image' src={images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"} onError={onImageError}/>
         <div>
           <p><span className='form-title'>{title}</span>  {artists.map(artist => artist.name).join(' / ')}</p>
           <p className='form-listen'>Listened</p>
