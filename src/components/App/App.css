@@ -6,16 +6,46 @@
 
 html {
   margin: 1.5em 2em 0 2em;
+  background-color: #191725
 }
 
 body {
   margin: auto;
   max-width: 1200px;
+  min-height: 100vh;
 }
 
 main {
-    display: flex;
-    justify-content: center;
     background-color: #191825;
     color: white;
+}
+
+.album--grid {
+  display: grid;
+  padding-bottom: 4em;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(161px, 1fr));
+  grid-gap: 2em;
+  margin-top: 2em;
+  justify-content: space-between;
+}
+
+@media (max-width: 450px) {
+  html {
+    margin: 1em 0 0 0;
+  }
+
+  .album--grid {
+    padding: 0 2em;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .album--grid {
+    padding: 0 2em;
+    grid-template-columns: repeat(1, minmax(150px, 220px));
+    justify-content: center;
+  }
 }

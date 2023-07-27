@@ -40,7 +40,7 @@ function Results() {
           results.length ? 
           (
             <>
-              <div className='results--grid'>
+              <div className='album--grid'>
                 {results.map(result => (
                   <Card key={result.masterId} result={result}/>
                 ))}

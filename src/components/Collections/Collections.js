@@ -5,14 +5,13 @@ const Collections = ({currentUser}) => {
   const { collections } = currentUser;
 
   const savedAlbums = collections.map(album => {
-    console.log('album', album)
     return (<Card key={album.masterId} result={album} />)
   });
 
   return (
-    <>
+    <div className='album--grid'>
       {savedAlbums}
-    </>
+    </div>
   );
 };
 
