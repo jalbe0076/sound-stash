@@ -20,7 +20,7 @@ function Form ({title, artists, images, setUser}) {
       id: Date.now(),
       title: title,
       artists: artists.map(artist => artist.name).join(' / '),
-      image: images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record.png",
+      image: images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png",
       date: date,
       rating: rating,
       notes: notes
@@ -36,7 +36,7 @@ function Form ({title, artists, images, setUser}) {
   return (
     <form name='journal-form' className='journal-form'>
       <div className='form-container'>
-        <img className='form-image' src={images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record.png"}/>
+        <img className='form-image' src={images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"}/>
         <div>
           <p><span className='form-title'>{title}</span>  {artists.map(artist => artist.name).join(' / ')}</p>
           <p className='form-listen'>Listened</p>
