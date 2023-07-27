@@ -5,7 +5,7 @@ import { Rating } from 'react-simple-star-rating'
 import "flatpickr/dist/themes/dark.css"
 import './Form.css'
 
-function Form ({title, artists, images, setUser}) {
+function Form ({title, artists, images, setUser, showModal}) {
   const navigate = useNavigate()
   const currentDate = new Date()
   const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(currentDate)
@@ -59,6 +59,7 @@ function Form ({title, artists, images, setUser}) {
             <img className='calendar-icon' src={process.env.PUBLIC_URL + "/images/calendar.png"}/>
           </div>
         </div>
+        <img className='form-escape' src={process.env.PUBLIC_URL + "/images/escape-white.png"} onClick={showModal}/>
       </div>
       <Rating className='form-rating' value={rating} size='24' allowFraction={true} onClick={(rate) => setRating(rate)}/>
       <label className='form-notes-label' htmlFor='form-notes'>Listening Notes</label>

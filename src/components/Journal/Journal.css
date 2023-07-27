@@ -1,4 +1,5 @@
 .journal {
+  margin-bottom: 120px;
   display: flex;
   flex-direction: column;
   background: #191725;

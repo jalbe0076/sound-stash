@@ -7,7 +7,12 @@ import { getAlbumById } from "../../api"
 function Album({setUser}) {
   const [album, setAlbum] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
+  const [modal, setModal] = useState(false)
   
+  const showModal = () => {
+    modal ? setModal(false) : setModal(true)
+  }
+
   useEffect(() => {
     getAlbumById(id)
       .then(res => {
@@ -22,7 +27,8 @@ function Album({setUser}) {
     return (
       <>
       <p>{id} hello</p>
-      <Form {...album} setUser={setUser}/>
+      <button onClick={showModal}>Add a journal entry</button>
+      {modal && <Form {...album} setUser={setUser} showModal={showModal}/>}
       </>
     )
   } 
