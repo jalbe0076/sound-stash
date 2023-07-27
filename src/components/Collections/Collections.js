@@ -10,7 +10,7 @@ const Collections = ({currentUser}) => {
 
   return (
     <div className='album--grid'>
-      {savedAlbums}
+      {savedAlbums.length ? savedAlbums : <h2>No albums in collection</h2>}
     </div>
   );
 };

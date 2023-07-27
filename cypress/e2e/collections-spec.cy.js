@@ -24,5 +24,14 @@ describe('should be able to view collections', () => {
       .get('.album--grid').find('.results--card').last().find('img').should('have.attr', 'src')
       .get('.album--grid').find('.results--card').last().contains('p', 'Delta Kream')
   })
+
+  it('should display a message if there are no albums in the collection', () => {
+    cy.visit('http://localhost:3000/login')
+      .get('.username-field').type('user1')
+      .get('.password-field').type('password')
+      .get('.login-button').click()
+      .get('.banner-container').contains('a', 'COLLECTIONS').click()
+      .get('.album--grid').contains('h2', 'No albums in collection')
+  })
   
 })
