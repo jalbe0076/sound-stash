@@ -41,7 +41,7 @@ function App() {
       <Search/>
       <main className="App">
         <Routes>
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/login" element={<Login currentUser={loggedInUser} onLogin={handleLogin} />} />
           {/* <Route path="/" /> */}
           <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
           <Route path="/journal" element={<Journal />} />
