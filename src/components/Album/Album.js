@@ -27,7 +27,7 @@ function Album({setUser}) {
     return (
       <>
       <p>{id} hello</p>
-      <button onClick={showModal}>Add a journal entry</button>
+      {!modal && <button onClick={showModal}>Add a journal entry</button>}
       {modal && <Form {...album} setUser={setUser} showModal={showModal}/>}
       </>
     )

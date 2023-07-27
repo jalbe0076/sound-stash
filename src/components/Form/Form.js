@@ -38,8 +38,8 @@ function Form ({title, artists, images, setUser, showModal}) {
   return (
     <form name='journal-form' className='journal-form'>
       <div className='form-container'>
-        <img className='form-image' src={images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"} onError={onImageError}/>
-        <div>
+        <img className='form-image' src={images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"} alt={`${title} by ${artists.map(artist => artist.name).join(' / ')}`} onError={onImageError}/>
+        <div className='form-info'>
           <p><span className='form-title'>{title}</span>  {artists.map(artist => artist.name).join(' / ')}</p>
           <p className='form-listen'>Listened</p>
           <div className='date-container'>
@@ -56,10 +56,10 @@ function Form ({title, artists, images, setUser, showModal}) {
                   }
                 }}
               placeholder={formattedDate}/>
-            <img className='calendar-icon' src={process.env.PUBLIC_URL + "/images/calendar.png"}/>
+            <img className='calendar-icon'  src={process.env.PUBLIC_URL + "/images/calendar.png"} alt='calendar-icon'/>
           </div>
         </div>
-        <img className='form-escape' src={process.env.PUBLIC_URL + "/images/escape-white.png"} onClick={showModal}/>
+        <img className='form-escape' src={process.env.PUBLIC_URL + "/images/escape-white.png"} alt='escape-icon' onClick={showModal}/>
       </div>
       <Rating className='form-rating' value={rating} size='24' allowFraction={true} onClick={(rate) => setRating(rate)}/>
       <label className='form-notes-label' htmlFor='form-notes'>Listening Notes</label>
