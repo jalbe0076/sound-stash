@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import './App.css';
 import Recommended from '../Recommended/Recommended'
-import { getTrendingAlbums } from '../api'
+import { getTrendingAlbums } from '../../api'
 import Nav from '../Nav/Nav';
 import {  Routes, Route } from 'react-router-dom';
 import Discover from '../Discover/Discover';
@@ -58,6 +58,3 @@ function App() {
 };
 
 export default App;
-
-
-

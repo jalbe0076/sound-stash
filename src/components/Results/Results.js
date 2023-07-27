@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
 import Card from '../Card/Card'
 import './Results.css'
-import { searchAlbums } from '../api'
+import { searchAlbums } from '../../api'
 
 function Results() {
   const {query, page} = useParams()
