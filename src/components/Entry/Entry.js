@@ -22,16 +22,14 @@ function Entry ({setUser, id, title, artists, date, notes, image, rating}) {
     <>
       <p className='entry-date'>{date}</p>
       <div className='entry'>
-        {/* <div className='entry-date-container'>
-        </div> */}
-        <img className='entry-image' src={image}/>
+        <img className='entry-image' src={image} alt={`${title} by ${artists}`}/>
         <div className='entry-info'>
           <p className='entry-title'>{title}</p>
           <p className='entry-artist'>{artists}</p>
           {rating>0 && <Rating initialValue={rating} readonly={true} size='12'/>}
         </div>
-        {!notes ? null : <img className={`notes-icon`} src={notesIcon} onClick={showNotes}/>}
-        <img id={id} className='entry-delete' src={process.env.PUBLIC_URL + "/images/trash.png"}onClick={handleDelete}/>
+        {!notes ? null : <img className={`notes-icon`} src={notesIcon} alt='notes-icon' onClick={showNotes}/>}
+        <img id={id} className='entry-delete' src={process.env.PUBLIC_URL + "/images/trash.png"} alt='trash-can-icon' onClick={handleDelete}/>
       </div>
       {!notesHidden && <p className='entry-notes'>{notes}</p>}
     </>
