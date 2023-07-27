@@ -1,12 +1,23 @@
 function handleError(res) {
-  throw new Error(`HTTP Error: ${res.status} -- Please try again later`)
-}
-
-const getTrendingAlbums = () => {
-  return fetch('https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot')
-      .then(res => {
+    throw new Error(`HTTP Error: ${res.status} -- Please try again later`)
+  }
+  
+  const getTrendingAlbums = () => {
+    return fetch('https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot')
+        .then(res => {
+            if (res.ok) {
+                return res.json()
+            }
+            handleError(res)
+        })
+        
+  }
+  
+  const getRecommendedAlbums = (albumID) => {
+    return fetch(`https://api.discogs.com/masters/${albumID}?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ`)
+        .then(res => {
           if (res.ok) {
-              return res.json()
+            return res.json()
           }
           handleError(res)
       })

@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { Routes, Route } from 'react-router-dom'
 import './App.css';
 import Recommended from '../Recommended/Recommended'
-import { userData } from './userData'
-import { getTrendingAlbums, getRecommendedAlbums } from '../../api'
+import { getTrendingAlbums } from '../../api'
 import Nav from '../Nav/Nav';
+import {  Routes, Route } from 'react-router-dom';
 import Discover from '../Discover/Discover';
 import Collections from '../Collections/Collections';
 import Journal from '../Journal/Journal';
@@ -12,10 +11,23 @@ import EmptyState from '../EmptyState/EmptyState';
 import Search from '../Search/Search'
 import Results from '../Results/Results'
 import Album from '../Album/Album'
+import Login from '../Login/Login';
+import mockUsers from '../MockData/mockusers';
 
 function App() {
   const [recommendedData, setRecommendedData] = useState()
-  const [user, setUser] = useState(userData[0])
+  const [user, setUser] = useState(mockUsers[1]);
+
+  const handleLogin = (username, password) => {
+    const user = mockUsers.find(
+      (user) => user.username === username && user.password === password
+    );
+    if (user) {
+      setUser(user);
+    } else {
+      alert('Invalid username or password');
+    }
+  };
 
   useEffect(() => {
       getTrendingAlbums()
@@ -29,17 +41,20 @@ function App() {
       <Search/>
       <main className="App">
         <Routes>
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/" />
           <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
           <Route path="/journal" element={<Journal user={user} setUser={setUser}/>} />
-          <Route path="/collections" element={<Collections />} />
+          <Route path="/collections" element={<Collections currentUser={user}/>} />
           <Route path="/discover" element={<Discover />} />
           <Route path='/search/:query/:page' element={<Results/>}/>
           <Route path='/albums/:id' element={<Album setUser={setUser}/>}/>
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>
+          
     </>
   );
-}
+};
+
 export default App;

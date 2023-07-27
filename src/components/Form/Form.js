@@ -4,8 +4,6 @@ import Flatpickr from 'react-flatpickr'
 import { Rating } from 'react-simple-star-rating'
 import "flatpickr/dist/themes/dark.css"
 import './Form.css'
-// import calendar from '../../../public/images/calendar.png'
-
 
 function Form ({title, artists, images, setUser}) {
   const navigate = useNavigate()
