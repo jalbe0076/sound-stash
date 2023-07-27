@@ -5,7 +5,7 @@ import { Rating } from 'react-simple-star-rating'
 import "flatpickr/dist/themes/dark.css"
 import './Form.css'
 
-function Form ({title, artists, images, setUser, showModal}) {
+function Form ({title, artists, images, setUser, id, showModal}) {
   const navigate = useNavigate()
   const currentDate = new Date()
   const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(currentDate)
@@ -19,6 +19,7 @@ function Form ({title, artists, images, setUser, showModal}) {
 
   const handleSubmit = (event) => {
     const newEntry = {
+      masterId: id,
       id: Date.now(),
       title: title,
       artists: artists.map(artist => artist.name).join(' / '),
