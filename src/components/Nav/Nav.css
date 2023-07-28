@@ -27,6 +27,11 @@
   justify-self: flex-end;
 }
 
+.user-icon {
+  filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
+  cursor: pointer;
+}
+
 .active {
   color: rgb(227,132,255);
   text-decoration: underline;

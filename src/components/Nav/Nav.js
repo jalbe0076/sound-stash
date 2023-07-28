@@ -16,7 +16,7 @@ const Nav = () => {
         <NavLink to="/journal" className='nav'>JOURNAL</NavLink>
         <NavLink to="/discover" className='nav'>DISCOVER</NavLink>
       </nav>}
-      {!currentUser && <button className='user-profile standard-btn' onClick={() => navigate('/login')}>LOGIN</button>}
+      {currentUser ? <img className='user-profile user-icon' src={process.env.PUBLIC_URL + '/images/user-icon.png'}/> : <button className='user-profile standard-btn' onClick={() => navigate('/login')}>LOGIN</button>}
     </section>
   );
 };
