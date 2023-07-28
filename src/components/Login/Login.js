@@ -3,7 +3,7 @@ import './Login.css';
 import mockUsers from '../MockData/mockusers';
 import { useNavigate } from 'react-router-dom'; 
 
-const Login = ({ onLogin }) => {
+const Login = ({ onLogin, currentUser }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
@@ -11,10 +11,8 @@ const Login = ({ onLogin }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = mockUsers.find(
-      (user) => user.username === username && user.password === password
-    );
-    if (user) {
+
+    if (currentUser) {
       onLogin(username, password);
       setUsername('');
       setPassword('');

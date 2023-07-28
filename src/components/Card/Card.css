@@ -2,7 +2,6 @@
   font-size: 13px;
   text-align: left;
   text-decoration: none;
-  /* color: rgb(108, 64, 244); */
   color: white;
 }
 
@@ -11,9 +10,7 @@
 }
 
 .results--image {
-  height: 130px;
-  width: 130px;
-  margin-top: 40px;
+  width: 100%;
 }
 
 .results--title {

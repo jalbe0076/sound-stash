@@ -15,7 +15,7 @@ import Login from '../Login/Login';
 import mockUsers from '../MockData/mockusers';
 
 function App() {
-  const [recommendedData, setRecommendedData] = useState()
+  const [trendingData, setTrendingData] = useState()
   const [loggedInUser, setLoggedInUser] = useState(mockUsers[1]);
 
   const handleLogin = (username, password) => {
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
       getTrendingAlbums()
-        .then(data => setRecommendedData(data))
+        .then(data => setTrendingData(data))
         .catch(err => console.error(err))
   }, [])
   
@@ -41,9 +41,9 @@ function App() {
       <Search/>
       <main className="App">
         <Routes>
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/" />
-          <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
+          <Route path="/login" element={<Login currentUser={loggedInUser} onLogin={handleLogin} />} />
+          {/* <Route path="/" /> */}
+          <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
           <Route path="/journal" element={<Journal />} />
           <Route path="/collections" element={<Collections currentUser={loggedInUser} />} />
           <Route path="/discover" element={<Discover />} />

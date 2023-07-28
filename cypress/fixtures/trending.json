@@ -1,0 +1,218 @@
+{
+  "pagination": {
+      "page": 1,
+      "pages": 242,
+      "per_page": 5,
+      "items": 1206,
+      "urls": {
+          "last": "https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=242&per_page=5&sort=hot",
+          "next": "https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&year=2023&country=US&page=2&per_page=5&sort=hot"
+      }
+  },
+  "results": [
+      {
+          "country": "US",
+          "year": "2023",
+          "format": [
+              "Vinyl",
+              "LP",
+              "Album",
+              "Limited Edition"
+          ],
+          "label": [
+              "Matador",
+              "Matador",
+              "Queens Of The Stone Age",
+              "Queens Of The Stone Age",
+              "Matador Records",
+              "Pink Duck Studios",
+              "Shangri-La, Malibu, CA",
+              "Dumbfox Studios",
+              "Readymade Studio",
+              "The Tempermill",
+              "Pink Duck Studios",
+              "Dry Creek Studio",
+              "Shangri-La, Malibu, CA",
+              "Lurssen Mastering",
+              "Unintelligent Systems",
+              "Magic Bullet Music",
+              "Dr Shoes",
+              "Sleeping Disorder Music",
+              "Kobalt Music Publishing"
+          ],
+          "type": "master",
+          "genre": [
+              "Rock"
+          ],
+          "style": [
+              "Stoner Rock",
+              "Alternative Rock"
+          ],
+          "id": 3132672,
+          "barcode": [
+              "191401194716",
+              "191401194785",
+              "BMI",
+              "ASCAP",
+              "OLE-1947-LP-A CB",
+              "OLE-1947-LP-B CB",
+              "OLE-1947-LP-C CB",
+              "OLE-1947-LP-D CB"
+          ],
+          "master_id": 3132672,
+          "master_url": "https://api.discogs.com/masters/3132672",
+          "uri": "/master/3132672-Queens-Of-The-Stone-Age-In-Times-New-Roman",
+          "catno": "OLE1947LP3",
+          "title": "Queens Of The Stone Age - In Times New Roman...",
+          "thumb": "https://i.discogs.com/DDLTDIL7aDL_fureAruzB1vdpSEn1SNZTjazGTWJ_ik/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3Mzc3/MTA2LTE2ODY3MDg3/NDAtNjM1MS5qcGVn.jpeg",
+          "cover_image": "https://i.discogs.com/ddBAvRvdJlWId20q346TD5-pt9MZ7aqLMZESYCkMtGg/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3Mzc3/MTA2LTE2ODY3MDg3/NDAtNjM1MS5qcGVn.jpeg",
+          "resource_url": "https://api.discogs.com/masters/3132672",
+          "community": {
+              "want": 1553,
+              "have": 12520
+          }
+      },
+      {
+          "country": "US",
+          "year": "2023",
+          "format": [
+              "Vinyl",
+              "7\""
+          ],
+          "label": [
+              "Iodine Recordings"
+          ],
+          "type": "master",
+          "genre": [
+              "Rock"
+          ],
+          "style": [
+              "Punk"
+          ],
+          "id": 3169125,
+          "barcode": [],
+          "master_id": 3169125,
+          "master_url": "https://api.discogs.com/masters/3169125",
+          "uri": "/master/3169125-Audio-Karate-A-Show-Of-Hands",
+          "catno": "IOD-44",
+          "title": "Audio Karate - A Show Of Hands",
+          "thumb": "https://i.discogs.com/vhCSZY3jnzL0uDtxFSBLMy-s4fJ4vzdiW2WwdXQDSro/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjAx/Mjg3LTE2ODk0NDE2/NjAtMTU5Ni5qcGVn.jpeg",
+          "cover_image": "https://i.discogs.com/8gGfUOI73gRD70eIxrkcZIZJw_rCwSjcT0KjdP7McAQ/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjAx/Mjg3LTE2ODk0NDE2/NjAtMTU5Ni5qcGVn.jpeg",
+          "resource_url": "https://api.discogs.com/masters/3169125",
+          "community": {
+              "want": 2,
+              "have": 13
+          }
+      },
+      {
+          "country": "US",
+          "year": "2023",
+          "format": [
+              "Vinyl",
+              "7\""
+          ],
+          "label": [
+              "Never Ran Never Will",
+              "Audiosiege"
+          ],
+          "type": "master",
+          "genre": [
+              "Rock"
+          ],
+          "style": [
+              "Hardcore"
+          ],
+          "id": 3147972,
+          "barcode": [
+              "665776580042"
+          ],
+          "master_id": 3147972,
+          "master_url": "https://api.discogs.com/masters/3147972",
+          "uri": "/master/3147972-Carried-By-Six-2-Hold-My-Own-Split",
+          "catno": "NRNW002",
+          "title": "Carried By Six (2), Hold My Own (2) - Split",
+          "thumb": "https://i.discogs.com/cghaUo1hRF2o94jqQXS0ftlWeBpixTZnkzM1HetFlr4/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NTA2/NjAxLTE2ODc4NjUy/NDYtOTg4Ny5qcGVn.jpeg",
+          "cover_image": "https://i.discogs.com/bTV_6XUV9FCMlnwV8ifgW86PcqYT0wxOCRQJPyNPzwQ/rs:fit/g:sm/q:90/h:605/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NTA2/NjAxLTE2ODc4NjUy/NDYtOTg4Ny5qcGVn.jpeg",
+          "resource_url": "https://api.discogs.com/masters/3147972",
+          "community": {
+              "want": 6,
+              "have": 6
+          }
+      },
+      {
+          "country": "US",
+          "year": "2023",
+          "format": [
+              "Vinyl",
+              "7\""
+          ],
+          "label": [
+              "Daze"
+          ],
+          "type": "master",
+          "genre": [
+              "Rock"
+          ],
+          "style": [
+              "Hardcore"
+          ],
+          "id": 3166326,
+          "barcode": [],
+          "master_id": 3166326,
+          "master_url": "https://api.discogs.com/masters/3166326",
+          "uri": "/master/3166326-Big-Boy-Spring-Promo-2023",
+          "catno": "DAZE057",
+          "title": "Big Boy (25) - Spring Promo 2023",
+          "thumb": "https://i.discogs.com/qyyfjXmCftgj3xNbyOk9YktqIQgceuNZlQI1wjvJof0/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjYy/MDc2LTE2ODkyNDg4/ODEtNDU2MS5wbmc.jpeg",
+          "cover_image": "https://i.discogs.com/7umX_pr6GiXUBUzDyXgxXaTHSz7meXbtCmKxJTPku3k/rs:fit/g:sm/q:90/h:606/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NjYy/MDc2LTE2ODkyNDg4/ODEtNDU2MS5wbmc.jpeg",
+          "resource_url": "https://api.discogs.com/masters/3166326",
+          "community": {
+              "want": 3,
+              "have": 37
+          }
+      },
+      {
+          "country": "US",
+          "year": "2023",
+          "format": [
+              "Vinyl",
+              "LP"
+          ],
+          "label": [
+              "Death Waltz Recording Company",
+              "GZ Media",
+              "Funko",
+              "Toho Co., Ltd.",
+              "Toho Music Corporation",
+              "Toho Music Corporation",
+              "Light In The Attic",
+              "Republic Of Music",
+              "Toho Music Corporation"
+          ],
+          "type": "master",
+          "genre": [
+              "Stage & Screen"
+          ],
+          "style": [
+              "Soundtrack",
+              "Score"
+          ],
+          "id": 3179430,
+          "barcode": [
+              "810041488299"
+          ],
+          "master_id": 3179430,
+          "master_url": "https://api.discogs.com/masters/3179430",
+          "uri": "/master/3179430-Akira-Ifukube-Rodan-Original-Motion-Picture-Soundtrack",
+          "catno": "DW230",
+          "title": "Akira Ifukube - Rodan (Original Motion Picture Soundtrack)",
+          "thumb": "https://i.discogs.com/MBIkycSfHOnnzO92zZSJ_5qHVy7ibrTTwmYqAGmiFfo/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NzUx/OTk4LTE2OTAwNDgy/NjctODEzMy5qcGVn.jpeg",
+          "cover_image": "https://i.discogs.com/liyYh2FZNjk_rYsdGVAQ5tzDFaLsR5wWU63fMm_V8-o/rs:fit/g:sm/q:90/h:600/w:591/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3NzUx/OTk4LTE2OTAwNDgy/NjctODEzMy5qcGVn.jpeg",
+          "resource_url": "https://api.discogs.com/masters/3179430",
+          "community": {
+              "want": 17,
+              "have": 131
+          }
+      }
+  ]
+}
