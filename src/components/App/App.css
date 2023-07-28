@@ -30,6 +30,18 @@ main {
   justify-content: space-between;
 }
 
+.standard-btn {
+  background-color: #865DFF;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  cursor: pointer;
+}
+
+.standard-btn:hover {
+  background-color: #6546C4;
+}
+
 @media (max-width: 450px) {
   html {
     margin: 1em 0 0 0;

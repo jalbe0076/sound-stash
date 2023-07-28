@@ -49,17 +49,7 @@
   padding: 8px;
 }
 
-.login-button {
-  background-color: #865DFF;
-  color: white;
-  border: none;
-  padding: 8px 20px;
-  cursor: pointer;
-}
 
-.login-button:hover {
-  background-color: #6546C4;
-}
 
   .username-field,
   .password-field {

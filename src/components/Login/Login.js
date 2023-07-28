@@ -8,7 +8,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate(); 
-  const {currentUser} = useContext(UserContext);
+  const {currentUser, setCurrentUser} = useContext(UserContext);
   const [loadingUser, setLoadingUser] = useState(false);
 
   const handleSubmit = (e) => {
@@ -60,11 +60,14 @@ const Login = ({ onLogin }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login-button" type="submit">
-            Login
-          </button>
+          <button className="standard-btn" type="submit">LOGIN</button>
           {loginError && <p className="error-message">{loginError}</p>}
         </form>
+        <div className='demo-user-container'>
+          <button className="standard-btn" >DEMO NO USER</button>
+          <button className="standard-btn" >DEMO USER 1</button>
+          <button className="standard-btn" >DEMO USER 2</button>
+        </div>
       </div>
     </div>
     </header>
