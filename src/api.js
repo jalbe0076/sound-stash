@@ -69,9 +69,14 @@ function getAlbumDetails(albumID) {
     .then(data => {
 
       console.log('Album details and data:', data);
+
+      const artistNames = Array.isArray(data.artists) && data.artists.length > 0
+      ? data.artists.map(artist => artist.name).join(', ')
+      : 'Unknown Artist';
+
         return {
         title: data.title ?? 'Unknown Title',
-        artist: data.artists?.[0]?.name ?? 'Unknown Artist',
+        artist: artistNames,
         releaseDate: data.year ?? 'Unknown Release Date',
         genre: data.genres?.[0] ?? 'Unknown Genre',
         styles: data.styles ?? [],

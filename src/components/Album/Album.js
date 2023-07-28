@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
+import './Album.css'; 
 
 function Album() {
   const { id } = useParams();
@@ -21,7 +22,7 @@ function Album() {
   }, [id]);
 
   if (isLoading) {
-    return <div>Loading...</div>; // data being fetched..
+    return  <div>Loading...</div>; // data being fetched..
   }
 
   if (!albumDetails) {
