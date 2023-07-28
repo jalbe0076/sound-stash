@@ -4,7 +4,7 @@ import UserContext from '../UserContext/UserContext';
 import { useContext } from 'react';
 
 const Collections = () => {
-  const [currentUser] = useContext(UserContext)
+  const { currentUser } = useContext(UserContext)
   const { collections } = currentUser;
 
   const savedAlbums = collections.map(album => {
