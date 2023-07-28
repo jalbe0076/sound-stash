@@ -15,15 +15,15 @@ import Login from '../Login/Login';
 import mockUsers from '../MockData/mockusers';
 
 function App() {
-  const [recommendedData, setRecommendedData] = useState()
-  const [user, setUser] = useState(mockUsers[1]);
+  const [trendingData, setTrendingData] = useState()
+  const [currentUser, setCurrentUser] = useState(mockUsers[1]);
 
   const handleLogin = (username, password) => {
     const user = mockUsers.find(
       (user) => user.username === username && user.password === password
     );
     if (user) {
-      setUser(user);
+      setCurrentUser(user);
     } else {
       alert('Invalid username or password');
     }
@@ -31,7 +31,7 @@ function App() {
 
   useEffect(() => {
       getTrendingAlbums()
-        .then(data => setRecommendedData(data))
+        .then(data => setTrendingData(data))
         .catch(err => console.error(err))
   }, [])
   
@@ -43,12 +43,12 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           <Route path="/" />
-          <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
-          <Route path="/journal" element={<Journal user={user} setUser={setUser}/>} />
-          <Route path="/collections" element={<Collections currentUser={user}/>} />
+          <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
+          <Route path="/journal" element={<Journal currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+          <Route path="/collections" element={<Collections currentUser={currentUser}/>} />
           <Route path="/discover" element={<Discover />} />
           <Route path='/search/:query/:page' element={<Results/>}/>
-          <Route path='/albums/:id' element={<Album setUser={setUser}/>}/>
+          <Route path='/albums/:id' element={<Album setCurrentUser={setCurrentUser}/>}/>
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>

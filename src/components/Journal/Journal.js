@@ -1,11 +1,11 @@
 import './Journal.css';
 import Entry from '../Entry/Entry'
 
-const Journal = ({user, setUser}) => {
+const Journal = ({currentUser, setCurrentUser}) => {
 
   return (
     <div className='journal'>
-    {user.journal.sort((a, b) => new Date(b.date) - new Date(a.date)).map(entry => <Entry key={entry.id} setUser={setUser} {...entry}/>)}
+    {currentUser.journal.sort((a, b) => new Date(b.date) - new Date(a.date)).map(entry => <Entry key={entry.id} setCurrentUser={setCurrentUser} {...entry}/>)}
     </div>
   )
 };

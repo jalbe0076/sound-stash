@@ -5,7 +5,7 @@ import { Rating } from 'react-simple-star-rating'
 import "flatpickr/dist/themes/dark.css"
 import './Form.css'
 
-function Form ({title, artists, images, setUser, id, showModal}) {
+function Form ({title, artists, images, setCurrentUser, id, showModal}) {
   const navigate = useNavigate()
   const currentDate = new Date()
   const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(currentDate)
@@ -29,7 +29,7 @@ function Form ({title, artists, images, setUser, id, showModal}) {
       notes: notes
     }
     event.preventDefault()
-    setUser(prev => ({
+    setCurrentUser(prev => ({
       ...prev,
       journal: [...prev.journal, newEntry]
     }))

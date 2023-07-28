@@ -3,7 +3,7 @@ import {useNavigate} from 'react-router-dom'
 import { Rating } from 'react-simple-star-rating'
 import'./Entry.css'
 
-function Entry ({setUser, id, title, artists, date, notes, image, rating, masterId}) {
+function Entry ({setCurrentUser, id, title, artists, date, notes, image, rating, masterId}) {
   const [notesHidden, setNotesHidden] = useState(true)
   const [notesIcon, setIcon] = useState('/images/sticky-note-white.png')
   const navigate = useNavigate()
@@ -14,7 +14,7 @@ function Entry ({setUser, id, title, artists, date, notes, image, rating, master
   }
 
   const handleDelete = (event) => {
-    setUser(prevUser => ({
+    setCurrentUser(prevUser => ({
       ...prevUser,
       journal: prevUser.journal.filter(entry => entry.id !== parseInt(event.target.id))
     }))

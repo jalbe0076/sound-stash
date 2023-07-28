@@ -2,10 +2,10 @@ import React from 'react'
 import RecommendedAlbum from '../RecommendedAlbum/RecommendedAlbum'
 import './Recommended.css'
 
-const Recommended = ({ recommendedData }) => {
+const Recommended = ({ trendingData }) => {
     
-    if (recommendedData) {
-        const recommendedAlbums = recommendedData.results.map(item => <RecommendedAlbum key={item.id} id={item.id} title={item.title} coverImg={item.cover_image}/>)
+    if (trendingData) {
+        const recommendedAlbums = trendingData.results.map(item => <RecommendedAlbum key={item.id} id={item.id} title={item.title} coverImg={item.cover_image}/>)
 
         return (
             <section className='recommendedContainer'>

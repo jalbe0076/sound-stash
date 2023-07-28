@@ -2,9 +2,9 @@ import React, { useState, useEffect} from "react"
 import { useParams } from "react-router-dom"
 import './Album.css'
 import Form from '../Form/Form'
-import { getAlbumById } from "../../api"
+import { getAlbumsByMasterId } from "../../api"
 
-function Album({setUser}) {
+function Album({setCurrentUser}) {
   const [album, setAlbum] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [modal, setModal] = useState(false)
@@ -14,7 +14,7 @@ function Album({setUser}) {
   }
 
   useEffect(() => {
-    getAlbumById(id)
+    getAlbumsByMasterId(id)
       .then(res => {
         setAlbum(res)
         setIsLoading(false)
@@ -28,7 +28,7 @@ function Album({setUser}) {
       <>
       <p>{id} hello</p>
       {!modal && <button onClick={showModal}>Add a journal entry</button>}
-      {modal && <Form {...album} setUser={setUser} showModal={showModal}/>}
+      {modal && <Form {...album} setCurrentUser={setCurrentUser} showModal={showModal}/>}
       </>
     )
   } 
