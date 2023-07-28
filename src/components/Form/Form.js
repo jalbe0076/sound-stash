@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Flatpickr from 'react-flatpickr'
 import { Rating } from 'react-simple-star-rating'
 import "flatpickr/dist/themes/dark.css"
 import './Form.css'
+import UserContext from '../UserContext/UserContext'
 
-function Form ({title, artists, images, setCurrentUser, id, showModal}) {
+function Form ({title, artists, images, id, showModal}) {
+  const {setCurrentUser} = useContext(UserContext);
   const navigate = useNavigate()
   const currentDate = new Date()
   const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(currentDate)

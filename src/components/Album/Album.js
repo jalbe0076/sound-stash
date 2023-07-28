@@ -6,7 +6,7 @@ import { getAlbumsByMasterId } from "../../api"
 import UserContext from "../UserContext/UserContext"
 
 function Album() {
-  const [setCurrentUser] = useContext(UserContext)
+  const {setCurrentUser} = useContext(UserContext)
   const [album, setAlbum] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [modal, setModal] = useState(false)

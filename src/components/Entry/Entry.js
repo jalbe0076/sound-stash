@@ -5,7 +5,7 @@ import'./Entry.css'
 import UserContext from '../UserContext/UserContext'
 
 function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
-  const [setCurrentUser] = useContext(UserContext);
+  const {setCurrentUser} = useContext(UserContext);
   const [notesHidden, setNotesHidden] = useState(true)
   const [notesIcon, setIcon] = useState('/images/sticky-note-white.png')
   const navigate = useNavigate()

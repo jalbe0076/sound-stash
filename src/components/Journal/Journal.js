@@ -4,7 +4,7 @@ import UserContext from '../UserContext/UserContext';
 import { useContext } from 'react';
 
 const Journal = () => {
-  const [currentUser] = useContext(UserContext)
+  const {currentUser} = useContext(UserContext)
 
   return (
     <div className='journal'>
