@@ -16,34 +16,34 @@ const mockusers = [
         "notes": "Coding session music lol"
       },
       {
-        "masterId": 34525,
-        "id": 1690505417855,
-        "title": "Halfway To A Threeway",
-        "artists": "Jim O'Rourke",
-        "image": "https://i.discogs.com/2r7otKbppG5fmVFct_BQWsZv6sQLMJeRjoXl3-N5NWQ/rs:fit/g:sm/q:90/h:200/w:200/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQ0NjUy/NS0xMTE0NjE5OTQx/LmpwZw.jpeg",
+        "masterId": 1388938,
+        "id": 1690578742270,
+        "title": "Shima",
+        "artists": "Celer",
+        "image": "https://i.discogs.com/THVAe1xrdJA46iQu_0aNz1OsPMLzv3diO7YJWeHlENo/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEyMjIy/OTUwLTE1MzA4MjU0/MDQtNDE5NC5qcGVn.jpeg",
         "date": "July 26, 2023",
+        "rating": 4,
+        "notes": "Perfect music for winding down in the evening."
+      },
+      {
+        "masterId": 35759,
+        "id": 1690578815238,
+        "title": "So",
+        "artists": "Peter Gabriel",
+        "image": "https://i.discogs.com/IZ3_zj2EwVyh4KugEmW07i67zDcm8xj_JRVh8mTEktU/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTM3OTAz/Ni0xMjc1NjMyMzA5/LmpwZWc.jpeg",
+        "date": "July 24, 2023",
+        "rating": 4.5,
+        "notes": "Kate Bush / Peter Gabriel dream collab track"
+      },
+      {
+        "masterId": 110080,
+        "id": 1690578839091,
+        "title": "Aida",
+        "artists": "Derek Bailey",
+        "image": "https://i.discogs.com/wnV6B2LYE93V76NYGU041S89_cyYiXzOwgVZXlBmLO4/rs:fit/g:sm/q:90/h:250/w:250/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTEwNTU4/NzEtMTI5NjUxMDg5/MC5qcGVn.jpeg",
+        "date": "July 21, 2023",
         "rating": 5,
-        "notes": "Jim is a master songwriter"
-      },
-      {
-        "masterId": 28531,
-        "id": 1690505438195,
-        "title": "The Kick Inside",
-        "artists": "Kate Bush",
-        "image": "https://i.discogs.com/XZvjzv1I0S-rfdcoeKE6LIXxOI8-wEzff0fRGweFrr0/rs:fit/g:sm/q:90/h:598/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTQxNDM3/NC0xNDExNDA3MjA5/LTc1ODcuanBlZw.jpeg",
-        "date": "July 25, 2023",
-        "rating": 4,
-        "notes": "That good shit"
-      },
-      {
-        "masterId": 3172911,
-        "id": 1690505326044,
-        "title": "The Ballad Of Darren",
-        "artists": "Blur",
-        "image": "https://i.discogs.com/qB9HFaesrp3LxJRE9xhzjZu93BwzSjT9ySXUu2YemQQ/rs:fit/g:sm/q:90/h:591/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTI3MzEz/NTE4LTE2OTAwMTky/MTgtMTA1My5qcGVn.jpeg",
-        "date": "July 5, 2023",
-        "rating": 4,
-        "notes": "Hello"
+        "notes": "Probably my favorite Derek Bailey record"
       }
     ], 
     collections: [

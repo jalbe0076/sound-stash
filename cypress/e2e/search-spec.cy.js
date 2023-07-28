@@ -1,12 +1,21 @@
 describe('Search', () => {
   beforeEach(() => {
-    cy.visit('localhost:3000')
+    cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot',
+    {
+     statusCode:201,
+     fixture: 'trending.json'
+    }).as('getTrending')
+    
     cy.intercept('GET', 'https://api.discogs.com/database/search?q=outkast&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=1',
       {fixture: 'results.json'})
+    
     cy.intercept('GET', 'https://api.discogs.com/database/search?q=outkast&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=2',
       {fixture: 'resultspage2.json'})
+    
     cy.intercept('GET', 'https://api.discogs.com/database/search?q=awefdfi&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=1',
       {fixture: 'noresults.json'})
+    
+    cy.visit('localhost:3000')
   })
 
 
