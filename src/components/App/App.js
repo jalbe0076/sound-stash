@@ -16,14 +16,14 @@ import mockUsers from '../MockData/mockusers';
 
 function App() {
   const [trendingData, setTrendingData] = useState()
-  const [loggedInUser, setLoggedInUser] = useState(mockUsers[1]);
+  const [currentUser, setCurrentUser] = useState(mockUsers[1]);
 
   const handleLogin = (username, password) => {
     const user = mockUsers.find(
       (user) => user.username === username && user.password === password
     );
     if (user) {
-      setLoggedInUser(user);
+      setCurrentUser(user);
     } else {
       alert('Invalid username or password');
     }
@@ -41,14 +41,14 @@ function App() {
       <Search/>
       <main className="App">
         <Routes>
-          <Route path="/login" element={<Login currentUser={loggedInUser} onLogin={handleLogin} />} />
-          {/* <Route path="/" /> */}
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
+          <Route path="/" />
           <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
-          <Route path="/journal" element={<Journal />} />
-          <Route path="/collections" element={<Collections currentUser={loggedInUser} />} />
+          <Route path="/journal" element={<Journal currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+          <Route path="/collections" element={<Collections currentUser={currentUser}/>} />
           <Route path="/discover" element={<Discover />} />
           <Route path='/search/:query/:page' element={<Results/>}/>
-          <Route path='/albums/:id' element={<Album/>}/>
+          <Route path='/albums/:id' element={<Album setCurrentUser={setCurrentUser}/>}/>
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>
