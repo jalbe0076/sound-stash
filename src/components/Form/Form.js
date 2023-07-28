@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, {useContext, useState} from 'react'
 import { useNavigate } from 'react-router-dom'
 import Flatpickr from 'react-flatpickr'
 import { Rating } from 'react-simple-star-rating'
 import "flatpickr/dist/themes/dark.css"
 import './Form.css'
+import UserContext from '../UserContext/UserContext'
 
-function Form ({title, artists, images, setCurrentUser, id, showModal}) {
+function Form ({title, artists, images, id, showModal}) {
+  const {setCurrentUser} = useContext(UserContext);
   const navigate = useNavigate()
   const currentDate = new Date()
   const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(currentDate)
@@ -45,6 +47,7 @@ function Form ({title, artists, images, setCurrentUser, id, showModal}) {
           <p className='form-listen'>Listened</p>
           <div className='date-container'>
             <Flatpickr 
+              name='date-input'
               className='date-input'
               value={date}
               options={
@@ -76,7 +79,7 @@ function Form ({title, artists, images, setCurrentUser, id, showModal}) {
         placeholder='Add some notes...'
         id='form-notes'>
       </textarea>
-      <button className='form-submit' type='submit' onClick={handleSubmit}>Submit</button>
+      <button name='journal-form' className='form-submit' type='submit' onClick={handleSubmit}>Submit</button>
     </form>
   )
 }
