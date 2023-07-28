@@ -48,7 +48,7 @@ function App() {
             <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
             <Route path="/journal" element={<Journal currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
             <Route path="/collections" element={<Collections currentUser={currentUser}/>} />
-            <Route path="/discover" element={<Discover currentUser={currentUser} trendingData={trendingData}/>} />
+            <Route path="/discover" element={<Discover trendingData={trendingData}/>} />
             <Route path='/search/:query/:page' element={<Results/>}/>
             <Route path='/albums/:id' element={<Album setCurrentUser={setCurrentUser}/>}/>
             <Route path="*" element={<EmptyState />} />
