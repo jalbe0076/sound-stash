@@ -16,12 +16,22 @@ const Discover = ({ trendingData }) => {
       const randomAlbum = currentUser.collections[Math.floor(Math.random() * currentUser.collections.length)]
       getAlbumsByMasterId(randomAlbum.masterId)
       .then(data => getAlbumsByGenre(data.genres[0]))
-      .then(data => setRecommendedData(data))
+      .then(data => {
+        let recommendedAlbumsData = [];
+        for (let i = 0; recommendedAlbumsData.length < 10; i++) {
+          const randomAlbum = data.results[Math.floor(Math.random() * data.results.length)]
+          if (!recommendedAlbumsData.find(album => album.id === randomAlbum.id)) {
+            recommendedAlbumsData.push(randomAlbum)
+          }
+        }
+
+        setRecommendedData(recommendedAlbumsData)
+      })
     }
   }, [])
   
   if (recommendedData) {
-    const recommendedAlbums = recommendedData.results.map(item => <RecommendedAlbum key={item.id} id={item.id} title={item.title} coverImg={item.cover_image}/>)
+    const recommendedAlbums = recommendedData.map(item => <RecommendedAlbum key={item.id} id={item.id} title={item.title} coverImg={item.cover_image}/>)
 
     return (
       <section className='recommendedContainer'>

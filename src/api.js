@@ -16,7 +16,7 @@ const getAlbumsByMasterId = (albumID) => {
 }
 
 const getAlbumsByGenre = (genre) => {
-  return fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=10&genre=${genre}`)
+  return fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=50&genre=${genre}`)
       .then(res => handleError(res))
 }
   
