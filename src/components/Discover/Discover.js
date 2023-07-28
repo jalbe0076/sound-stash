@@ -17,8 +17,9 @@ const Discover = ({ trendingData }) => {
       getAlbumsByMasterId(randomAlbum.masterId)
       .then(data => getAlbumsByGenre(data.genres[0]))
       .then(data => {
-        let recommendedAlbumsData = [];
-        for (let i = 0; recommendedAlbumsData.length < 10; i++) {
+        const maxResults = data.results.length < 10 ? data.results.length : 10
+        let recommendedAlbumsData = []
+        for (let i = 0; recommendedAlbumsData.length < maxResults; i++) {
           const randomAlbum = data.results[Math.floor(Math.random() * data.results.length)]
           if (!recommendedAlbumsData.find(album => album.id === randomAlbum.id)) {
             recommendedAlbumsData.push(randomAlbum)
