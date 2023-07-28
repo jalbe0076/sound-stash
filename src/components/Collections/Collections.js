@@ -1,7 +1,10 @@
 import './Collections.css';
 import Card from '../Card/Card';
+import UserContext from '../UserContext/UserContext';
+import { useContext } from 'react';
 
-const Collections = ({currentUser}) => {
+const Collections = () => {
+  const currentUser = useContext(UserContext)
   const { collections } = currentUser;
 
   const savedAlbums = collections.map(album => {
