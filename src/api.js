@@ -70,7 +70,7 @@ function getAlbumDetails(albumID) {
 
       console.log('Album details and data:', data);
 
-      const artistNames = Array.isArray(data.artists) && data.artists.length > 0
+      const artistNames = Array.isArray(data.artists) 
       ? data.artists.map(artist => artist.name).join(', ')
       : 'Unknown Artist';
 
