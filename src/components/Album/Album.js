@@ -3,37 +3,53 @@ import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
 
 function Album() {
-  const {id} = useParams()
+  const { id } = useParams();
   const [albumDetails, setAlbumDetails] = useState(null);
-  
+  const [isLoading, setLoading] = useState(true); // isLoading state
+
   useEffect(() => {
+    setLoading(true); // isLoading:true while fetching data
     getAlbumDetails(id)
-      .then(data => setAlbumDetails(data))
-      .catch(error => alert(error.message));
+      .then(data => {
+        setAlbumDetails(data);
+        setLoading(false); // isLoading:false after data fetch
+      })
+      .catch(error => {
+        setLoading(false); //  isLoading:false ...case of error
+        alert(error.message);
+      });
   }, [id]);
 
-  if (!albumDetails) {
-    return <div>Loading...</div>;
+  if (isLoading) {
+    return <div>Loading...</div>; // data being fetched..
   }
-  const { title, artist, releaseDate, label, genre, styles, tracklist, coverImg } = albumDetails;
+
+  if (!albumDetails) {
+    return <div>Album not found.</div>; //null after fetch
+  }
+
+  const { title, artist, releaseDate, genre, styles, tracklist, coverImg } = albumDetails;
 
   return (
     <div>
-    <img src={coverImg} alt={`Cover art for ${title}`} />
-    <h2>{title}</h2>
-    <p>Artist: {artist}</p>
-    <p>Release Date: {releaseDate}</p>
-    <p>Label: {label}</p>
-    <p>Genre: {genre}</p>
-    <p>Styles: {styles.join(', ')}</p>  
-    <h3>Tracklist:</h3>
-    <ul>
-      {tracklist.map((track, index) => (
-        <li key={index}>{track}</li>
-      ))}
-    </ul>
-  </div>
+      <img src={coverImg} alt={`Cover art for ${title}`} />
+      <h2>{title}</h2>
+      <p>Artist: {artist}</p>
+      <p>Release Date: {releaseDate}</p>
+      <p>Genre: {genre}</p>
+      <p>Styles: {styles.join(', ')}</p>
+      {tracklist && tracklist.length > 0 && (
+        <>
+          <h3>Tracklist:</h3>
+          <ul>
+            {tracklist.map((track, index) => (
+              <li key={index}>{track}</li>
+            ))}
+          </ul>
+        </>
+      )}
+    </div>
   );
 }
 
-export default Album
+export default Album;

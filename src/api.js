@@ -62,19 +62,28 @@ function getAlbumDetails(albumID) {
     .then(res => {
       if (res.ok) {
         return res.json();
+      } else {
+        throw new Error(`HTTP Error: ${res.status} -- Please try again later!`);
       }
-      handleError(res);
     })
-    .then(data => ({
-      title: data.title,
-      artist: data.artists[0].name,
-      releaseDate: data.year,
-      label: data.labels[0].name,
-      genre: data.genres[0],
-      styles: data.styles,
-      tracklist: data.tracklist.map(track => track.title),
-      coverImg: data.images[0].uri
-    }));
+    .then(data => {
+
+      console.log('Album details and data:', data);
+        return {
+        title: data.title ?? 'Unknown Title',
+        artist: data.artists?.[0]?.name ?? 'Unknown Artist',
+        releaseDate: data.year ?? 'Unknown Release Date',
+        genre: data.genres?.[0] ?? 'Unknown Genre',
+        styles: data.styles ?? [],
+        tracklist: data.tracklist?.map(track => track.title) ?? [],
+        coverImg: data.images?.[0]?.uri ?? ''
+        }    
+        //returns object containing properties taken from API response
+    })
+    .catch(error => {
+      console.log('Error:', error.message);
+      throw error;
+    });
 }
 
 export { getTrendingAlbums, getRecommendedAlbums, searchAlbums, getAlbumDetails };
