@@ -17,17 +17,14 @@ import mockUsers from '../MockData/mockusers';
 
 function App() {
   const [trendingData, setTrendingData] = useState()
-  const [currentUser, setCurrentUser] = useState(mockUsers[1]);
+  const [currentUser, setCurrentUser] = useState(null);
 
   const handleLogin = (username, password) => {
-    const user = mockUsers.find(
-      (user) => user.username === username && user.password === password
-    );
+    const user = mockUsers.find(user => user.username === username && user.password === password);
+
     if (user) {
       setCurrentUser(user);
-    } else {
-      alert('Invalid username or password');
-    }
+    } 
   };
 
   useEffect(() => {
@@ -42,7 +39,7 @@ function App() {
       <Search/>
       <main className="App">
         <Routes>
-          <Route path="/login" element={<Login currentUser={currentUser} onLogin={handleLogin} />} />
+          <Route path="/login" element={<Login onLogin={handleLogin} />} />
           {/* <Route path="/" /> */}
           <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
           <Route path="/journal" element={<Journal />} />
