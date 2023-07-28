@@ -12,6 +12,7 @@ import Search from '../Search/Search'
 import Results from '../Results/Results'
 import Album from '../Album/Album'
 import Login from '../Login/Login';
+import UserContext from '../UserContext/UserContext'
 import mockUsers from '../MockData/mockusers';
 
 function App() {
@@ -37,22 +38,23 @@ function App() {
   
   return (
     <>
-      <Nav />
-      <Search/>
-      <main className="App">
-        <Routes>
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/" />
-          <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
-          <Route path="/journal" element={<Journal currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
-          <Route path="/collections" element={<Collections currentUser={currentUser}/>} />
-          <Route path="/discover" element={<Discover />} />
-          <Route path='/search/:query/:page' element={<Results/>}/>
-          <Route path='/albums/:id' element={<Album setCurrentUser={setCurrentUser}/>}/>
-          <Route path="*" element={<EmptyState />} />
-        </Routes>
-      </main>
-          
+      <UserContext.Provider value={[currentUser, setCurrentUser]}>
+        <Nav />
+        <Search/>
+        <main className="App">
+          <Routes>
+            <Route path="/login" element={<Login onLogin={handleLogin} />} />
+            <Route path="/" />
+            <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
+            <Route path="/journal" element={<Journal currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+            <Route path="/collections" element={<Collections currentUser={currentUser}/>} />
+            <Route path="/discover" element={<Discover currentUser={currentUser} trendingData={trendingData}/>} />
+            <Route path='/search/:query/:page' element={<Results/>}/>
+            <Route path='/albums/:id' element={<Album setCurrentUser={setCurrentUser}/>}/>
+            <Route path="*" element={<EmptyState />} />
+          </Routes>
+        </main>  
+      </UserContext.Provider>
     </>
   );
 };
