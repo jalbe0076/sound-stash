@@ -17,7 +17,7 @@ import mockUsers from '../MockData/mockusers';
 
 function App() {
   const [trendingData, setTrendingData] = useState()
-  const [currentUser, setCurrentUser] = useState(false);
+  const [currentUser, setCurrentUser] = useState(mockUsers[1]);
 
   const handleLogin = (username, password) => {
     const user = mockUsers.find(user => user.username === username && user.password === password);
