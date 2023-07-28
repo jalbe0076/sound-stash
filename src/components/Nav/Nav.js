@@ -4,8 +4,12 @@ import UserContext from '../UserContext/UserContext';
 import { useContext } from 'react';
 
 const Nav = () => {
-  const {currentUser} = useContext(UserContext);
+  const {currentUser, setCurrentUser} = useContext(UserContext);
   const navigate = useNavigate()
+
+  const logoutUser = () => {
+    setCurrentUser(false);
+  }
 
   return (
     <section className='banner-container'>
@@ -16,7 +20,10 @@ const Nav = () => {
         <NavLink to="/journal" className='nav'>JOURNAL</NavLink>
         <NavLink to="/discover" className='nav'>DISCOVER</NavLink>
       </nav>}
-      {currentUser ? <img className='user-profile user-icon' src={process.env.PUBLIC_URL + '/images/user-icon.png'}/> : <button className='user-profile standard-btn' onClick={() => navigate('/login')}>LOGIN</button>}
+      {currentUser ? 
+          <button className='logout-btn' onClick={() => logoutUser()}><img className='user-profile user-icon' src={process.env.PUBLIC_URL + '/images/user-icon.png'}/>LOGOUT</button> 
+        : <button className='user-profile standard-btn' onClick={() => navigate('/login')}>LOGIN</button>
+      }
     </section>
   );
 };
