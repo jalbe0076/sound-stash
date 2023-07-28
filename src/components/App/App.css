@@ -24,7 +24,7 @@ main {
   display: grid;
   padding-bottom: 4em;
   width: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(161px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(130px, max-content));
   grid-gap: 2em;
   margin-top: 2em;
   justify-content: space-between;
@@ -37,15 +37,6 @@ main {
 
   .album--grid {
     padding: 0 2em;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    justify-content: center;
-  }
-}
-
-@media (max-width: 400px) {
-  .album--grid {
-    padding: 0 2em;
-    grid-template-columns: repeat(1, minmax(150px, 220px));
     justify-content: center;
   }
 }
