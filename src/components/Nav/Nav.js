@@ -1,10 +1,11 @@
 import './Nav.css';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, Navigate, useNavigate } from 'react-router-dom';
 import UserContext from '../UserContext/UserContext';
 import { useContext } from 'react';
 
 const Nav = () => {
   const {currentUser} = useContext(UserContext);
+  const navigate = useNavigate()
 
   return (
     <section className='banner-container'>
@@ -15,7 +16,7 @@ const Nav = () => {
         <NavLink to="/journal" className='nav'>JOURNAL</NavLink>
         <NavLink to="/discover" className='nav'>DISCOVER</NavLink>
       </nav>}
-      {!currentUser && <button className='user-profile'>LOGIN</button>}
+      {!currentUser && <button className='user-profile standard-btn' onClick={() => navigate('/login')}>LOGIN</button>}
     </section>
   );
 };

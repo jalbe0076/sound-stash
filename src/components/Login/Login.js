@@ -27,7 +27,6 @@ const Login = ({ onLogin }) => {
     }
   };
 
-
   const handleDemoUsers = (e) => {
     const userType = e.target.value;
     
