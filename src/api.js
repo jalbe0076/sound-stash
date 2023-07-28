@@ -57,7 +57,7 @@ function searchAlbums(query, page) {
     }));
 }
 
-function getAlbumDetails(albumID) {
+export function getAlbumDetails(albumID) {
   return fetch(`https://api.discogs.com/masters/${albumID}?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ`)
     .then(res => {
       if (res.ok) {
@@ -91,4 +91,4 @@ function getAlbumDetails(albumID) {
     });
 }
 
-export { getTrendingAlbums, getRecommendedAlbums, searchAlbums, getAlbumDetails };
+export { getTrendingAlbums, getRecommendedAlbums, searchAlbums };

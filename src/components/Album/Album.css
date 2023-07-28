@@ -6,6 +6,28 @@
     color: rgb(134, 93, 255);
   }
 
+  .buttons-container {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .add-to-journal-button,
+  .add-to-collections-button {
+    padding: 0.5rem 1rem;
+    background-color: #865dff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-to-journal-button:hover,
+  .add-to-collections-button:hover {
+    background-color: #6d45e2;
+  }
+
   body {
     background-color: black;
   }

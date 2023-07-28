@@ -14,6 +14,7 @@ import Album from '../Album/Album'
 import Login from '../Login/Login';
 import mockUsers from '../MockData/mockusers';
 
+
 function App() {
   const [recommendedData, setRecommendedData] = useState()
   const [loggedInUser, setLoggedInUser] = useState(mockUsers[1]);
