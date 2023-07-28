@@ -45,6 +45,7 @@ function Form ({title, artists, images, setCurrentUser, id, showModal}) {
           <p className='form-listen'>Listened</p>
           <div className='date-container'>
             <Flatpickr 
+              name='date-input'
               className='date-input'
               value={date}
               options={
@@ -76,7 +77,7 @@ function Form ({title, artists, images, setCurrentUser, id, showModal}) {
         placeholder='Add some notes...'
         id='form-notes'>
       </textarea>
-      <button className='form-submit' type='submit' onClick={handleSubmit}>Submit</button>
+      <button name='journal-form' className='form-submit' type='submit' onClick={handleSubmit}>Submit</button>
     </form>
   )
 }

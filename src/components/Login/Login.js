@@ -44,6 +44,8 @@ const Login = ({ onLogin }) => {
       <div className="navbar">
         <form onSubmit={handleSubmit}>
           <input
+            name='username'
+            autoComplete='username'
             type="text"
             placeholder="Username"
             className="username-field"
@@ -51,6 +53,7 @@ const Login = ({ onLogin }) => {
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
+            name='password'
             type="password"
             placeholder="Password"
             className="password-field"
