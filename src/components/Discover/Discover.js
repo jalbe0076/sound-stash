@@ -5,8 +5,8 @@ import { getAlbumsByMasterId, getAlbumsByGenre } from '../../api'
 import RecommendedAlbum from '../RecommendedAlbum/RecommendedAlbum';
 
 
-const Discover = ({ currentUser, trendingData }) => {
-  // const [ currentUser ] = useContext(UserContext)
+const Discover = ({ trendingData }) => {
+  const { currentUser } = useContext(UserContext)
   const [ recommendedData, setRecommendedData ] = useState()
 
   useEffect(() => {
