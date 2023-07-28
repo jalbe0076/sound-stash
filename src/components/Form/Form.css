@@ -1,0 +1,122 @@
+.journal-form {
+  max-width: 1400px;
+  width: 90%;
+  z-index: 1;
+  position: absolute;
+  top: 20%;
+  margin: auto;
+  min-height: 68vh;
+  background-color: #191725;
+  border-radius: 10px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  display: flex;
+}
+
+.form-image {
+  width: auto; 
+  height: 76px;
+  margin-right: 12px;
+  background-color: lightcoral;
+}
+
+.form-info {
+  margin-right: 24px;
+}
+
+.form-title {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.form-date {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.form-listen {
+  margin-top: .5em;
+  font-size: .8em;
+}
+
+.date-container {
+  position: relative;
+  width: 140px;
+}
+
+.date-input {
+  width: 140px;
+  margin-top: .5em;
+  padding: 2px;
+  padding-left: 5px;
+  color: white;
+  background-color: transparent;
+  border: 1px solid white;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  z-index: 2;
+}
+
+.calendar-icon {
+  width: 12px;
+  height: auto;
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  filter: brightness(0) invert(1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.calendar-icon:hover {
+  cursor: pointer;
+  z-index: 0;
+}
+
+.form-notes-label {
+  display:inline-block;
+  margin-top: 1em;
+}
+
+.form-notes {
+  padding: 10px;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  max-height: 40vh;
+  max-width: 100%;
+  color: white;
+  background-color: transparent;
+}
+
+.form-rating {
+  margin-top: 12px;
+}
+
+.form-submit {
+  width: 64px;
+  padding: 4px;
+  color: white;
+  margin-top: auto;
+  background-color: #865DFF;
+  border: none;
+  border-radius: 6px;
+}
+
+.form-submit:hover {
+  cursor: pointer;
+}
+
+.form-escape {
+  margin-left: auto;
+  height: 32px;
+  width: auto;
+}
+
+.form-escape:hover {
+  cursor: pointer;
+}

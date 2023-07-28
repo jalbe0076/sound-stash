@@ -1,0 +1,8 @@
+.journal {
+  margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  background: #191725;
+  min-height: 90vh;
+  width: 100%;
+}

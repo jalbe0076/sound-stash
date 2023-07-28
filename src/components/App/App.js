@@ -42,11 +42,11 @@ function App() {
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
           {/* <Route path="/" /> */}
           <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
-          <Route path="/journal" element={<Journal />} />
+          <Route path="/journal" element={<Journal currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
           <Route path="/collections" element={<Collections/>} />
           <Route path="/discover" element={<Discover />} />
           <Route path='/search/:query/:page' element={<Results/>}/>
-          <Route path='/albums/:id' element={<Album/>}/>
+          <Route path='/albums/:id' element={<Album setCurrentUser={setCurrentUser}/>}/>
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>
