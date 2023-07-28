@@ -8,7 +8,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate(); 
-  const currentUser = useContext(UserContext);
+  const [currentUser] = useContext(UserContext);
   const [loadingUser, setLoadingUser] = useState(false);
 
   const handleSubmit = (e) => {
@@ -29,7 +29,7 @@ const Login = ({ onLogin }) => {
 
   useEffect(() => {
     if(currentUser) {
-      navigate('/trending');
+      navigate('/');
     }
 
     return () => {setLoadingUser(false)}

@@ -4,7 +4,7 @@ import { NavLink, Link } from 'react-router-dom';
 const Nav = () => {
   return (
     <section className='banner-container'>
-      <Link to='/trending' className='title' ><h1>SOUND STASH</h1></Link>
+      <Link to='/' className='title' ><h1>SOUND STASH</h1></Link>
       <nav className='navigation-tabs'>
         <NavLink to="/collections" className='nav'>COLLECTIONS</NavLink>
         <NavLink to="/journal" className='nav'>JOURNAL</NavLink>

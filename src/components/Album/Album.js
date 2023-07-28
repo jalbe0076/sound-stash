@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
 import { useParams } from "react-router-dom"
 import './Album.css'
 import Form from '../Form/Form'
 import { getAlbumsByMasterId } from "../../api"
+import UserContext from "../UserContext/UserContext"
 
-function Album({setCurrentUser}) {
+function Album() {
+  const [setCurrentUser] = useContext(UserContext)
   const [album, setAlbum] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [modal, setModal] = useState(false)

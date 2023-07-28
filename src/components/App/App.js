@@ -17,7 +17,7 @@ import mockUsers from '../MockData/mockusers';
 
 function App() {
   const [trendingData, setTrendingData] = useState()
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState(false);
 
   const handleLogin = (username, password) => {
     const user = mockUsers.find(user => user.username === username && user.password === password);
@@ -34,19 +34,18 @@ function App() {
   }, [])
   
   return (
-    <UserContext.Provider value={currentUser}>
+    <UserContext.Provider value={[currentUser, setCurrentUser]}>
       <Nav />
       <Search/>
       <main className="App">
         <Routes>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          {/* <Route path="/" /> */}
-          <Route path='/trending' element={<Recommended trendingData={trendingData} />}/>
-          <Route path="/journal" element={<Journal currentUser={currentUser} setCurrentUser={setCurrentUser}/>} />
+          <Route path='/' element={<Recommended trendingData={trendingData} />}/>
+          <Route path="/journal" element={<Journal/>} />
           <Route path="/collections" element={<Collections/>} />
           <Route path="/discover" element={<Discover />} />
-          <Route path='/search/:query/:page' element={<Results/>}/>
-          <Route path='/albums/:id' element={<Album setCurrentUser={setCurrentUser}/>}/>
+          <Route path='/search/:query/:page' element={<Results/>} />
+          <Route path='/albums/:id' element={<Album />}/>
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>
