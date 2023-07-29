@@ -5,4 +5,5 @@
   background: #191725;
   min-height: 90vh;
   width: 100%;
+  overflow-wrap: break-word;
 }
