@@ -24,20 +24,46 @@ describe('Login Page', () => {
         cy.get('.username-field').type(user.username)
         .get('.password-field').type(user.password)
         .get('form > .standard-btn').click()
-        .url().should('include', '/');
+        .url().should('include', '/')
+        .get('.banner-container').contains('h1', 'SOUND STASH')
       });
   })
 
-  it.skip('should log in with valid user2 credentials', () => {
-    cy.get('@users').then((users) => {
-      const user = users[1]; 
-      cy.get('.username-field').type(user.username);
-      cy.get('.password-field').type(user.password);
-      cy.get('.login-button').click();
-      cy.url().should('include', '/trending');
-
-    });
+  it('should log in with demo user1 button', () => {
+    cy.get('[value="user1"]').click()
+      .get('.username-field').should('have.value', 'user1')
+      .get('.password-field').should('have.value', 'sound-stash')
+      .get('form > .standard-btn').click()
+      .url().should('include', '/')
+      .get('.banner-container').contains('h1', 'SOUND STASH')
   })
+
+  it('should log in with valid user2 credentials', () => {
+    cy.fixture('mockUser2').as('user2')
+      .get('@user2').then((user) => {
+        cy.get('.username-field').type(user.username)
+        .get('.password-field').type(user.password)
+        .get('form > .standard-btn').click()
+        .url().should('include', '/')
+        .get('.banner-container').contains('h1', 'SOUND STASH')
+      });
+  })
+
+  it('should log in with demo user2 button', () => {
+    cy.get('[value="user2"]').click()
+      .get('.username-field').should('have.value', 'user2')
+      .get('.password-field').should('have.value', 'sound-stash')
+      .get('form > .standard-btn').click()
+      .url().should('include', '/')
+      .get('.banner-container').contains('h1', 'SOUND STASH')
+  })
+
+  it('should log in with demo no user button', () => {
+    cy.get('[value="no-user"]').click()
+      .url().should('include', '/')
+      .get('.banner-container').contains('h1', 'SOUND STASH')
+  })
+
   it.skip('should show an error message with invalid user credentials', () => {
     cy.get('@users').then((users) => {
       const invalidUser = { username: 'baduser', password: 'badpassword' };
