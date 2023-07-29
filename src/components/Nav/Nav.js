@@ -5,10 +5,10 @@ import { useContext } from 'react';
 
 const Nav = () => {
   const {currentUser, setCurrentUser} = useContext(UserContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const logoutUser = () => {
-    navigate('/')
+    navigate('/');
     setCurrentUser(false);
   }
 
