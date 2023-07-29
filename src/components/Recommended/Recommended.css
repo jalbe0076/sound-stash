@@ -7,7 +7,7 @@
     align-items: center;
     padding: 10px;
     color: white;
-    font-family: 'quantico'
+    font-family: 'quantico';
 }
 
 .recommendedContainer h2 {
@@ -18,12 +18,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10%;
-    font-size: x-large;
     border: solid;
     border-radius: 50px;
     border-color: #865dff;
     padding: 5%;
+    margin-bottom: 5%;
 }
 
 .album img {
@@ -37,6 +36,11 @@
 }
 
 @media screen and (min-width: 900px) {
+    .recommendedContainer {
+        margin-bottom: 10%;
+        font-size: x-large;
+    }
+    
     .album img {
         width: 700px;
     }

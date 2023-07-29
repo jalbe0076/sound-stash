@@ -9,8 +9,8 @@ const Nav = () => {
         <NavLink to="/collections" className='nav'>COLLECTIONS</NavLink>
         <NavLink to="/journal" className='nav'>JOURNAL</NavLink>
         <NavLink to="/discover" className='nav'>DISCOVER</NavLink>
-        <p className='user-profile'>User</p>
       </nav>
+      <p className='user-profile'>User</p>
     </section>
   );
 };
