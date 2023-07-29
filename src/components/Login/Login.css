@@ -28,6 +28,11 @@
   padding: 20px;
 }
 
+.login-container input,
+.login-container button {
+  font-family: 'quantico';
+}
+
 .logo-container {
   display: flex;
   justify-content: center;
@@ -61,27 +66,27 @@
   background-color: #6546C4;
 }
 
-  .username-field,
-  .password-field {
-    padding: 6px;
+.username-field,
+.password-field {
+  padding: 6px;
 
-  }
-  
-  .navbar {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-wrap: wrap; 
-  }
+}
 
-  @media (max-width: 437px) {
-    form {
-      display: grid; 
-    }
-  }
+.navbar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
 
-  @media (max-width: 768px) {
-    .logo-container {
-      margin-right: 0px;
-    }
+@media (max-width: 437px) {
+  form {
+    display: grid;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-container {
+    margin-right: 0px;
+  }
 }
