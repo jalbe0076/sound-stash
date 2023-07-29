@@ -43,7 +43,7 @@ function App() {
           <Route path='/' element={<Recommended trendingData={trendingData} />}/>
           <Route path="/journal" element={<Journal/>} />
           <Route path="/collections" element={<Collections/>} />
-          <Route path="/discover" element={<Discover />} />
+          <Route path="/discover" element={<Discover trendingData={trendingData} />} />
           <Route path='/search/:query/:page' element={<Results/>} />
           <Route path='/albums/:id' element={<Album />}/>
           <Route path="*" element={<EmptyState />} />
