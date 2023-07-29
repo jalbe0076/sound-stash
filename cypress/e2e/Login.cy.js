@@ -64,15 +64,10 @@ describe('Login Page', () => {
       .get('.banner-container').contains('h1', 'SOUND STASH')
   })
 
-  it.skip('should show an error message with invalid user credentials', () => {
-    cy.get('@users').then((users) => {
-      const invalidUser = { username: 'baduser', password: 'badpassword' };
-      cy.get('.username-field').type(invalidUser.username);
-      cy.get('.password-field').type(invalidUser.password);
-      cy.get('.login-button').click();
-      cy.on('window:alert', (text) => {
-        expect(text).to.equal('Invalid username or password');
-      });
-    });
+  it('should show an error message with invalid user credentials', () => {
+    cy.get('.username-field').type('wrongUser');
+    cy.get('.password-field').type('mySecretPassword');
+    cy.get('form > .standard-btn').click();
+    cy.get('.error-message').contains('p', 'Invalid username or password')
   });
 });
