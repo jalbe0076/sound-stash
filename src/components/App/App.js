@@ -18,6 +18,7 @@ import mockUsers from '../MockData/mockusers';
 function App() {
   const [trendingData, setTrendingData] = useState()
   const [currentUser, setCurrentUser] = useState(mockUsers[1]);
+  const [apiError, setApiError] = useState(null)
 
   const handleLogin = (username, password) => {
     const user = mockUsers.find(user => user.username === username && user.password === password);
@@ -30,26 +31,33 @@ function App() {
   useEffect(() => {
       getTrendingAlbums()
         .then(data => setTrendingData(data))
-        .catch(err => console.error(err))
+        .catch(err => {
+          setApiError(err)
+      })
+  
+      return () => setApiError(null)
   }, [])
   
   return (
     <UserContext.Provider value={{currentUser, setCurrentUser}}>
-      <Nav />
-      <Search/>
-      <main className="App">
-        <Routes>
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path='/' element={<Recommended trendingData={trendingData} />}/>
-          <Route path="/journal" element={<Journal/>} />
-          <Route path="/collections" element={<Collections/>} />
-          <Route path="/discover" element={<Discover trendingData={trendingData} />} />
-          <Route path='/search/:query/:page' element={<Results/>} />
-          <Route path='/albums/:id' element={<Album />}/>
-          <Route path="*" element={<EmptyState />} />
-        </Routes>
-      </main>
-    </UserContext.Provider>
+      {apiError ? <h2 style={{color: 'white'}}>{apiError.message}</h2> 
+      : <>      
+          <Nav />
+          <Search/>
+          <main className="App">
+            <Routes>
+              <Route path="/login" element={<Login onLogin={handleLogin} />} />
+              <Route path='/' element={<Recommended trendingData={trendingData} />}/>
+              <Route path="/journal" element={<Journal/>} />
+              <Route path="/collections" element={<Collections/>} />
+              <Route path="/discover" element={<Discover trendingData={trendingData} />} />
+              <Route path='/search/:query/:page' element={<Results/>} />
+              <Route path='/albums/:id' element={<Album />}/>
+              <Route path="*" element={<EmptyState />} />
+            </Routes>
+          </main>
+        </>}
+      </UserContext.Provider>
   );
 };
 

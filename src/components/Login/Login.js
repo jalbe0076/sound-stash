@@ -27,6 +27,17 @@ const Login = ({ onLogin }) => {
     }
   };
 
+  const handleDemoUsers = (e) => {
+    const userType = e.target.value;
+    
+    if(userType === 'user1' || userType === 'user2') {
+      setUsername(userType);
+      setPassword('sound-stash');
+    } else {
+      navigate('/');
+    }
+  }
+
   useEffect(() => {
     if(currentUser) {
       navigate('/');
@@ -65,6 +76,11 @@ const Login = ({ onLogin }) => {
           </button>
           {loginError && <p className="error-message">{loginError}</p>}
         </form>
+        <div className='demo-user-container'>
+          <button className="standard-btn" value='no-user' onClick={e => handleDemoUsers(e)}>DEMO NO USER</button>
+          <button className="standard-btn" value='user1' onClick={e => handleDemoUsers(e)}>DEMO USER 1</button>
+          <button className="standard-btn" value='user2' onClick={e => handleDemoUsers(e)}>DEMO USER 2</button>
+        </div>
       </div>
     </div>
     </header>

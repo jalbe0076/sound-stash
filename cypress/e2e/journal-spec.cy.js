@@ -30,14 +30,25 @@ describe('template spec', () => {
       .get('.rating').last().should('be.visible')
   })
 
+  it('As a logged in user I should see be able to toggle the visibility of notes', () => {
+    
+    cy.visit('localhost:3000/journal')
+      .wait('@getTrending')
+      .get('.notes-icon').first().click()
+      .get('.entry-notes').should('be.visible').contains('Coding session music lol')
+      .get('.notes-icon').first().click()
+      .get('.entry-notes').should('not.exist')
+  })
+
   it('As a user I should be able to add a journal entry w date and notes', () => {
     const currentDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
     cy.visit('localhost:3000/')
       .get('.search--input').type('outkast')
       .get('.search--button').click()
       .get('.results--card').first().click()
-      .get('button').eq(1).click()
-      .get('.date-input').should('have.value', currentDate)
+      .get('button').eq(2).click()
+      .get('.date-input')
+      .should('have.value', currentDate)
       .get('textarea').type('Friday night vibes').should('have.value', 'Friday night vibes')
       .get('.form-submit').click()
       .get('.journal').find('.entry').should('have.length', '5')
