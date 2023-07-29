@@ -12,49 +12,45 @@ import Search from '../Search/Search'
 import Results from '../Results/Results'
 import Album from '../Album/Album'
 import Login from '../Login/Login';
+import UserContext from '../UserContext/UserContext'
 import mockUsers from '../MockData/mockusers';
 
 
 function App() {
-  const [recommendedData, setRecommendedData] = useState()
-  const [loggedInUser, setLoggedInUser] = useState(mockUsers[1]);
+  const [trendingData, setTrendingData] = useState()
+  const [currentUser, setCurrentUser] = useState(false);
 
   const handleLogin = (username, password) => {
-    const user = mockUsers.find(
-      (user) => user.username === username && user.password === password
-    );
+    const user = mockUsers.find(user => user.username === username && user.password === password);
+
     if (user) {
-      setLoggedInUser(user);
-    } else {
-      alert('Invalid username or password');
-    }
+      setCurrentUser(user);
+    } 
   };
 
   useEffect(() => {
       getTrendingAlbums()
-        .then(data => setRecommendedData(data))
+        .then(data => setTrendingData(data))
         .catch(err => console.error(err))
   }, [])
   
   return (
-    <>
+    <UserContext.Provider value={{currentUser, setCurrentUser}}>
       <Nav />
       <Search/>
       <main className="App">
         <Routes>
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
-          <Route path="/" />
-          <Route path='/trending' element={<Recommended recommendedData={recommendedData} />}/>
-          <Route path="/journal" element={<Journal />} />
-          <Route path="/collections" element={<Collections currentUser={loggedInUser} />} />
-          <Route path="/discover" element={<Discover />} />
-          <Route path='/search/:query/:page' element={<Results/>}/>
-          <Route path='/albums/:id' element={<Album/>}/>
+          <Route path='/' element={<Recommended trendingData={trendingData} />}/>
+          <Route path="/journal" element={<Journal/>} />
+          <Route path="/collections" element={<Collections/>} />
+          <Route path="/discover" element={<Discover trendingData={trendingData} />} />
+          <Route path='/search/:query/:page' element={<Results/>} />
+          <Route path='/albums/:id' element={<Album />}/>
           <Route path="*" element={<EmptyState />} />
         </Routes>
       </main>
-          
-    </>
+    </UserContext.Provider>
   );
 };
 

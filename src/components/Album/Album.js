@@ -1,49 +1,54 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
+import Form from '../Form/Form';
 import './Album.css'; 
 
 function Album() {
   const { id } = useParams();
   const [albumDetails, setAlbumDetails] = useState(null);
-  const [isLoading, setLoading] = useState(true); // isLoading state
-  const [isAlbumLoaded, setAlbumLoaded] = useState(false)
+  const [isLoading, setLoading] = useState(true);
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
-    setLoading(true); // isLoading:true while fetching data
+    setLoading(true);
     getAlbumDetails(id)
       .then(data => {
         setAlbumDetails(data);
-        setLoading(false); // isLoading:false after data fetch
-        setAlbumLoaded(true);
+        setLoading(false);
       })
       .catch(error => {
-        setLoading(false); //  isLoading:false ...case of error
-        alert(error.message);
+        console.error('Error fetching album details:', error);
+        setLoading(false);
       });
   }, [id]);
 
+  const handleAddToJournal = () => {
+    console.log('Album added to Journal!');
+  };
+
+  const handleAddToCollections = () => {
+    console.log('Album added to Collections!');
+  };
+
+  const showModal = () => {
+    setModal(prevModal => !prevModal);
+  };
+
   if (isLoading) {
-    return  <div>Loading...</div>; // data being fetched..
+    return <div>Loading...</div>;
   }
 
   if (!albumDetails) {
-    return <div>Album not found.</div>; //null after fetch
+    return <div>Album not found.</div>;
   }
 
   const { title, artist, releaseDate, genre, styles, tracklist, coverImg } = albumDetails;
-
-  const handleAddToJournal = () => {
-    console.log("Album added to Journal!");
-  };
-
   
-  const handleAddToCollections = () => {
-    console.log("Album added to Collections!");
-  };
-
   return (
     <div>
+      {!modal && <button onClick={showModal}>Add a journal entry</button>}
+      {modal && <Form {...albumDetails} showModal={showModal} />}
       <img src={coverImg} alt={`Cover art for ${title}`} />
       <h2>{title}</h2>
       <p>Artist: {artist}</p>
@@ -52,7 +57,7 @@ function Album() {
       <p>Styles: {styles.join(', ')}</p>
       {tracklist && tracklist.length > 0 && (
         <>
-         <h3>Tracklist:</h3>
+          <h3>Tracklist:</h3>
           <ul>
             {tracklist.map((track, index) => (
               <li key={index}>{track}</li>
@@ -60,11 +65,13 @@ function Album() {
           </ul>
         </>
       )}
-
-      
       <div className="buttons-container">
-        <button className="add-to-journal-button">Add to Journal</button>
-        <button className="add-to-collections-button">Add to Collections</button>
+        <button className="add-to-journal-button" onClick={handleAddToJournal}>
+          Add to Journal
+        </button>
+        <button className="add-to-collections-button" onClick={handleAddToCollections}>
+          Add to Collections
+        </button>
       </div>
     </div>
   );

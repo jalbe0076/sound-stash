@@ -1,0 +1,9 @@
+{
+    "title": "Clicked Album Title",
+    "artist": "Clicked Artist",
+    "releaseDate": "2023-07-01",
+    "genre": "Pop",
+    "styles": ["Style1", "Style2"],
+    "tracklist": ["Track 1", "Track 2", "Track 3"],
+    "coverImg": "https://example.com/clicked_album_cover.jpg"
+  }

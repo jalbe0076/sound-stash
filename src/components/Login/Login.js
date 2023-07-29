@@ -1,29 +1,39 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import './Login.css';
-import mockUsers from '../MockData/mockusers';
 import { useNavigate } from 'react-router-dom'; 
+import UserContext from '../UserContext/UserContext';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate(); 
+  const {currentUser} = useContext(UserContext);
+  const [loadingUser, setLoadingUser] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const user = mockUsers.find(
-      (user) => user.username === username && user.password === password
-    );
-    if (user) {
+
+    (() => {
       onLogin(username, password);
       setUsername('');
       setPassword('');
       setLoginError('');
-      navigate('/trending'); // next state
-    } else {
+      setLoadingUser(true)
+    })()
+
+    if(!currentUser) {
       setLoginError('Invalid username or password');
     }
   };
+
+  useEffect(() => {
+    if(currentUser) {
+      navigate('/');
+    }
+
+    return () => {setLoadingUser(false)}
+  }, [loadingUser])
 
   return (
     <header className="App-header">
@@ -34,6 +44,8 @@ const Login = ({ onLogin }) => {
       <div className="navbar">
         <form onSubmit={handleSubmit}>
           <input
+            name='username'
+            autoComplete='username'
             type="text"
             placeholder="Username"
             className="username-field"
@@ -41,6 +53,7 @@ const Login = ({ onLogin }) => {
             onChange={(e) => setUsername(e.target.value)}
           />
           <input
+            name='password'
             type="password"
             placeholder="Password"
             className="password-field"

@@ -1,0 +1,92 @@
+.entry-date {
+  margin-top: 12px;
+  margin-left: 12px;
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  text-align: left;
+  padding: 12px;
+}
+
+.entry-date-container {
+  width: 70px;
+  height: 70px;
+  border: dashed white;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  padding: 8px;
+  margin-right: 24px;
+}
+
+.entry-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 24px;
+}
+
+.entry-image {
+  height: auto;
+  width: 64px;
+  margin-right: 24px;
+}
+
+.entry-image:hover {
+  cursor: pointer;
+}
+
+.entry-title {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.entry-artist {
+  margin-top: 4px;
+  font-size: 10px;
+}
+
+.entry-rating {
+  margin-top: 4px;
+}
+
+.entry-delete {
+  margin-left: auto;
+  margin-right: 12px;
+  filter: brightness(0) invert(1);
+  height: auto;
+  width: 24px;
+}
+
+.entry-delete:hover {
+  cursor: pointer;
+}
+
+.entry-notes {
+  padding: 12px;
+  border: solid  2px white;
+  border-radius: 10px;
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+.notes-icon {
+  height: auto;
+  width: 24px;
+  margin-right: 24px;
+}
+
+.notes-icon:hover {
+  cursor: pointer;
+}
+
+.icon-pink {
+  filter: hue-rotate(330deg);
+}
+
+.icon-white {
+  filter: brightness(0) invert(1);
+}
