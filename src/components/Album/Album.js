@@ -44,7 +44,6 @@ function Album() {
   }
 
   const { title, artist, releaseDate, genre, styles, tracklist, coverImg } = albumDetails;
-  
   return (
     <div>
       
@@ -67,7 +66,7 @@ function Album() {
       <div className="buttons-container">
         <button className="add-to-collections-button" onClick={handleAddToCollections}>
           Add to Collections
-        </button> {!modal && <button onClick={showModal}>Add a journal entry </button>}
+        </button> {!modal && <button onClick={showModal}>Add to Journal Entry </button>}
         {modal && <Form {...albumDetails} showModal={showModal} />}
       </div>
     </div>

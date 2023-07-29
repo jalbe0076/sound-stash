@@ -32,7 +32,6 @@ describe('AlbumDetails', () => {
       {}
 
     );
-  
 
     cy.get('.search--form').should('be.visible')
       .get('.search--input').type('outkast')
@@ -51,6 +50,10 @@ describe('AlbumDetails', () => {
       "coverImg": "https://example.com/clicked_album_cover.jpg"
     };
 
+    cy.get('.add-to-collections-button').scrollIntoView().should('be.visible');
+    cy.get('.buttons-container > :nth-child(2)').should('be.visible');
+  
+
     expect(clickedAlbum.title).to.equal('Clicked Album Title');
     expect(clickedAlbum.artist).to.equal('Clicked Artist');
     expect(clickedAlbum.releaseDate).to.equal('2023-07-01');
@@ -59,6 +62,7 @@ describe('AlbumDetails', () => {
     expect(clickedAlbum.tracklist).to.deep.equal(['Track 1', 'Track 2', 'Track 3']);
     expect(clickedAlbum.coverImg).to.equal('https://example.com/clicked_album_cover.jpg');
 
+    // cy.contains('.buttons-container button', 'Add to journal entry').should('be.visible');
     // cy.get('h2').should('contain', 'Clicked Album Title');
     // cy.get('p').contains('Artist: Clicked Artist');
     // cy.get('p').contains('Release Date: 2023-07-01');
