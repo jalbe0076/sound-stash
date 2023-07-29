@@ -8,6 +8,7 @@
   top: 0;
   z-index: 1;
   background-color: #191725;
+  padding: 1em;
 }
 
 .title {
@@ -19,6 +20,7 @@
 
 .navigation-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: .7rem;
   font-weight: 500;
   font-family: 'quantico'
@@ -53,19 +55,3 @@
     margin-top: .7em;
   }
 }
-
-@media (max-width: 450px) {
-  
-}
-
-@media (max-width: 380px) {
-  /* .banner-container {
-    margin-bottom: 1em;
-  } */
-
-  /* .navigation-tabs {
-    flex-direction: column;
-    justify-self: center;
-  } */
-} 
-

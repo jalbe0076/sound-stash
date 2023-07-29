@@ -1,20 +1,25 @@
 .recommendedContainer {
     height: 10%;
     width: 100%;
-    background-color: #865dff;
+    background-color: #191725;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-color: black;
-    border: solid;
     padding: 10px;
     color: white;
+    font-family: 'quantico'
+}
+
+.recommendedContainer h2 {
+    margin: 1em;
 }
 
 .album {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 10%;
+    font-size: xx-large;
 }
 
 .album img {
