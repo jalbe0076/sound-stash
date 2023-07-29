@@ -53,7 +53,7 @@ const Login = ({ onLogin }) => {
         <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt="sound-stash logo" className="logo" />
       </div>
       <div className="navbar">
-        <form onSubmit={handleSubmit}>
+        <form className='login-form' onSubmit={handleSubmit}>
           <input
             name='username'
             autoComplete='username'
