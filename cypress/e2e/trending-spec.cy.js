@@ -45,4 +45,41 @@ describe('should be able to view collections', () => {
     .get('.user-profile').contains('button', 'LOGIN')
   })
 
+  it('should be able to direct the user to login', () => {
+    cy.get('[value="no-user"]').click()
+    .url().should('include', '/')
+    .get('.user-profile').contains('button', 'LOGIN').click()
+    .url().should('include', '/login')
+    .get('.logo').should('have.attr', 'src', '/images/logo.png')
+    .get('.username-field').should('have.attr', 'placeholder', 'Username')
+    .get('.password-field').should('have.attr', 'placeholder', 'Password')
+    .get('form > .standard-btn').contains('button', 'LOGIN')
+  })
+
+  it('Should be able to logout a logged in user', () => {
+    cy.get('[value="user1"]').click()
+      .get('form > .standard-btn').click()
+      .url().should('include', '/')
+      .get('.logout-btn').contains('button', 'LOGOUT').click()
+      .url().should('include', '/')
+      .get('.banner-container').contains('h1', 'SOUND STASH')
+      .get('[href="/collections"]').should('not.exist')
+      .get('[href="/journal"]').should('not.exist')
+      .get('[href="/discover"]').should('not.exist')
+      .get('.user-profile').contains('button', 'LOGIN')
+  })
+
+  it('Should tell the user if there is an error with the server 404', () => {
+    cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot', {
+      statusCode: 404
+    })
+      .get('h2').contains('HTTP Error: 404 -- Please try again later')
+  })
+
+  it('Should tell the user if there is an error with the server 500', () => {
+    cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot', {
+      statusCode: 500
+    })
+      .get('h2').contains('HTTP Error: 500 -- Please try again later')
+  })
 })
