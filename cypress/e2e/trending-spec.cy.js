@@ -2,7 +2,7 @@ describe('should be able to view collections', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot',
       {
-       statusCode:201,
+       statusCode:200,
        fixture: 'trending.json'
       }
     )
@@ -11,7 +11,8 @@ describe('should be able to view collections', () => {
   })
 
   it('should have trending albums and tabs when a user is logged in', () => {
-    cy.get
+    cy.get('[value="user2"]').click()
+      .get('form > .standard-btn').click()
       .get('.banner-container').contains('h1', 'SOUND STASH')
       .get('.banner-container').contains('a', 'DISCOVER')
       .get('.recommendedContainer').find('.link').should('have.length', 5).first().find('img').should('have.attr', 'src')

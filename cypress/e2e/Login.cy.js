@@ -1,7 +1,8 @@
 describe('Login Page', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot', {
-      statusCode: 200
+      statusCode: 200,
+      fixture: 'trending.json'
     })
     cy.visit('http://localhost:3000/login'); 
   });
@@ -65,9 +66,23 @@ describe('Login Page', () => {
   })
 
   it('should show an error message with invalid user credentials', () => {
-    cy.get('.username-field').type('wrongUser');
-    cy.get('.password-field').type('mySecretPassword');
-    cy.get('form > .standard-btn').click();
-    cy.get('.error-message').contains('p', 'Invalid username or password')
+    cy.get('.username-field').type('wrongUser')
+      .get('.password-field').type('mySecretPassword')
+      .get('form > .standard-btn').click()
+      .get('.error-message').contains('p', 'Invalid username or password')
   });
+
+  it('Should tell the user if there is an error with the server 404', () => {
+    cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot', {
+      statusCode: 404
+    })
+      .get('h2').contains('HTTP Error: 404 -- Please try again later')
+  })
+
+  it('Should tell the user if there is an error with the server 500', () => {
+    cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot', {
+      statusCode: 500
+    })
+      .get('h2').contains('HTTP Error: 500 -- Please try again later')
+  })
 });
