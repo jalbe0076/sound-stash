@@ -8,6 +8,7 @@ const Nav = () => {
   const navigate = useNavigate()
 
   const logoutUser = () => {
+    navigate('/')
     setCurrentUser(false);
   }
 

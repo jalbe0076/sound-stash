@@ -24,7 +24,6 @@ function Album() {
         setIsLoading(false)
       })
   }, [])
-
   
   if(!isLoading) {
     return (
