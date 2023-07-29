@@ -13,7 +13,7 @@
     margin-top: 1rem;
   }
   
-  .add-to-journal-button,
+  button,
   .add-to-collections-button {
     padding: 0.5rem 1rem;
     background-color: #865dff;
@@ -23,7 +23,7 @@
     cursor: pointer;
   }
   
-  .add-to-journal-button:hover,
+  button,
   .add-to-collections-button:hover {
     background-color: #6d45e2;
   }

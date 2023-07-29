@@ -47,8 +47,7 @@ function Album() {
   
   return (
     <div>
-      {!modal && <button onClick={showModal}>Add a journal entry</button>}
-      {modal && <Form {...albumDetails} showModal={showModal} />}
+      
       <img src={coverImg} alt={`Cover art for ${title}`} />
       <h2>{title}</h2>
       <p>Artist: {artist}</p>
@@ -66,12 +65,10 @@ function Album() {
         </>
       )}
       <div className="buttons-container">
-        <button className="add-to-journal-button" onClick={handleAddToJournal}>
-          Add to Journal
-        </button>
         <button className="add-to-collections-button" onClick={handleAddToCollections}>
           Add to Collections
-        </button>
+        </button> {!modal && <button onClick={showModal}>Add a journal entry </button>}
+        {modal && <Form {...albumDetails} showModal={showModal} />}
       </div>
     </div>
   );
