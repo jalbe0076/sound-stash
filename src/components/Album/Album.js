@@ -10,7 +10,7 @@ function Album({handleApiError}) {
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
-  const {setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
+  const {currentUser, setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
 
   useEffect(() => {
     setLoading(true);
@@ -36,10 +36,20 @@ function Album({handleApiError}) {
       thumb: coverImg
     }
 
-    setCurrentUser(prev => ({
+    if (!currentUser.collections.length) {
+      setCurrentUser(prev => ({
       ...prev,
       collections: [...prev.collections, newAlbum]
-    }))
+      }))
+    }
+
+    if (currentUser.collections.length && currentUser.collections.every(item => item.masterId !== id)) {
+      setCurrentUser(prev => ({
+      ...prev,
+      collections: [...prev.collections, newAlbum]
+      }))
+    }
+  
   }
 
   const showModal = () => {
@@ -62,7 +72,7 @@ function Album({handleApiError}) {
         {isUserLoggedIn && 
           <div className="buttons-container">
             <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
-            {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
+            {!modal && <button className="journal-button" onClick={showModal}>Add A Journal Entry</button>}
           </div>}
         <img classname="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
         <h2>{title}</h2>
