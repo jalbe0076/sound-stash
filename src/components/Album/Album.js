@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
 import Form from '../Form/Form';
-import './Album.css'; 
+import './Album.css';
 
 function Album() {
   const { id } = useParams();
@@ -44,9 +44,15 @@ function Album() {
   }
 
   const { title, artist, releaseDate, genre, styles, tracklist, coverImg } = albumDetails;
+
   return (
     <div>
-      
+      <div className="buttons-container">
+        <button className="add-to-collections-button" onClick={handleAddToCollections}>
+          Add to Collections
+        </button>
+        {!modal && <button onClick={showModal}>Add to Journal Entry</button>}
+      </div>
       <img src={coverImg} alt={`Cover art for ${title}`} />
       <h2>{title}</h2>
       <p>Artist: {artist}</p>
@@ -56,19 +62,14 @@ function Album() {
       {tracklist && tracklist.length > 0 && (
         <>
           <h3>Tracklist:</h3>
-          <ul>
+          <ol>
             {tracklist.map((track, index) => (
               <li key={index}>{track}</li>
             ))}
-          </ul>
+          </ol>
         </>
       )}
-      <div className="buttons-container">
-        <button className="add-to-collections-button" onClick={handleAddToCollections}>
-          Add to Collections
-        </button> {!modal && <button onClick={showModal}>Add to Journal Entry </button>}
-        {modal && <Form {...albumDetails} showModal={showModal} />}
-      </div>
+      {modal && <Form id={id} {...albumDetails} showModal={showModal} />}
     </div>
   );
 }
