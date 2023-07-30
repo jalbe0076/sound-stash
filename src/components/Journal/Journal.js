@@ -3,6 +3,7 @@ import Entry from '../Entry/Entry'
 import UserContext from '../UserContext/UserContext';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Journal = () => {
   const {currentUser, isUserLoggedIn} = useContext(UserContext)
