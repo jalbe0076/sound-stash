@@ -10,7 +10,7 @@ const Discover = ({ trendingData, handleApiError }) => {
   const { currentUser, isUserLoggedIn } = useContext(UserContext)
   const [ recommendedData, setRecommendedData ] = useState()
   const navigate = useNavigate();
-console.log(trendingData)
+
   useEffect(() => {
     !isUserLoggedIn && navigate('/')
   }, [])
