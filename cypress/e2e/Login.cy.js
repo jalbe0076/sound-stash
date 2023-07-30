@@ -79,7 +79,7 @@ describe('Login Page', () => {
     })
   })
 
-  it.only('should show an error message with invalid user credentials', () => {
+  it('should show an error message with invalid user credentials', () => {
     cy.wait('@trending').then(() => {      
       cy.get('.username-field').type('wrongUser')
         .get('.password-field').type('mySecretPassword')
