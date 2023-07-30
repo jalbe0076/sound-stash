@@ -23,20 +23,4 @@ const Journal = () => {
 
 };
 
-Journal.propTypes = {
-  currentUser: PropTypes.shape({
-    journal: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired,
-      artists: PropTypes.string.isRequired,
-      date: PropTypes.string.isRequired,
-      notes: PropTypes.string,
-      image: PropTypes.string.isRequired,
-      rating: PropTypes.number.isRequired,
-      masterId: PropTypes.number.isRequired,
-    })).isRequired,
-  })
-};
-
-
 export default Journal;

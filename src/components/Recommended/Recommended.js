@@ -1,5 +1,6 @@
 import React from 'react'
 import RecommendedAlbum from '../RecommendedAlbum/RecommendedAlbum'
+import PropTypes from 'prop-types';
 import './Recommended.css'
 
 const Recommended = ({ trendingData }) => {
@@ -15,5 +16,17 @@ const Recommended = ({ trendingData }) => {
         )
     }
 }
+
+Recommended.propTypes = {
+    trendingData: PropTypes.shape({
+      results: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.number.isRequired,
+          title: PropTypes.string.isRequired,
+          cover_image: PropTypes.string.isRequired,
+        })
+      ),
+    }),
+  };
 
 export default Recommended
