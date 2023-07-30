@@ -32,7 +32,7 @@ describe('should be able to view collections', () => {
     })
   })
 
-  it.only('should display a message if there are no albums in the collection', () => {
+  it('should display a message if there are no albums in the collection', () => {
     cy.wait('@trending').then(() => {
       cy.get('[value="user1"]').click()
         .get('form > .standard-btn').click()
