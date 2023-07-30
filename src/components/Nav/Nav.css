@@ -35,9 +35,24 @@
   justify-self: flex-end;
 }
 
+.user-icon {
+  width: 40px;
+  margin-right: .5rem;
+  filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
+}
+
 .active {
   color: rgb(227,132,255);
   text-decoration: underline;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: rgb(227,132,255);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 @media (max-width: 720px) {
@@ -55,3 +70,29 @@
     margin-top: .7em;
   }
 }
+
+@media (max-width: 450px) {
+  .banner-container {
+    margin: 0 1em 1em 1em;
+  }
+}
+
+@media (max-width: 380px) {
+  .banner-container {
+    margin-bottom: 1em;
+  }
+
+  .navigation-tabs {
+    flex-direction: column;
+    justify-self: center;
+  }
+  .user-icon {
+    width: 25px;
+    margin-right: .2rem;
+  }
+
+  .title {
+    font-size: .9rem;
+  }
+} 
+

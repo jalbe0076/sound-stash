@@ -5,12 +5,12 @@ import Form from '../Form/Form';
 import './Album.css';
 import UserContext from '../UserContext/UserContext';
 
-function Album() {
+function Album({handleApiError}) {
   const { id } = useParams();
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
-  const {currentUser, setCurrentUser} = useContext(UserContext) 
+  const {setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
 
   useEffect(() => {
     setLoading(true);
@@ -20,12 +20,11 @@ function Album() {
         setLoading(false);
       })
       .catch(error => {
-        console.error('Error fetching album details:', error);
+        handleApiError(error);
       })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, [id, currentUser]);
+      
+      return () => setLoading(false);
+  }, [id]);
 
   const handleAddToCollections = () => {
     const { title, artist, coverImg } = albumDetails
@@ -57,19 +56,15 @@ function Album() {
 
   const { title, artist, releaseDate, genre, styles, tracklist, coverImg } = albumDetails;
 
+  if(!isLoading) {
     return (
       <div>
-        <div className="buttons-container">
-          <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>
-            Add to Collections
-          </button>
-          {!modal && (
-            <button className="journal-button" onClick={showModal}>
-              Add to Journal Entry
-            </button>
-          )}
-        </div>
-        <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
+        {isUserLoggedIn && 
+          <div className="buttons-container">
+            <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
+            {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
+          </div>}
+        <img classname="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
         <h2>{title}</h2>
         <p>Artist: {artist}</p>
         <p>Release Date: {releaseDate}</p>
@@ -88,6 +83,7 @@ function Album() {
         {modal && <Form id={id} {...albumDetails} showModal={showModal} />}
       </div>
     );
-  }  
+  }
+}
 
 export default Album;

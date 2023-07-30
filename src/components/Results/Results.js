@@ -4,7 +4,7 @@ import Card from '../Card/Card'
 import './Results.css'
 import { searchAlbums } from '../../api'
 
-function Results() {
+function Results({handleApiError}) {
   const {query, page} = useParams()
   const [results, setResults] = useState([])
   const [pagination, setPagination] = useState({})
@@ -20,7 +20,7 @@ function Results() {
           setPagination(data.pagination)
           setLoading(false)
         })
-        .catch(error => alert(error.message))
+        .catch(error => handleApiError(error))
     } else {
 
     }

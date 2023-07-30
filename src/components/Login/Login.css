@@ -48,16 +48,17 @@
   height: auto;
 }
 
-.username-field,
-.password-field {
-  padding: 8px;
+.login-form {
+  display: flex;
+  gap: .5em;
+  margin-top: .5em;
 }
 
 .login-button {
   background-color: #865DFF;
   color: white;
   border: none;
-  padding: 8px 20px;
+  padding: 6px 20px;
   cursor: pointer;
 }
 
@@ -68,24 +69,45 @@
 .username-field,
 .password-field {
   padding: 6px;
-
+  max-width: 145px;
 }
 
 .navbar {
   display: flex;
   flex-direction: column;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; 
 }
 
-@media (max-width: 437px) {
-  form {
-    display: grid;
+.demo-user-container {
+  display: flex;
+  gap: .5em;
+  min-width: 144px;
+  margin-top: .5em;
+}
+
+.demo-user-container button {
+  min-width: 145px;
+}
+
+@media (max-width: 475px) {
+  .login-form, .demo-user-container {
+    display: grid; 
   }
 }
 
 @media (max-width: 768px) {
   .logo-container {
     margin-right: 0px;
+  }
+}
+
+@media (max-height: 500px) {
+  .logo-container {
+    max-height: 150px;
+  }
+  .logo {
+    top: 30%;
+    position: relative;
   }
 }

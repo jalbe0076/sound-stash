@@ -7,12 +7,7 @@ function handleError(res) {
 
 const getRecommendedAlbums = (albumID) => {
   return fetch(`https://api.discogs.com/masters/${albumID}?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ`)
-    .then(res => {
-      if (res.ok) {
-        return res.json();
-      }
-      handleError(res);
-    })
+    .then(res => handleError(res))
     .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&genre=${data.genres[0]}`))
     .then(res => {
       if (res.ok) {
@@ -63,12 +58,7 @@ function searchAlbums(query, page) {
 
 export function getAlbumDetails(albumID) {
   return fetch(`https://api.discogs.com/masters/${albumID}?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Error fetching album details.');
-      }
-      return response.json();
-    })
+    .then(response => handleError(response))
     .then(data => {
       const artistNames = Array.isArray(data.artists)
         ? data.artists.map(artist => artist.name).join('/')
@@ -86,18 +76,6 @@ export function getAlbumDetails(albumID) {
         coverImg: data.images[0] ? data.images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"
       };
     })
-    .catch(error => {
-      console.error('Error fetching album details:', error);
-      return {
-        title: 'Unknown Title',
-        artist: 'Unknown Artist',
-        releaseDate: 'Unknown Release Date',
-        genre: 'Unknown Genre',
-        styles: [],
-        tracklist: [],
-        coverImg: process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"
-      };
-    });
 }
 
 
