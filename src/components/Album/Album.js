@@ -4,6 +4,7 @@ import { getAlbumDetails } from '../../api';
 import Form from '../Form/Form';
 import './Album.css';
 import UserContext from '../UserContext/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 function Album({handleApiError}) {
   const { id } = useParams();
@@ -11,6 +12,7 @@ function Album({handleApiError}) {
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
   const {currentUser, setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
+  const navigate = useNavigate()
 
   useEffect(() => {
     setLoading(true);
@@ -41,6 +43,7 @@ function Album({handleApiError}) {
       ...prev,
       collections: [...prev.collections, newAlbum]
       }))
+      navigate('/collections')
     }
 
     if (currentUser.collections.length && currentUser.collections.every(item => item.masterId !== id)) {
@@ -48,6 +51,7 @@ function Album({handleApiError}) {
       ...prev,
       collections: [...prev.collections, newAlbum]
       }))
+      navigate('/collections')
     }
   
   }
