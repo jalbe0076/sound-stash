@@ -43,7 +43,7 @@ function Album({handleApiError}) {
       }))
     }
 
-    if (currentUser.collections.length & currentUser.collections.every(item => item.masterId !== id)) {
+    if (currentUser.collections.length && currentUser.collections.every(item => item.masterId !== id)) {
       setCurrentUser(prev => ({
       ...prev,
       collections: [...prev.collections, newAlbum]
