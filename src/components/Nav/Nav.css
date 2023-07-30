@@ -1,21 +1,29 @@
 .banner-container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2em;
   color: rgb(134,93,255);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #191725;
+  padding: 1em;
 }
 
 .title {
   display: inline-block;
   text-decoration: none;
   color: rgb(134,93,255);
+  font-family: 'frijole';
 }
 
 .navigation-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: .7rem;
   font-weight: 500;
+  font-family: 'quantico'
 }
 
 .nav {

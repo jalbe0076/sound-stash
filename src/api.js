@@ -12,11 +12,12 @@ const getTrendingAlbums = () => {
   
 const getAlbumsByMasterId = (albumID) => {
   return fetch(`https://api.discogs.com/masters/${albumID}?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ`)
-      .then(res => {
-        handleError(res)})
-      // The two lines below are the additional endpoints for 'discovering albums', whoever has this ticket put these .then when you call this funtion and remove this comment
-      // .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&genre=${data.genres[0]}`))
-      // .then(res => handleError(res))
+      .then(res => handleError(res))
+}
+
+const getAlbumsByGenre = (genre) => {
+  return fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=50&genre=${genre}`)
+      .then(res => handleError(res))
 }
   
 function searchAlbums(query, page) {
@@ -42,4 +43,4 @@ function searchAlbums(query, page) {
     }))
 }
   
-export { getTrendingAlbums, getAlbumsByMasterId, searchAlbums }
+export { getTrendingAlbums, getAlbumsByMasterId, getAlbumsByGenre, searchAlbums }
