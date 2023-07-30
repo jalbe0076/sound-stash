@@ -1,4 +1,4 @@
-describe('should be able to view collections', () => {
+describe('should be able to see a list of trending vinyl albums', () => {
   beforeEach(() => {
     cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot', {
        statusCode:200,

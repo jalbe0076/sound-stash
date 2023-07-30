@@ -26,7 +26,9 @@ describe('Login Page', () => {
       cy.fixture('mockUser1').as('user1')
         .get('@user1').then((user) => {
           cy.get('.username-field').type(user.username)
+          .get('.username-field').should('have.attr', 'value', 'user1')
           .get('.password-field').type(user.password)
+          .get('.password-field').should('have.attr', 'value', 'sound-stash')
           .get('form > .standard-btn').click()
           .url().should('include', '/')
           .get('.banner-container').contains('h1', 'SOUND STASH')
@@ -49,7 +51,9 @@ describe('Login Page', () => {
     cy.fixture('mockUser2').as('user2')
       .get('@user2').then((user) => {
         cy.get('.username-field').type(user.username)
-        .get('.password-field').type(user.password)
+        .get('.username-field').should('have.attr', 'value', 'user2')
+          .get('.password-field').type(user.password)
+          .get('.password-field').should('have.attr', 'value', 'sound-stash')
         .get('form > .standard-btn').click()
         .url().should('include', '/')
         .get('.banner-container').contains('h1', 'SOUND STASH')
