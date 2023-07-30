@@ -8,7 +8,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate(); 
-  const {currentUser} = useContext(UserContext);
+  const {currentUser, isUserLoggedIn} = useContext(UserContext);
   const [loadingUser, setLoadingUser] = useState(false);
 
   const handleSubmit = (e) => {
@@ -19,10 +19,10 @@ const Login = ({ onLogin }) => {
       setUsername('');
       setPassword('');
       setLoginError('');
-      setLoadingUser(true)
+      setLoadingUser(true);
     })()
 
-    if(!currentUser) {
+    if(!isUserLoggedIn) {
       setLoginError('Invalid username or password');
     }
   };
@@ -39,7 +39,7 @@ const Login = ({ onLogin }) => {
   }
 
   useEffect(() => {
-    if(currentUser) {
+    if(isUserLoggedIn) {
       navigate('/');
     }
 
@@ -53,7 +53,7 @@ const Login = ({ onLogin }) => {
         <img src={process.env.PUBLIC_URL + "/images/logo.png"} alt="sound-stash logo" className="logo" />
       </div>
       <div className="navbar">
-        <form onSubmit={handleSubmit}>
+        <form className='login-form' onSubmit={handleSubmit}>
           <input
             name='username'
             autoComplete='username'
@@ -71,16 +71,14 @@ const Login = ({ onLogin }) => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button className="login-button" type="submit">
-            Login
-          </button>
-          {loginError && <p className="error-message">{loginError}</p>}
+          <button className="standard-btn" type="submit">LOGIN</button>
         </form>
         <div className='demo-user-container'>
           <button className="standard-btn" value='no-user' onClick={e => handleDemoUsers(e)}>DEMO NO USER</button>
           <button className="standard-btn" value='user1' onClick={e => handleDemoUsers(e)}>DEMO USER 1</button>
           <button className="standard-btn" value='user2' onClick={e => handleDemoUsers(e)}>DEMO USER 2</button>
         </div>
+        {loginError && <p className="error-message">{loginError}</p>}
       </div>
     </div>
     </header>

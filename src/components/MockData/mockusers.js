@@ -1,9 +1,9 @@
 const mockusers = [
-  { userId: 1, username: 'user1', password: 'password', journal: [], collections: [] },
+  { userId: 1, username: 'user1', password: 'sound-stash', journal: [], collections: [] },
   { 
     userId: 2, 
     username: 'user2', 
-    password: 'password2', 
+    password: 'sound-stash', 
     journal: [
       {
         "masterId": 49903,

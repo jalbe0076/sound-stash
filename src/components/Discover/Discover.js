@@ -3,15 +3,21 @@ import React, { useState, useEffect, useContext } from "react"
 import UserContext from '../UserContext/UserContext';
 import { getAlbumsByMasterId, getAlbumsByGenre } from '../../api'
 import RecommendedAlbum from '../RecommendedAlbum/RecommendedAlbum';
+import { useNavigate } from 'react-router-dom';
 
 
-const Discover = ({ trendingData }) => {
-  const { currentUser } = useContext(UserContext)
+const Discover = ({ trendingData, handleApiError }) => {
+  const { currentUser, isUserLoggedIn } = useContext(UserContext)
   const [ recommendedData, setRecommendedData ] = useState()
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    !isUserLoggedIn && navigate('/')
+  }, [])
 
   useEffect(() => {
     if (!currentUser || !currentUser.collections.length) {
-      setRecommendedData(trendingData)
+      setRecommendedData(trendingData.results)
     } else {
       const randomAlbum = currentUser.collections[Math.floor(Math.random() * currentUser.collections.length)]
       getAlbumsByMasterId(randomAlbum.masterId)
@@ -28,6 +34,7 @@ const Discover = ({ trendingData }) => {
 
         setRecommendedData(recommendedAlbumsData)
       })
+      .catch(error => handleApiError(error))
     }
   }, [])
   

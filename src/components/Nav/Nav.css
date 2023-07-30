@@ -1,21 +1,29 @@
 .banner-container {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2em;
   color: rgb(134,93,255);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: #191725;
+  padding: 1em;
 }
 
 .title {
   display: inline-block;
   text-decoration: none;
   color: rgb(134,93,255);
+  font-family: 'frijole';
 }
 
 .navigation-tabs {
   display: flex;
+  flex-wrap: wrap;
   gap: .7rem;
   font-weight: 500;
+  font-family: 'quantico'
 }
 
 .nav {
@@ -27,9 +35,24 @@
   justify-self: flex-end;
 }
 
+.user-icon {
+  width: 40px;
+  margin-right: .5rem;
+  filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
+}
+
 .active {
   color: rgb(227,132,255);
   text-decoration: underline;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: rgb(227,132,255);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 
 @media (max-width: 720px) {
@@ -62,6 +85,14 @@
   .navigation-tabs {
     flex-direction: column;
     justify-self: center;
+  }
+  .user-icon {
+    width: 25px;
+    margin-right: .2rem;
+  }
+
+  .title {
+    font-size: .9rem;
   }
 } 
 

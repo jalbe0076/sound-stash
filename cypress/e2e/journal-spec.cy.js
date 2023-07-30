@@ -13,6 +13,16 @@ describe('template spec', () => {
     
     cy.intercept('GET', 'https://api.discogs.com/masters/25976?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ',
     {fixture: 'aquemini.json'}).as('aquemini')
+
+    cy.visit('http://localhost:3000/login'); 
+    cy.fixture('mockUser2').as('user2')
+      .get('@user2').then((user) => {
+        cy.get('.username-field').type(user.username)
+        .get('.username-field').should('have.attr', 'value', 'user2')
+        .get('.password-field').type(user.password)
+        .get('.password-field').should('have.attr', 'value', 'sound-stash')
+        .get('form > .standard-btn').click()
+      })
   })
   
   it('As a logged in user I should see the appropriate journal entries with date, title, artist, and rating', () => {
