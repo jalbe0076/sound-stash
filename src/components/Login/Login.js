@@ -1,7 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import './Login.css';
 import { useNavigate } from 'react-router-dom'; 
 import UserContext from '../UserContext/UserContext';
+
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -83,6 +85,10 @@ const Login = ({ onLogin }) => {
     </div>
     </header>
   );
+};
+
+Login.propTypes = {
+  onLogin: PropTypes.func.isRequired,
 };
 
 export default Login;

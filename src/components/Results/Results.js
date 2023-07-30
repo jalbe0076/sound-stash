@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import { useParams, Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 import Card from '../Card/Card'
 import './Results.css'
 import { searchAlbums } from '../../api'
@@ -59,6 +60,10 @@ function Results({handleApiError}) {
     ) : 
     (<div className ='results--loading'><p> loading... </p></div>)
   )
+}
+
+Results.propTypes = {
+  handleApiError: PropTypes.func.isRequired,
 }
 
 export default Results
