@@ -2,6 +2,15 @@ describe('AlbumDetails', () => {
   beforeEach(() => {
     cy.intercept(
       'GET',
+      'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot',
+      {
+        statusCode: 200,
+        fixture: 'trending.json'
+      }
+    ).as('loginSearch');
+    
+    cy.intercept(
+      'GET',
       'https://api.discogs.com/database/search?q=outkast&type=master&key=mbubAaAXseWPUpaJLkKU&secret=TrELhUezCNdFoIfmoAdHZmfJIXljOSfW&format=vinyl&page=1',
       { fixture: 'results.json' }
     ).as('searchResults');
@@ -20,19 +29,19 @@ describe('AlbumDetails', () => {
   });
 
   it('As a user, I should be able to click on a specific album and see its details', () => {
-    cy.get('@user').then((user) => {
-      cy.get('.username-field').type(`${user.username}`);
-      cy.get('.password-field').type(`${user.password}`);
-      cy.get('.login-form > .standard-btn').click();
-      cy.get('.search--form').should('be.visible');
-      cy.get('.search--input').type('outkast');
-      cy.get('.search--button').click();
-      cy.get('.results').should('be.visible');
-      cy.get('.results--title').first().click();
-
-
-      cy.get('.add-to-collections-button').should('be.visible');
-      cy.get('.buttons-container > :nth-child(2)').should('be.visible');
+      cy.wait('@loginSearch').then(() => {
+          cy.get('@user').then((user) => {
+          cy.get('.username-field').type(`${user.username}`);
+          cy.get('.password-field').type(`${user.password}`);
+          cy.get('.login-form > .standard-btn').click();
+          cy.get('.search--form').should('be.visible');
+          cy.get('.search--input').type('outkast');
+          cy.get('.search--button').click();
+          cy.get('.results').should('be.visible');
+          cy.get('.results--title').first().click();
+          cy.get('.add-to-collections-button').should('be.visible');
+          cy.get('.buttons-container > :nth-child(2)').should('be.visible');
+      })
     });
   });
   
