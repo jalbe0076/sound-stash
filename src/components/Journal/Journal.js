@@ -3,6 +3,7 @@ import Entry from '../Entry/Entry'
 import UserContext from '../UserContext/UserContext';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 const Journal = () => {
   const {currentUser, isUserLoggedIn} = useContext(UserContext)
@@ -21,5 +22,21 @@ const Journal = () => {
   )
 
 };
+
+Journal.propTypes = {
+  currentUser: PropTypes.shape({
+    journal: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      artists: PropTypes.string.isRequired,
+      date: PropTypes.string.isRequired,
+      notes: PropTypes.string,
+      image: PropTypes.string.isRequired,
+      rating: PropTypes.number.isRequired,
+      masterId: PropTypes.number.isRequired,
+    })).isRequired,
+  })
+};
+
 
 export default Journal;

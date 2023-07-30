@@ -29,9 +29,9 @@ Collections.propTypes = {
   currentUser: PropTypes.shape({
     collections: PropTypes.arrayOf(PropTypes.shape({
       masterId: PropTypes.number.isRequired
-    })).isRequired,
-  }).isRequired,
-  isUserLoggedIn: PropTypes.bool.isRequired,
+    })),
+  }),
+  isUserLoggedIn: PropTypes.bool
 };
 
 export default Collections;

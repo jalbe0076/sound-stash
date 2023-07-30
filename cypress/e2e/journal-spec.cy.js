@@ -26,8 +26,7 @@ describe('Journal userflow test', () => {
         .get('form > .standard-btn').click()
       })
     
-    cy.wait('@getTrending')
-      .get('[href="/journal"]').click()
+    cy.get('[href="/journal"]').click()
       .get('.journal').find('.entry').should('have.length', '4')
       .get('.entry-date').first().contains('July 27, 2023')
       .get('.entry-title').first().contains('Ace Frehley')
@@ -52,7 +51,6 @@ describe('Journal userflow test', () => {
 
     cy.get('[href="/journal"]').click()
       .url().should('include', '/journal')
-      .wait('@getTrending')
       .get('.notes-icon').first().click()
       .get('.entry-notes').should('be.visible').contains('Coding session music lol')
       .get('.notes-icon').first().click()

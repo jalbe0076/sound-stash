@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import PropTypes from 'prop-types';
 import { Rating } from 'react-simple-star-rating'
 import'./Entry.css'
 import UserContext from '../UserContext/UserContext'
@@ -39,5 +40,16 @@ function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
     </>
     )
 }
+
+Entry.propTypes = {
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  artists: PropTypes.string.isRequired,
+  date: PropTypes.string.isRequired,
+  notes: PropTypes.string,
+  image: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  masterId: PropTypes.number.isRequired,
+};
 
 export default Entry

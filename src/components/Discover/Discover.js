@@ -58,7 +58,7 @@ Discover.propTypes = {
       title: PropTypes.string.isRequired,
       cover_image: PropTypes.string.isRequired
         })).isRequired,
-  }).isRequired,
+  }),
   handleApiError: PropTypes.func.isRequired,
 };
 

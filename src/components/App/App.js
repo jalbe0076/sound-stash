@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
 import './App.css';
 import Recommended from '../Recommended/Recommended'
 import { getTrendingAlbums } from '../../api'
@@ -69,14 +68,5 @@ function App() {
     </UserContext.Provider>
   );
 };
-
-App.propTypes = {
-  handleLogin: PropTypes.func.isRequired,
-  trendingData: PropTypes.object,
-  handleApiError: PropTypes.func.isRequired,
-  handleApiError: PropTypes.func.isRequired,
-  handleApiError: PropTypes.func.isRequired
-}
-
 
 export default App;

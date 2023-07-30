@@ -1,4 +1,5 @@
 import React, {useContext, useState} from 'react'
+import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import Flatpickr from 'react-flatpickr'
 import { Rating } from 'react-simple-star-rating'
@@ -83,5 +84,13 @@ function Form ({title, artist, coverImg, id, showModal}) {
     </form>
   )
 }
+
+Form.propTypes = {
+  title: PropTypes.string.isRequired,
+  artist: PropTypes.string.isRequired,
+  coverImg: PropTypes.string.isRequired,
+  id: PropTypes.number.isRequired,
+  showModal: PropTypes.func.isRequired,
+};
 
 export default Form
