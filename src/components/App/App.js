@@ -36,11 +36,15 @@ function App() {
     getTrendingAlbums()
       .then(data => setTrendingData(data))
       .catch(err => {
-        setApiError(err)
+        handleApiError(err)
     })
 
-    return () => setApiError(null)
+    return () => handleApiError(null)
   }, [])
+
+  const handleApiError = (error) => {
+    setApiError(error)
+  }
   
   return (
     <UserContext.Provider value={{currentUser, setCurrentUser, isUserLoggedIn, setIsUserLoggedIn}}>
@@ -54,9 +58,9 @@ function App() {
             <Route path='/' element={<Recommended trendingData={trendingData} />}/>
             <Route path="/journal" element={<Journal/>} />
             <Route path="/collections" element={<Collections/>} />
-            <Route path="/discover" element={<Discover trendingData={trendingData} />} />
-            <Route path='/search/:query/:page' element={<Results/>} />
-            <Route path='/albums/:id' element={<Album />}/>
+            <Route path="/discover" element={<Discover trendingData={trendingData} handleApiError={handleApiError} />} />
+            <Route path='/search/:query/:page' element={<Results handleApiError={handleApiError} />} />
+            <Route path='/albums/:id' element={<Album handleApiError={handleApiError} />}/>
             <Route path="*" element={<EmptyState />} />
           </Routes>
         </main>

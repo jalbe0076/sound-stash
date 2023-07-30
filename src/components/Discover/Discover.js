@@ -6,7 +6,7 @@ import RecommendedAlbum from '../RecommendedAlbum/RecommendedAlbum';
 import { useNavigate } from 'react-router-dom';
 
 
-const Discover = ({ trendingData }) => {
+const Discover = ({ trendingData, handleApiError }) => {
   const { currentUser, isUserLoggedIn } = useContext(UserContext)
   const [ recommendedData, setRecommendedData ] = useState()
   const navigate = useNavigate();
@@ -34,6 +34,7 @@ console.log(trendingData)
 
         setRecommendedData(recommendedAlbumsData)
       })
+      .catch(error => handleApiError(error))
     }
   }, [])
   

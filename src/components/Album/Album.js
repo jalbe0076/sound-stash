@@ -5,12 +5,12 @@ import Form from '../Form/Form';
 import './Album.css';
 import UserContext from '../UserContext/UserContext';
 
-function Album() {
+function Album({handleApiError}) {
   const { id } = useParams();
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
-  const {currentUser, setCurrentUser} = useContext(UserContext) 
+  const {setCurrentUser} = useContext(UserContext) 
 
   useEffect(() => {
     setLoading(true);
@@ -20,7 +20,7 @@ function Album() {
         setLoading(false);
       })
       .catch(error => {
-        console.error('Error fetching album details:', error);
+        handleApiError(error);
       })
       .finally(() => {
         setLoading(false);
