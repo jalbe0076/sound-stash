@@ -1,5 +1,6 @@
 import './Discover.css';
 import React, { useState, useEffect, useContext } from "react"
+import PropTypes from 'prop-types'; 
 import UserContext from '../UserContext/UserContext';
 import { getAlbumsByMasterId, getAlbumsByGenre } from '../../api'
 import RecommendedAlbum from '../RecommendedAlbum/RecommendedAlbum';
@@ -48,6 +49,17 @@ const Discover = ({ trendingData, handleApiError }) => {
       </section>
     )
   }
+};
+
+Discover.propTypes = {
+  trendingData: PropTypes.shape({
+    results: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired,
+      cover_image: PropTypes.string.isRequired
+        })).isRequired,
+  }).isRequired,
+  handleApiError: PropTypes.func.isRequired,
 };
 
 export default Discover;
