@@ -10,7 +10,7 @@ function Album({handleApiError}) {
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
-  const {setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
+  const {currentUser, setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
 
   useEffect(() => {
     setLoading(true);
@@ -36,10 +36,20 @@ function Album({handleApiError}) {
       thumb: coverImg
     }
 
-    setCurrentUser(prev => ({
+    if (!currentUser.collections.length) {
+      setCurrentUser(prev => ({
       ...prev,
       collections: [...prev.collections, newAlbum]
-    }))
+      }))
+    }
+
+    if (currentUser.collections.length & currentUser.collections.every(item => item.masterId !== id)) {
+      setCurrentUser(prev => ({
+      ...prev,
+      collections: [...prev.collections, newAlbum]
+      }))
+    }
+  
   }
 
   const showModal = () => {

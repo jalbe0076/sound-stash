@@ -1,5 +1,5 @@
 
-describe('template spec', () => {
+describe('Journal userflow test', () => {
   beforeEach(() => {
     
     cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot',
