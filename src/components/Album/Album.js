@@ -4,6 +4,7 @@ import { getAlbumDetails } from '../../api';
 import Form from '../Form/Form';
 import './Album.css';
 import UserContext from '../UserContext/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 function Album({handleApiError}) {
   const { id } = useParams();
@@ -11,6 +12,7 @@ function Album({handleApiError}) {
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
   const {currentUser, setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
+  const navigate = useNavigate()
 
   useEffect(() => {
     setLoading(true);
@@ -41,6 +43,7 @@ function Album({handleApiError}) {
       ...prev,
       collections: [...prev.collections, newAlbum]
       }))
+      navigate('/collections')
     }
 
     if (currentUser.collections.length && currentUser.collections.every(item => item.masterId !== id)) {
@@ -48,6 +51,7 @@ function Album({handleApiError}) {
       ...prev,
       collections: [...prev.collections, newAlbum]
       }))
+      navigate('/collections')
     }
   
   }
@@ -74,7 +78,7 @@ function Album({handleApiError}) {
             <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
             {!modal && <button className="journal-button" onClick={showModal}>Add A Journal Entry</button>}
           </div>}
-        <img classname="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
+        <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
         <h2>{title}</h2>
         <p>Artist: {artist}</p>
         <p>Release Date: {releaseDate}</p>
