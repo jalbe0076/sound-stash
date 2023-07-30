@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import './RecommendedAlbum.css'
 
@@ -14,5 +15,11 @@ const RecommendedAlbum = ({ id, title, coverImg }) => {
         
     )
 }
+
+RecommendedAlbum.propTypes = {
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    coverImg: PropTypes.string.isRequired,
+  };
 
 export default RecommendedAlbum
