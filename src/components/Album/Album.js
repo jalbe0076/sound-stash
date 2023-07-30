@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
 import Form from '../Form/Form';
@@ -95,5 +96,9 @@ function Album({handleApiError}) {
     );
   }
 }
+
+Album.propTypes = {
+  handleApiError: PropTypes.func.isRequired,
+};
 
 export default Album;
