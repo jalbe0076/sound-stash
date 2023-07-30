@@ -13,7 +13,9 @@ describe('template spec', () => {
     
     cy.intercept('GET', 'https://api.discogs.com/masters/25976?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ',
     {fixture: 'aquemini.json'}).as('aquemini')
-
+  })
+  
+  it('As a logged in user I should see the appropriate journal entries with date, title, artist, and rating', () => {
     cy.visit('http://localhost:3000/login'); 
     cy.fixture('mockUser2').as('user2')
       .get('@user2').then((user) => {
@@ -23,12 +25,9 @@ describe('template spec', () => {
         .get('.password-field').should('have.attr', 'value', 'sound-stash')
         .get('form > .standard-btn').click()
       })
-  })
-  
-  it('As a logged in user I should see the appropriate journal entries with date, title, artist, and rating', () => {
     
-    cy.visit('localhost:3000/journal')
-      .wait('@getTrending')
+    cy.wait('@getTrending')
+      .get('[href="/journal"]').click()
       .get('.journal').find('.entry').should('have.length', '4')
       .get('.entry-date').first().contains('July 27, 2023')
       .get('.entry-title').first().contains('Ace Frehley')
@@ -41,8 +40,17 @@ describe('template spec', () => {
   })
 
   it('As a logged in user I should see be able to toggle the visibility of notes', () => {
-    
-    cy.visit('localhost:3000/journal')
+    cy.visit('http://localhost:3000/login'); 
+    cy.fixture('mockUser2').as('user2')
+      .get('@user2').then((user) => {
+        cy.get('.username-field').type(user.username)
+        .get('.username-field').should('have.attr', 'value', 'user2')
+        .get('.password-field').type(user.password)
+        .get('.password-field').should('have.attr', 'value', 'sound-stash')
+        .get('form > .standard-btn').click()
+      })
+
+    cy.get('[href="/journal"]').click()
       .url().should('include', '/journal')
       .wait('@getTrending')
       .get('.notes-icon').first().click()
@@ -52,13 +60,22 @@ describe('template spec', () => {
   })
 
   it('As a user I should be able to add a journal entry w date and notes', () => {
+    cy.visit('http://localhost:3000/login'); 
+    cy.fixture('mockUser2').as('user2')
+      .get('@user2').then((user) => {
+        cy.get('.username-field').type(user.username)
+        .get('.username-field').should('have.attr', 'value', 'user2')
+        .get('.password-field').type(user.password)
+        .get('.password-field').should('have.attr', 'value', 'sound-stash')
+        .get('form > .standard-btn').click()
+      })
+
     const currentDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    cy.visit('localhost:3000/')
-      .get('.search--input').type('outkast')
+    cy.get('.search--input').type('outkast')
       .get('.search--button').click()
       .url().should('include', '/outkast/1')
       .get('.results--card').first().click()
-      .get('button').eq(2).click()
+      .get('.journal-button').click()
       .url().should('include', '/albums/25976')
       .get('.date-input')
       .should('have.value', currentDate)
@@ -72,14 +89,23 @@ describe('template spec', () => {
   })
 
   it('As a user I should be able to add a journal entry w/o notes', () => {
+    cy.visit('http://localhost:3000/login'); 
+    cy.fixture('mockUser2').as('user2')
+      .get('@user2').then((user) => {
+        cy.get('.username-field').type(user.username)
+        .get('.username-field').should('have.attr', 'value', 'user2')
+        .get('.password-field').type(user.password)
+        .get('.password-field').should('have.attr', 'value', 'sound-stash')
+        .get('form > .standard-btn').click()
+      })
+
     const currentDate = new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })
-    cy.visit('localhost:3000/')
-      .get('.search--input').type('outkast')
+    cy.get('.search--input').type('outkast')
       .get('.search--button').click()
       .url().should('include', '/outkast/1')
       .get('.results--card').first().click()
       .url().should('include', '/albums/25976')
-      .get('button').eq(2).click()
+      .get('.journal-button').click()
       .get('.date-input')
       .should('have.value', currentDate)
       .get('.form-submit').click()
@@ -92,9 +118,36 @@ describe('template spec', () => {
 
 
   it('As a user I should be able to delete a journal entry', () => {
-    cy.visit('localhost:3000/journal')
+    cy.visit('http://localhost:3000/login'); 
+    cy.fixture('mockUser2').as('user2')
+      .get('@user2').then((user) => {
+        cy.get('.username-field').type(user.username)
+        .get('.username-field').should('have.attr', 'value', 'user2')
+        .get('.password-field').type(user.password)
+        .get('.password-field').should('have.attr', 'value', 'sound-stash')
+        .get('form > .standard-btn').click()
+      })
+    
+    cy.get('[href="/journal"]').click()
       .get('.entry-delete').first().click()
       .get('.journal').find('.entry').should('have.length', '3')
+  })
+
+  it('As a user I should see a message telling me to search an album to add to my journal if there are no entries save', () => {
+    cy.visit('http://localhost:3000/login')
+    cy.fixture('mockUser1').as('user1')
+      .get('@user1').then((user) => {
+        cy.get('.username-field').type(user.username)
+          .get('.username-field').should('have.attr', 'value', 'user1')
+          .get('.password-field').type(user.password)
+          .get('.password-field').should('have.attr', 'value', 'sound-stash')
+          .get('form > .standard-btn').click()
+          .url().should('include', '/')
+          .get('.banner-container').contains('h1', 'SOUND STASH')
+      });
+    
+    cy.get('[href="/journal"]').click()
+      .get('.no-entries').should('be.visible').contains('Search an album to add to your journal')
   })
 
 })
