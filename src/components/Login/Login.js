@@ -8,7 +8,7 @@ const Login = ({ onLogin }) => {
   const [password, setPassword] = useState('');
   const [loginError, setLoginError] = useState('');
   const navigate = useNavigate(); 
-  const {currentUser, setCurrentUser} = useContext(UserContext);
+  const {currentUser, isUserLoggedIn} = useContext(UserContext);
   const [loadingUser, setLoadingUser] = useState(false);
 
   const handleSubmit = (e) => {
@@ -39,7 +39,7 @@ const Login = ({ onLogin }) => {
   }
 
   useEffect(() => {
-    if(currentUser) {
+    if(isUserLoggedIn) {
       navigate('/');
     }
 

@@ -17,14 +17,16 @@ import mockUsers from '../MockData/mockusers';
 
 function App() {
   const [trendingData, setTrendingData] = useState()
-  const [currentUser, setCurrentUser] = useState(false);
+  const [currentUser, setCurrentUser] = useState({ userId: null, username: '', password: '', journal: [], collections: [] });
   const [apiError, setApiError] = useState(null)
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
 
   const handleLogin = (username, password) => {
     const user = mockUsers.find(user => user.username === username && user.password === password);
 
     if (user) {
       setCurrentUser(user);
+      setIsUserLoggedIn(true)
     } 
   };
 
@@ -39,7 +41,7 @@ function App() {
   }, [])
   
   return (
-    <UserContext.Provider value={{currentUser, setCurrentUser}}>
+    <UserContext.Provider value={{currentUser, setCurrentUser, isUserLoggedIn, setIsUserLoggedIn}}>
       {apiError ? <h2 style={{color: 'white'}}>{apiError.message}</h2> 
       : <>
         <Nav />
@@ -50,7 +52,7 @@ function App() {
             <Route path='/' element={<Recommended trendingData={trendingData} />}/>
             <Route path="/journal" element={<Journal/>} />
             <Route path="/collections" element={<Collections/>} />
-            <Route path="/discover" element={<Discover />} />
+            <Route path="/discover" element={<Discover trendingData={trendingData} />} />
             <Route path='/search/:query/:page' element={<Results/>} />
             <Route path='/albums/:id' element={<Album />}/>
             <Route path="*" element={<EmptyState />} />

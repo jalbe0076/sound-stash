@@ -3,11 +3,17 @@ import React, { useState, useEffect, useContext } from "react"
 import UserContext from '../UserContext/UserContext';
 import { getAlbumsByMasterId, getAlbumsByGenre } from '../../api'
 import RecommendedAlbum from '../RecommendedAlbum/RecommendedAlbum';
+import { useNavigate } from 'react-router-dom';
 
 
 const Discover = ({ trendingData }) => {
-  const { currentUser } = useContext(UserContext)
+  const { currentUser, isUserLoggedIn } = useContext(UserContext)
   const [ recommendedData, setRecommendedData ] = useState()
+  const navigate = useNavigate();
+console.log(trendingData)
+  useEffect(() => {
+    !isUserLoggedIn && navigate('/')
+  }, [])
 
   useEffect(() => {
     if (!currentUser || !currentUser.collections.length) {
