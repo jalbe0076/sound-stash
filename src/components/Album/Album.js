@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
 import Form from '../Form/Form';
 import './Album.css';
+import UserContext from '../UserContext/UserContext';
 
 function Album() {
   const { id } = useParams();
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
+  const {currentUser, setCurrentUser} = useContext(UserContext) 
 
   useEffect(() => {
     setLoading(true);
@@ -23,13 +25,21 @@ function Album() {
       });
   }, [id]);
 
-  const handleAddToJournal = () => {
-    console.log('Album added to Journal!');
-  };
-
   const handleAddToCollections = () => {
-    console.log('Album added to Collections!');
-  };
+    const { id, title, artist, coverImg } = albumDetails
+
+    const newAlbum = {
+      masterId: id,
+      title: title,
+      artist: artist,
+      thumb: coverImg
+    }
+
+    setCurrentUser(prev => ({
+      ...prev,
+      collections: [...prev.collections, newAlbum]
+    }))
+  }
 
   const showModal = () => {
     setModal(prevModal => !prevModal);
@@ -48,7 +58,7 @@ function Album() {
   return (
     <div>
       <div className="buttons-container">
-        <button className="add-to-collections-button" onClick={handleAddToCollections}>
+        <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>
           Add to Collections
         </button>
         {!modal && <button onClick={showModal}>Add to Journal Entry</button>}
