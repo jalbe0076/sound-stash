@@ -1,0 +1,48 @@
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.add-to-collections-button,
+.journal-button {
+  padding: 0.5rem 1rem;
+  background-color: #865dff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-to-collections-button:hover,
+.journal-button:hover {
+  background-color: #6d45e2;
+}
+
+.cover-image {
+  height: auto;
+  width: 39rem
+}
+  
+  @media (max-width: 770px) {
+  .cover-image {
+      width: 100%;
+      max-width: none;
+      }
+  }
+  
+  @media (max-width: 450px) {
+  .cover-image {
+      width: 85%; 
+      max-width: none; 
+      }
+  }
+  
+  @media (max-width: 380px) {
+  .cover-image {
+      width: 100%; 
+      max-width: none; 
+      }
+  }
+  
+  

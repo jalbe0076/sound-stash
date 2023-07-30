@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Card.css'
+import React from 'react';
+import './Card.css';
+import { Link } from 'react-router-dom';
 
 function Card({result}) {
   const onImageError = (e) => {
@@ -15,4 +15,5 @@ function Card({result}) {
     </Link>
   )
 }
-export default Card
+
+export default Card;

@@ -11,7 +11,7 @@ const Discover = ({ trendingData }) => {
 
   useEffect(() => {
     if (!currentUser || !currentUser.collections.length) {
-      setRecommendedData(trendingData)
+      setRecommendedData(trendingData.results)
     } else {
       const randomAlbum = currentUser.collections[Math.floor(Math.random() * currentUser.collections.length)]
       getAlbumsByMasterId(randomAlbum.masterId)

@@ -6,7 +6,7 @@ import "flatpickr/dist/themes/dark.css"
 import './Form.css'
 import UserContext from '../UserContext/UserContext'
 
-function Form ({title, artists, images, id, showModal}) {
+function Form ({title, artist, coverImg, id, showModal}) {
   const {setCurrentUser} = useContext(UserContext);
   const navigate = useNavigate()
   const currentDate = new Date()
@@ -24,8 +24,8 @@ function Form ({title, artists, images, id, showModal}) {
       masterId: id,
       id: Date.now(),
       title: title,
-      artists: artists.map(artist => artist.name).join(' / '),
-      image: images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png",
+      artists: artist,
+      image: coverImg,
       date: date,
       rating: rating,
       notes: notes
@@ -41,9 +41,9 @@ function Form ({title, artists, images, id, showModal}) {
   return (
     <form name='journal-form' className='journal-form'>
       <div className='form-container'>
-        <img className='form-image' src={images ? images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"} alt={`${title} by ${artists.map(artist => artist.name).join(' / ')}`} onError={onImageError}/>
+        <img className='form-image' src={coverImg} alt={`${title} by ${artist}`} onError={onImageError}/>
         <div className='form-info'>
-          <p><span className='form-title'>{title}</span>  {artists.map(artist => artist.name).join(' / ')}</p>
+          <p><span className='form-title'>{title}</span>  {artist}</p>
           <p className='form-listen'>Listened</p>
           <div className='date-container'>
             <Flatpickr 

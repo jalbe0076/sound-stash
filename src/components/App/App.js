@@ -15,6 +15,8 @@ import Login from '../Login/Login';
 import UserContext from '../UserContext/UserContext'
 import mockUsers from '../MockData/mockusers';
 
+
+
 function App() {
   const [trendingData, setTrendingData] = useState()
   const [currentUser, setCurrentUser] = useState(false);
