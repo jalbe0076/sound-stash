@@ -97,4 +97,8 @@ function Album({handleApiError}) {
   }
 }
 
+Album.propTypes = {
+  handleApiError: PropTypes.func.isRequired,
+};
+
 export default Album;
