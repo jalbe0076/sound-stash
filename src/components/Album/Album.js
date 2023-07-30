@@ -28,7 +28,7 @@ function Album({handleApiError}) {
   }, [id]);
 
   const handleAddToCollections = () => {
-    const { id, title, artist, coverImg } = albumDetails
+    const { title, artist, coverImg } = albumDetails
 
     const newAlbum = {
       masterId: id,
@@ -70,7 +70,7 @@ function Album({handleApiError}) {
         <p>Artist: {artist}</p>
         <p>Release Date: {releaseDate}</p>
         <p>Genre: {genre}</p>
-        <p>Styles: {styles.join(', ')}</p>
+        {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
         {tracklist && tracklist.length > 0 && (
           <>
             <h3>Tracklist:</h3>
