@@ -10,7 +10,7 @@ function Album({handleApiError}) {
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
-  const {setCurrentUser} = useContext(UserContext) 
+  const {setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
 
   useEffect(() => {
     setLoading(true);
@@ -60,13 +60,11 @@ function Album({handleApiError}) {
   if(!isLoading) {
     return (
       <div>
-        <div className="buttons-container">
-          <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>
-            Add to Collections
-          </button>
-          {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
-
-        </div>
+        {isUserLoggedIn && 
+          <div className="buttons-container">
+            <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
+            {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
+          </div>}
         <img classname="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
         <h2>{title}</h2>
         <p>Artist: {artist}</p>
