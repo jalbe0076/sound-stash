@@ -25,12 +25,13 @@ function Album() {
       .finally(() => {
         setLoading(false);
       });
-  }, [id]);
+  }, [id, currentUser]);
 
   const handleAddToCollections = () => {
     const { title, artist, coverImg } = albumDetails
 
     const newAlbum = {
+      masterId: id,
       title: title,
       artist: artist,
       thumb: coverImg

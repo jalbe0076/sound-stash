@@ -30,7 +30,7 @@ describe('AlbumDetails', () => {
   it('As a user, I should be able to click on a specific album and see its details', () => {
     cy.visit('http://localhost:3000/login');
     cy.fixture('mockUsers').as('users');
-  
+
     cy.get('@users').then((users) => {
       const user = users[1];
       cy.get('.username-field').type(user.username);
