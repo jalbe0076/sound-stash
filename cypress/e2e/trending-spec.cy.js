@@ -77,17 +77,5 @@ describe('should be able to see a list of trending vinyl albums', () => {
     })
   })
 
-  it('Should tell the user if there is an error with the server 404', () => {
-    cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot', {
-      statusCode: 404
-    })
-      .get('h2').contains('HTTP Error: 404 -- Please try again later')
-  })
 
-  it('Should tell the user if there is an error with the server 500', () => {
-    cy.intercept('GET', 'https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&sort=hot', {
-      statusCode: 500
-    })
-      .get('h2').contains('HTTP Error: 500 -- Please try again later')
-  })
 })

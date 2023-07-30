@@ -22,7 +22,7 @@ const Login = ({ onLogin }) => {
       setLoadingUser(true);
     })()
 
-    if(!currentUser) {
+    if(!isUserLoggedIn) {
       setLoginError('Invalid username or password');
     }
   };

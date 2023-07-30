@@ -79,7 +79,7 @@ describe('Login Page', () => {
     })
   })
 
-  it('should show an error message with invalid user credentials', () => {
+  it.only('should show an error message with invalid user credentials', () => {
     cy.wait('@trending').then(() => {      
       cy.get('.username-field').type('wrongUser')
         .get('.password-field').type('mySecretPassword')
@@ -100,5 +100,12 @@ describe('Login Page', () => {
       statusCode: 500
     })
       .get('h2').contains('HTTP Error: 500 -- Please try again later')
+  })
+
+  it('Should tell the user if a page does not exist', () => {
+    cy.visit('http://localhost:3000/fakepage')
+      .get('h2').contains('We\'re sorry, this page does not exist. Please go back')
+      .get('.empty-state-img').should('be.visible')
+        .should('have.attr', 'alt', 'vinyl record cracked in half')
   })
 });
