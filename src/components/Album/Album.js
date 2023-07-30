@@ -78,7 +78,7 @@ function Album({handleApiError}) {
             <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
             {!modal && <button className="journal-button" onClick={showModal}>Add A Journal Entry</button>}
           </div>}
-        <img classname="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
+        <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
         <h2>{title}</h2>
         <p>Artist: {artist}</p>
         <p>Release Date: {releaseDate}</p>
