@@ -54,6 +54,18 @@
   margin-top: .5em;
 }
 
+.login-button {
+  background-color: #865DFF;
+  color: white;
+  border: none;
+  padding: 6px 20px;
+  cursor: pointer;
+}
+
+.login-button:hover {
+  background-color: #6546C4;
+}
+
 .username-field,
 .password-field {
   padding: 6px;
