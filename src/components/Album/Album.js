@@ -22,9 +22,8 @@ function Album({handleApiError}) {
       .catch(error => {
         handleApiError(error);
       })
-      .finally(() => {
-        setLoading(false);
-      });
+      
+      return () => setLoading(false);
   }, [id]);
 
   const handleAddToCollections = () => {
