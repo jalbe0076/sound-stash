@@ -29,11 +29,7 @@ const getTrendingAlbums = () => {
   
 const getAlbumsByMasterId = (albumID) => {
   return fetch(`https://api.discogs.com/masters/${albumID}?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ`)
-      .then(res => {
-        // console.log(res)
-        handleError(res)
-      }
-      )
+      .then(res => handleError(res))
       
 }
 
@@ -74,8 +70,6 @@ export function getAlbumDetails(albumID) {
       return response.json();
     })
     .then(data => {
-      console.log('Album details and data:', data);
-
       const artistNames = Array.isArray(data.artists)
         ? data.artists.map(artist => artist.name).join('/')
         : 'Unknown Artist';
@@ -86,7 +80,9 @@ export function getAlbumDetails(albumID) {
         releaseDate: data.year,
         genre: data.genres,
         styles: data.styles,
-        tracklist: data.tracklist?.map(track => track.title) ?? [],
+        tracklist: data.tracklist?.map(track =>{
+          return `${track.position} ${track.title} ${track.duration}`  
+        }) ?? [],
         coverImg: data.images[0] ? data.images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"
       };
     })
