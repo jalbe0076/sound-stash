@@ -21,6 +21,8 @@ function Album() {
       })
       .catch(error => {
         console.error('Error fetching album details:', error);
+      })
+      .finally(() => {
         setLoading(false);
       });
   }, [id]);
@@ -61,9 +63,10 @@ function Album() {
         <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>
           Add to Collections
         </button>
-        {!modal && <button onClick={showModal}>Add to Journal Entry</button>}
+        {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
+
       </div>
-      <img src={coverImg} alt={`Cover art for ${title}`} />
+      <img classname="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
       <h2>{title}</h2>
       <p>Artist: {artist}</p>
       <p>Release Date: {releaseDate}</p>

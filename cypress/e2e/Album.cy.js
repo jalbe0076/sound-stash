@@ -61,6 +61,16 @@ describe('AlbumDetails', () => {
     expect(clickedAlbum.styles).to.deep.equal(['Style1', 'Style2']);
     expect(clickedAlbum.tracklist).to.deep.equal(['Track 1', 'Track 2', 'Track 3']);
     expect(clickedAlbum.coverImg).to.equal('https://example.com/clicked_album_cover.jpg');
+    
+    if (Cypress._.has(clickedAlbum, 'styles')) {
+      expect(clickedAlbum.styles).to.deep.equal(['Style1', 'Style2']);
+    } else {
+      cy.log('Styles key is not available in the album.');
+    }
+    expect(clickedAlbum.tracklist).to.deep.equal(['Track 1', 'Track 2', 'Track 3']);
+    expect(clickedAlbum.coverImg).to.equal('https://example.com/clicked_album_cover.jpg');
+  
+    
 
     // cy.contains('.buttons-container button', 'Add to journal entry').should('be.visible');
     // cy.get('h2').should('contain', 'Clicked Album Title');
