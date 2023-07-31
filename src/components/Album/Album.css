@@ -73,9 +73,12 @@
     width: 90%;
     max-width: none;
   }
+  .album-details-container {
+    flex: 1;
+  }
 }
 
-@media (max-width: 380px) {
+@media (max-width: 381px) {
   .cover-image {
     width: 100%;
     max-width: none;
@@ -89,6 +92,7 @@
     margin-top: 0; 
   }
   .album-details-container {
-    flex: -1 1;
-}
+    flex: 1;
+    display: contents;
+  }
 }
