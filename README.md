@@ -14,7 +14,7 @@ A vinyl collectors resource
   <img src="https://img.shields.io/badge/GitHub%20Pages-222222.svg?style=for-the-badge&logo=GitHub-Pages&logoColor=white" />
 <img src="https://img.shields.io/badge/-cypress-%23E5E5E5?style=for-the-badge&logo=cypress&logoColor=058a5e" /> 
 
-[DEPLOYED LINK]() <!-- LINK TO BE ADDED ONCE DEPLOYED-->
+[Sound-Stash DEPLOYED LINK](https://sound-stash.vercel.app/) <!-- LINK TO BE ADDED ONCE DEPLOYED-->
 </div>
 
 
