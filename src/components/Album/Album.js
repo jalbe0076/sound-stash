@@ -77,24 +77,28 @@ function Album({handleApiError}) {
         {isUserLoggedIn && 
           <div className="buttons-container">
             <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
-            {!modal && <button className="journal-button" onClick={showModal}>Add A Journal Entry</button>}
-          </div>}
-        <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
-        <h2>{title}</h2>
-        <p>Artist: {artist}</p>
-        <p>Release Date: {releaseDate}</p>
-        <p>Genre: {genre}</p>
-        {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
-        {tracklist && tracklist.length > 0 && (
-          <>
-            <h3>Tracklist:</h3>
-            <ol>
+
+            {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
+          </div>
+        }
+        <div className="album-tracklist-container">
+          {tracklist && tracklist.length > 0 && (
+            <div className="tracklist-container">
+              <h3 className="tracklist-title">Tracklist:</h3>
               {tracklist.map((track, index) => (
-                <li key={index}>{track}</li>
+                <p key={index}>{track}</p>
               ))}
-            </ol>
-          </>
-        )}
+            </div>
+          )}
+          <div className="album-details-container">
+            <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
+            <h2 className="album-title">{title}</h2>
+            <p>Artist: {artist}</p>
+            <p>Release Date: {releaseDate}</p>
+            <p>Genre: {genre}</p>
+            {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
+          </div>
+        </div>
         {modal && <Form id={parseInt(id)} {...albumDetails} showModal={showModal} />}
       </div>
     );
@@ -106,3 +110,5 @@ Album.propTypes = {
 };
 
 export default Album;
+
+

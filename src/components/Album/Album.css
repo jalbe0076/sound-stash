@@ -1,7 +1,9 @@
 .buttons-container {
   display: flex;
   justify-content: space-between;
-
+  padding-right: 34px;
+  padding-left: 10px;
+  justify-content: space-between;
 }
 
 .add-to-collections-button,
@@ -19,30 +21,78 @@
   background-color: #6d45e2;
 }
 
-.cover-image {
-  height: auto;
-  width: 39rem
+.album-tracklist-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-  
-  @media (max-width: 770px) {
+
+.album-details-container {
+  flex: 1;
+}
+
+.album-title {
+  color: #6d45e2; 
+}
+
+.cover-image {
+  padding-top: 10px;
+  padding-right: 15px;
+  height: auto;
+  width: 39rem;
+}
+
+.tracklist-container {
+  flex: 1;
+  margin-top: 20px;
+  padding-left: 10px;
+}
+
+.tracklist-container h3 {
+  margin-bottom: 10px;
+}
+
+.tracklist-container p {
+  margin: 5px 0;
+}
+
+.tracklist-title {
+  color: #6d45e2;
+}
+
+/* Responsive Styles */
+@media (max-width: 770px) {
   .cover-image {
-      width: 100%;
-      max-width: none;
-      }
+    width: 100%;
+    max-width: max-content;
   }
-  
-  @media (max-width: 450px) {
+}
+
+@media (max-width: 450px) {
   .cover-image {
-      width: 85%; 
-      max-width: none; 
-      }
+    width: 90%;
+    max-width: none;
   }
-  
-  @media (max-width: 380px) {
+  .album-details-container {
+    flex: 1;
+  }
+}
+
+@media (max-width: 381px) {
   .cover-image {
-      width: 100%; 
-      max-width: none; 
-      }
+    width: 100%;
+    max-width: none;
   }
-  
-  
+
+  .content-container {
+    flex-direction: column;
+  }
+
+  .tracklist-container {
+    margin-top: 0; 
+  }
+  .album-details-container {
+    flex: 1;
+    display: contents;
+  }
+}
