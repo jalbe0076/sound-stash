@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Card.css';
 import { Link } from 'react-router-dom';
 
@@ -15,5 +16,15 @@ function Card({result}) {
     </Link>
   )
 }
+
+Card.propTypes = {
+  result: PropTypes.shape({
+    masterId: PropTypes.number.isRequired,
+    thumb: PropTypes.string,
+    title: PropTypes.string.isRequired,
+    artist: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
 
 export default Card;

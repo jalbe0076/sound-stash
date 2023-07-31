@@ -1,16 +1,19 @@
 import React, { useState, useEffect, useContext } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
 import Form from '../Form/Form';
 import './Album.css';
 import UserContext from '../UserContext/UserContext';
+import { useNavigate } from 'react-router-dom';
 
 function Album({handleApiError}) {
   const { id } = useParams();
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
-  const {setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
+  const {currentUser, setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
+  const navigate = useNavigate()
 
   useEffect(() => {
     setLoading(true);
@@ -36,10 +39,22 @@ function Album({handleApiError}) {
       thumb: coverImg
     }
 
-    setCurrentUser(prev => ({
+    if (!currentUser.collections.length) {
+      setCurrentUser(prev => ({
       ...prev,
       collections: [...prev.collections, newAlbum]
-    }))
+      }))
+      navigate('/collections')
+    }
+
+    if (currentUser.collections.length && currentUser.collections.every(item => item.masterId !== id)) {
+      setCurrentUser(prev => ({
+      ...prev,
+      collections: [...prev.collections, newAlbum]
+      }))
+      navigate('/collections')
+    }
+  
   }
 
   const showModal = () => {
@@ -62,20 +77,19 @@ function Album({handleApiError}) {
         {isUserLoggedIn && 
           <div className="buttons-container">
             <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
+
             {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
           </div>
         }
-    
         <div className="album-tracklist-container">
           {tracklist && tracklist.length > 0 && (
             <div className="tracklist-container">
-                  <h3 className="tracklist-title">Tracklist:</h3>
+              <h3 className="tracklist-title">Tracklist:</h3>
               {tracklist.map((track, index) => (
                 <p key={index}>{track}</p>
               ))}
             </div>
           )}
-    
           <div className="album-details-container">
             <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
             <h2 className="album-title">{title}</h2>
@@ -85,11 +99,16 @@ function Album({handleApiError}) {
             {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
           </div>
         </div>
-    
-        {modal && <Form id={id} {...albumDetails} showModal={showModal} />}
+        {modal && <Form id={parseInt(id)} {...albumDetails} showModal={showModal} />}
       </div>
     );
   }
 }
-    
+
+Album.propTypes = {
+  handleApiError: PropTypes.func.isRequired,
+};
+
 export default Album;
+
+

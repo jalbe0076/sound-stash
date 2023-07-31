@@ -1,9 +1,454 @@
 {
-    "title": "Clicked Album Title",
-    "artist": "Clicked Artist",
-    "releaseDate": "2023-07-01",
-    "genre": "Pop",
-    "styles": ["Style1", "Style2"],
-    "tracklist": ["Track 1", "Track 2", "Track 3"],
-    "coverImg": "https://example.com/clicked_album_cover.jpg"
-  }
+  "id": 25976,
+  "main_release": 169325,
+  "most_recent_release": 12745805,
+  "resource_url": "https://api.discogs.com/masters/25976",
+  "uri": "https://www.discogs.com/master/25976-OutKast-Aquemini",
+  "versions_url": "https://api.discogs.com/masters/25976/versions",
+  "main_release_url": "https://api.discogs.com/releases/169325",
+  "most_recent_release_url": "https://api.discogs.com/releases/12745805",
+  "num_for_sale": 292,
+  "lowest_price": 0.4,
+  "images": [
+      {
+          "type": "primary",
+          "uri": "https://i.discogs.com/-xr2ttBWtlE1m1iSh_hTO77oIw88ocglfNlKzGTP9gE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzE2Mjk4MDE3/LmpwZWc.jpeg",
+          "resource_url": "https://i.discogs.com/-xr2ttBWtlE1m1iSh_hTO77oIw88ocglfNlKzGTP9gE/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzE2Mjk4MDE3/LmpwZWc.jpeg",
+          "uri150": "https://i.discogs.com/dVtSqyT5UzYBXNu7ugxNWDMAOGCjp9vOD14Vk5rBTTI/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzE2Mjk4MDE3/LmpwZWc.jpeg",
+          "width": 600,
+          "height": 600
+      },
+      {
+          "type": "secondary",
+          "uri": "https://i.discogs.com/UxM7NkVt4Ne6qKkixrzSu6hVzaRl2nLMNmLJa948UCE/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzU5OTMxNTc0/LTk3NzkuanBlZw.jpeg",
+          "resource_url": "https://i.discogs.com/UxM7NkVt4Ne6qKkixrzSu6hVzaRl2nLMNmLJa948UCE/rs:fit/g:sm/q:90/h:596/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzU5OTMxNTc0/LTk3NzkuanBlZw.jpeg",
+          "uri150": "https://i.discogs.com/9IMdVEJQ3Y0U8tuDBJQ35Q7ndt0GjfTTYR3L5KTOF4c/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzU5OTMxNTc0/LTk3NzkuanBlZw.jpeg",
+          "width": 600,
+          "height": 596
+      },
+      {
+          "type": "secondary",
+          "uri": "https://i.discogs.com/WX8FnvjMSRDcT-YSNNa-i2zpIruYMIOFb9S6fFGohqM/rs:fit/g:sm/q:90/h:601/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzg3MTI3OTkw/LTc3OTUuanBlZw.jpeg",
+          "resource_url": "https://i.discogs.com/WX8FnvjMSRDcT-YSNNa-i2zpIruYMIOFb9S6fFGohqM/rs:fit/g:sm/q:90/h:601/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzg3MTI3OTkw/LTc3OTUuanBlZw.jpeg",
+          "uri150": "https://i.discogs.com/EY4osr0ekX0VKU5ZPbSuJDxnBeSbLwSqUl3-CHSi3gI/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzg3MTI3OTkw/LTc3OTUuanBlZw.jpeg",
+          "width": 600,
+          "height": 601
+      },
+      {
+          "type": "secondary",
+          "uri": "https://i.discogs.com/q9YqIMysO-QDBYLDcLS3-Rxj-kqUyU1DSnISOb8c7Ig/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzg3MTI4MDA1/LTI0ODcuanBlZw.jpeg",
+          "resource_url": "https://i.discogs.com/q9YqIMysO-QDBYLDcLS3-Rxj-kqUyU1DSnISOb8c7Ig/rs:fit/g:sm/q:90/h:600/w:600/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzg3MTI4MDA1/LTI0ODcuanBlZw.jpeg",
+          "uri150": "https://i.discogs.com/AFhyU5ZogU5eyBuBAsh6YIefpMLD5Hp2urFL1JO34JM/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMzg3MTI4MDA1/LTI0ODcuanBlZw.jpeg",
+          "width": 600,
+          "height": 600
+      },
+      {
+          "type": "secondary",
+          "uri": "https://i.discogs.com/zi7QnCKEzu4Tf4_F0w_RCnR34WRSfWwReRzTuEJ_2sQ/rs:fit/g:sm/q:90/h:510/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzcy/LmpwZWc.jpeg",
+          "resource_url": "https://i.discogs.com/zi7QnCKEzu4Tf4_F0w_RCnR34WRSfWwReRzTuEJ_2sQ/rs:fit/g:sm/q:90/h:510/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzcy/LmpwZWc.jpeg",
+          "uri150": "https://i.discogs.com/4oPuRDMS8fciE5Aip9swn_s6hSEnfIl0DyihIfcBRcQ/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzcy/LmpwZWc.jpeg",
+          "width": 500,
+          "height": 510
+      },
+      {
+          "type": "secondary",
+          "uri": "https://i.discogs.com/2pa9raTQ8uoHeVx5bC_oTdA8CqROLuDr35kX-22_jZ0/rs:fit/g:sm/q:90/h:507/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzc5/LmpwZWc.jpeg",
+          "resource_url": "https://i.discogs.com/2pa9raTQ8uoHeVx5bC_oTdA8CqROLuDr35kX-22_jZ0/rs:fit/g:sm/q:90/h:507/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzc5/LmpwZWc.jpeg",
+          "uri150": "https://i.discogs.com/Br37Dwvcrc-RZxVzSmOvhMjvG3vSODQ7Gs8_8kTu_UY/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzc5/LmpwZWc.jpeg",
+          "width": 500,
+          "height": 507
+      },
+      {
+          "type": "secondary",
+          "uri": "https://i.discogs.com/OvchqfmlNzheGPmRck721Ibqi2wy3UshmI9e1P-qwWE/rs:fit/g:sm/q:90/h:508/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzg3/LmpwZWc.jpeg",
+          "resource_url": "https://i.discogs.com/OvchqfmlNzheGPmRck721Ibqi2wy3UshmI9e1P-qwWE/rs:fit/g:sm/q:90/h:508/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzg3/LmpwZWc.jpeg",
+          "uri150": "https://i.discogs.com/4AHVObGh7qpmDB7mbPxyfXdn9W5r1L0zdS80NSzylcY/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2Nzg3/LmpwZWc.jpeg",
+          "width": 500,
+          "height": 508
+      },
+      {
+          "type": "secondary",
+          "uri": "https://i.discogs.com/dgkEBUo6MIsxAgw2waaXjtlNHFU2_oQ6BwUjFVtwgsU/rs:fit/g:sm/q:90/h:511/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2ODAx/LmpwZWc.jpeg",
+          "resource_url": "https://i.discogs.com/dgkEBUo6MIsxAgw2waaXjtlNHFU2_oQ6BwUjFVtwgsU/rs:fit/g:sm/q:90/h:511/w:500/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2ODAx/LmpwZWc.jpeg",
+          "uri150": "https://i.discogs.com/r8udenC20I1zaL64BnpEQmPHsT2gWj9jpM0FDSBismQ/rs:fit/g:sm/q:40/h:150/w:150/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9SLTE2OTMy/NS0xMjU1ODM2ODAx/LmpwZWc.jpeg",
+          "width": 500,
+          "height": 511
+      }
+  ],
+  "genres": [
+      "Hip Hop"
+  ],
+  "styles": [
+      "Reggae",
+      "Gangsta",
+      "Soul",
+      "Conscious"
+  ],
+  "year": 1998,
+  "tracklist": [
+      {
+          "position": "A1",
+          "type_": "track",
+          "title": "Hold On, Be Strong",
+          "extraartists": [
+              {
+                  "name": "Donny Mathis",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 189276,
+                  "resource_url": "https://api.discogs.com/artists/189276"
+              },
+              {
+                  "name": "OutKast",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 38561,
+                  "resource_url": "https://api.discogs.com/artists/38561"
+              }
+          ],
+          "duration": "1:11"
+      },
+      {
+          "position": "A2",
+          "type_": "track",
+          "title": "Return Of The \"G\"",
+          "extraartists": [
+              {
+                  "name": "Organized Noize",
+                  "anv": "Organized Noize Productions",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 78193,
+                  "resource_url": "https://api.discogs.com/artists/78193"
+              }
+          ],
+          "duration": "4:49"
+      },
+      {
+          "position": "A3",
+          "type_": "track",
+          "title": "Rosa Parks",
+          "extraartists": [
+              {
+                  "name": "OutKast",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 38561,
+                  "resource_url": "https://api.discogs.com/artists/38561"
+              }
+          ],
+          "duration": "5:24"
+      },
+      {
+          "position": "A4",
+          "type_": "track",
+          "title": "Skew It On The Bar-B",
+          "extraartists": [
+              {
+                  "name": "Raekwon",
+                  "anv": "",
+                  "join": "",
+                  "role": "Featuring",
+                  "tracks": "",
+                  "id": 100558,
+                  "resource_url": "https://api.discogs.com/artists/100558"
+              },
+              {
+                  "name": "Organized Noize",
+                  "anv": "Organized Noize Productions",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 78193,
+                  "resource_url": "https://api.discogs.com/artists/78193"
+              }
+          ],
+          "duration": "3:15"
+      },
+      {
+          "position": "B1",
+          "type_": "track",
+          "title": "Aquemini",
+          "extraartists": [
+              {
+                  "name": "OutKast",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 38561,
+                  "resource_url": "https://api.discogs.com/artists/38561"
+              },
+              {
+                  "name": "Erykah Badu",
+                  "anv": "",
+                  "join": "",
+                  "role": "Vocals [Uncredited]",
+                  "tracks": "",
+                  "id": 10995,
+                  "resource_url": "https://api.discogs.com/artists/10995"
+              }
+          ],
+          "duration": "5:19"
+      },
+      {
+          "position": "B2",
+          "type_": "track",
+          "title": "Synthesizer",
+          "extraartists": [
+              {
+                  "name": "George Clinton",
+                  "anv": "",
+                  "join": "",
+                  "role": "Featuring",
+                  "tracks": "",
+                  "id": 29262,
+                  "resource_url": "https://api.discogs.com/artists/29262"
+              },
+              {
+                  "name": "OutKast",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 38561,
+                  "resource_url": "https://api.discogs.com/artists/38561"
+              }
+          ],
+          "duration": "5:11"
+      },
+      {
+          "position": "B3",
+          "type_": "track",
+          "title": "Slump",
+          "extraartists": [
+              {
+                  "name": "OutKast",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 38561,
+                  "resource_url": "https://api.discogs.com/artists/38561"
+              }
+          ],
+          "duration": "5:09"
+      },
+      {
+          "position": "C1",
+          "type_": "track",
+          "title": "West Savannah",
+          "extraartists": [
+              {
+                  "name": "Organized Noize",
+                  "anv": "Organized Noize Productions",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 78193,
+                  "resource_url": "https://api.discogs.com/artists/78193"
+              }
+          ],
+          "duration": "4:03"
+      },
+      {
+          "position": "C2",
+          "type_": "track",
+          "title": "Da Art Of Storytellin' (Pt. 1)",
+          "extraartists": [
+              {
+                  "name": "David Sheats",
+                  "anv": "David \"Mr. DJ\" Sheats",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 654342,
+                  "resource_url": "https://api.discogs.com/artists/654342"
+              }
+          ],
+          "duration": "3:43"
+      },
+      {
+          "position": "C3",
+          "type_": "track",
+          "title": "Da Art Of Storytellin' (Pt. 2)",
+          "extraartists": [
+              {
+                  "name": "David Sheats",
+                  "anv": "David \"Mr. DJ\" Sheats",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 654342,
+                  "resource_url": "https://api.discogs.com/artists/654342"
+              }
+          ],
+          "duration": "2:48"
+      },
+      {
+          "position": "D1",
+          "type_": "track",
+          "title": "Mamacita",
+          "extraartists": [
+              {
+                  "name": "Organized Noize",
+                  "anv": "Organized Noize Productions",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 78193,
+                  "resource_url": "https://api.discogs.com/artists/78193"
+              }
+          ],
+          "duration": "5:52"
+      },
+      {
+          "position": "D2",
+          "type_": "track",
+          "title": "SpottieOttieDopalicious",
+          "extraartists": [
+              {
+                  "name": "OutKast",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 38561,
+                  "resource_url": "https://api.discogs.com/artists/38561"
+              }
+          ],
+          "duration": "7:07"
+      },
+      {
+          "position": "E1",
+          "type_": "track",
+          "title": "Y'all Scared",
+          "extraartists": [
+              {
+                  "name": "Big Gipp",
+                  "anv": "",
+                  "join": "",
+                  "role": "Featuring",
+                  "tracks": "",
+                  "id": 53121,
+                  "resource_url": "https://api.discogs.com/artists/53121"
+              },
+              {
+                  "name": "Khujo Goodie",
+                  "anv": "Khujo",
+                  "join": "",
+                  "role": "Featuring",
+                  "tracks": "",
+                  "id": 147024,
+                  "resource_url": "https://api.discogs.com/artists/147024"
+              },
+              {
+                  "name": "T-Mo Goodie",
+                  "anv": "T-Moll",
+                  "join": "",
+                  "role": "Featuring",
+                  "tracks": "",
+                  "id": 53124,
+                  "resource_url": "https://api.discogs.com/artists/53124"
+              },
+              {
+                  "name": "David Sheats",
+                  "anv": "David \"Mr. DJ\" Sheats",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 654342,
+                  "resource_url": "https://api.discogs.com/artists/654342"
+              }
+          ],
+          "duration": "4:50"
+      },
+      {
+          "position": "E2",
+          "type_": "track",
+          "title": "Chonkyfire",
+          "extraartists": [
+              {
+                  "name": "OutKast",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 38561,
+                  "resource_url": "https://api.discogs.com/artists/38561"
+              }
+          ],
+          "duration": "6:10"
+      },
+      {
+          "position": "F1",
+          "type_": "track",
+          "title": "Nathaniel",
+          "duration": "1:10"
+      },
+      {
+          "position": "F2",
+          "type_": "track",
+          "title": "Liberation",
+          "extraartists": [
+              {
+                  "name": "Cee-Lo",
+                  "anv": "",
+                  "join": "",
+                  "role": "Featuring",
+                  "tracks": "",
+                  "id": 57770,
+                  "resource_url": "https://api.discogs.com/artists/57770"
+              },
+              {
+                  "name": "OutKast",
+                  "anv": "",
+                  "join": "",
+                  "role": "Producer",
+                  "tracks": "",
+                  "id": 38561,
+                  "resource_url": "https://api.discogs.com/artists/38561"
+              },
+              {
+                  "name": "Erykah Badu",
+                  "anv": "",
+                  "join": "",
+                  "role": "Vocals [Uncredited]",
+                  "tracks": "",
+                  "id": 10995,
+                  "resource_url": "https://api.discogs.com/artists/10995"
+              }
+          ],
+          "duration": "8:46"
+      }
+  ],
+  "artists": [
+      {
+          "name": "OutKast",
+          "anv": "",
+          "join": "",
+          "role": "",
+          "tracks": "",
+          "id": 38561,
+          "resource_url": "https://api.discogs.com/artists/38561"
+      }
+  ],
+  "title": "Aquemini",
+  "data_quality": "Correct",
+  "videos": [
+      {
+          "uri": "https://www.youtube.com/watch?v=weLYi9stshY",
+          "title": "Outkast - Aquemini (Full Album)",
+          "description": "",
+          "duration": 0,
+          "embed": true
+      }
+  ]
+}
