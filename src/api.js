@@ -73,8 +73,8 @@ export function getAlbumDetails(albumID) {
         tracklist: data.tracklist?.map(track =>{
           return `${track.position} ${track.title} ${track.duration}`  
         }) ?? [],
-        coverImg: data.images[0] ? data.images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png",
-        video: data.videos[0].uri.replace('watch?v=', 'embed/') || ''
+        coverImg: data.images ? data.images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png",
+        video: data.videos ? data.videos[0].uri.replace('watch?v=', 'embed/') : ''
       };
     })
 }
