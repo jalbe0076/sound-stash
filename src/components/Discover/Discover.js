@@ -43,10 +43,12 @@ const Discover = ({ trendingData, handleApiError }) => {
     const recommendedAlbums = recommendedData.map(item => <RecommendedAlbum key={item.id} id={item.id} title={item.title} coverImg={item.cover_image}/>)
 
     return (
-      <section className='recommendedContainer'>
-          <h2>{'Yours to discover!'}</h2>
+      <>
+        <h2 className='sub-title'>{'Yours to discover!'}</h2>
+        <section className='recommendedContainer'>
           {recommendedAlbums}
-      </section>
+        </section>
+      </>
     )
   }
 };

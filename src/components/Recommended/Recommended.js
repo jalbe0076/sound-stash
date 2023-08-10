@@ -10,7 +10,7 @@ const Recommended = ({ trendingData }) => {
 
         return (
           <>
-                <h2 className='sub-title'>{'Vinyl albums trending today'}</h2>
+            <h2 className='sub-title'>{'Vinyl albums trending today'}</h2>
             <section className='recommendedContainer'>
                 {recommendedAlbums}
             </section>

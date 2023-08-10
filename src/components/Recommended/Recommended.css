@@ -29,6 +29,7 @@
 .album img {
     max-width: 100%;
     height: auto;
+    width: 400px;
 }
 
 .album p {
@@ -42,15 +43,15 @@
         max-width: 240px;
         min-height: 340px;
     }
+
+    .recommendedContainer {
+        margin-top: 1em;
+    }
 }
 
 @media (max-width: 530px) {
     .album {
         min-height: auto;
         max-width: 350px;
-    }
-
-    .recommendedContainer {
-        margin-top: 1em;
     }
 }

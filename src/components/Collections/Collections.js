@@ -18,9 +18,12 @@ const Collections = () => {
   });
 
   return (
+    <>
+    <h2 className='sub-title'>Collections</h2>
     <div className='album--grid'>
       {savedAlbums.length ? savedAlbums : <h2>No albums in collection</h2>}
     </div>
+    </>
   );
 };
 

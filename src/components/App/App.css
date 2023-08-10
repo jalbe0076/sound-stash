@@ -27,7 +27,7 @@ main {
   width: 90%;
   grid-template-columns: repeat(auto-fit, minmax(130px, max-content));
   grid-gap: 2em;
-  margin-top: 2em;
+  margin: auto;
   justify-content: space-between;
 }
 
@@ -44,7 +44,7 @@ main {
 }
 
 .sub-title {
-  margin-left: 1em;
+  margin: 0 0 1em 1em;
 }
 
 @media (max-width: 450px) {
