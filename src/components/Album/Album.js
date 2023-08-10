@@ -69,7 +69,7 @@ function Album({handleApiError}) {
     return <div>Album not found.</div>;
   }
 
-  const { title, artist, releaseDate, genre, styles, tracklist, coverImg } = albumDetails;
+  const { title, artist, releaseDate, genre, styles, tracklist, coverImg, video} = albumDetails;
 
   if(!isLoading) {
     return (
@@ -100,6 +100,7 @@ function Album({handleApiError}) {
           </div>
         </div>
         {modal && <Form id={parseInt(id)} {...albumDetails} showModal={showModal} />}
+        {video && <iframe className='video' src={video} frameborder='0' allowFullScreen/>}
       </div>
     );
   }

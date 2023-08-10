@@ -60,6 +60,15 @@
   color: #6d45e2;
 }
 
+.video {
+  width: 100%;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-top: 64px;
+  margin-bottom: 120px;
+  aspect-ratio: 16/9;
+}
+
 /* Responsive Styles */
 @media (max-width: 770px) {
   .cover-image {
