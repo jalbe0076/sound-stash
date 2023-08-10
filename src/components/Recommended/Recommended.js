@@ -9,10 +9,12 @@ const Recommended = ({ trendingData }) => {
         const recommendedAlbums = trendingData.results.map(item => <RecommendedAlbum key={item.id} id={item.id} title={item.title} coverImg={item.cover_image}/>)
 
         return (
+          <>
+                <h2 className='sub-title'>{'Vinyl albums trending today'}</h2>
             <section className='recommendedContainer'>
-                <h2>{'Vinyl albums trending today'}</h2>
                 {recommendedAlbums}
             </section>
+          </>
         )
     }
 }

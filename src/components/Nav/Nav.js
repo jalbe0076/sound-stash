@@ -14,7 +14,7 @@ const Nav = () => {
     setCurrentUser(false);
     setIsUserLoggedIn(false);
   }
-console.log(location.pathname !== '/login')
+
   return (
     <section className='banner-container'>
       <Link to='/' className='title' ><h1>SOUND STASH</h1></Link>

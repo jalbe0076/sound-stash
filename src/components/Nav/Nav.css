@@ -73,15 +73,11 @@
 
 @media (max-width: 450px) {
   .banner-container {
-    margin: 0 1em 1em 1em;
+    margin: 0 1em 0 0;
   }
 }
 
 @media (max-width: 380px) {
-  .banner-container {
-    margin-bottom: 1em;
-  }
-
   .navigation-tabs {
     flex-direction: column;
     justify-self: center;

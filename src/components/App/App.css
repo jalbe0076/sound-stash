@@ -6,6 +6,7 @@
 
 html {
   background-color: #191725;
+  width: 100%;
 }
 
 body {
@@ -23,7 +24,7 @@ main {
 .album--grid {
   display: grid;
   padding-bottom: 4em;
-  width: 100%;
+  width: 90%;
   grid-template-columns: repeat(auto-fit, minmax(130px, max-content));
   grid-gap: 2em;
   margin-top: 2em;
@@ -40,6 +41,10 @@ main {
 
 .standard-btn:hover {
   background-color: #6546C4;
+}
+
+.sub-title {
+  margin-left: 1em;
 }
 
 @media (max-width: 450px) {
