@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 
 function Album({handleApiError}) {
   const { id } = useParams();
+  const masterId = parseInt(id)
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
@@ -17,7 +18,7 @@ function Album({handleApiError}) {
 
   useEffect(() => {
     setLoading(true);
-    getAlbumDetails(id)
+    getAlbumDetails(masterId)
       .then(data => {
         setAlbumDetails(data);
         setLoading(false);
@@ -33,7 +34,7 @@ function Album({handleApiError}) {
     const { title, artist, coverImg } = albumDetails
 
     const newAlbum = {
-      masterId: id,
+      masterId,
       title: title,
       artist: artist,
       thumb: coverImg
@@ -47,7 +48,7 @@ function Album({handleApiError}) {
       navigate('/collections')
     }
 
-    if (currentUser.collections.length && currentUser.collections.every(item => item.masterId !== id)) {
+    if (currentUser.collections.length && currentUser.collections.every(item => item.masterId !== masterId)) {
       setCurrentUser(prev => ({
       ...prev,
       collections: [...prev.collections, newAlbum]
@@ -69,7 +70,7 @@ function Album({handleApiError}) {
     return <div>Album not found.</div>;
   }
 
-  const { title, artist, releaseDate, genre, styles, tracklist, coverImg } = albumDetails;
+  const { title, artist, releaseDate, genre, styles, tracklist, coverImg, video} = albumDetails;
 
   if(!isLoading) {
     return (
@@ -99,7 +100,8 @@ function Album({handleApiError}) {
             {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
           </div>
         </div>
-        {modal && <Form id={parseInt(id)} {...albumDetails} showModal={showModal} />}
+        {modal && <Form id={masterId} {...albumDetails} showModal={showModal} />}
+        {video && <iframe className='video' src={video} allowFullScreen/>}
       </div>
     );
   }
