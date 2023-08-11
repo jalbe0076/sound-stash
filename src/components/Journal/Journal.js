@@ -15,11 +15,14 @@ const Journal = () => {
   }, [])
 
   return (
-    <div className='journal'>
-      {journal.length ?
-      journal.sort((a, b) => new Date(b.date) - new Date(a.date)).map(entry => <Entry key={entry.id} {...entry}/>)
-      : <p className='no-entries'>Search an album to add to your journal</p>}
-    </div>
+    <>
+      <h2 className='sub-title'>My Journal</h2>
+      <div className='journal'>
+        {journal.length ?
+        journal.sort((a, b) => new Date(b.date) - new Date(a.date)).map(entry => <Entry key={entry.id} {...entry}/>)
+        : <p className='no-entries'>Search an album to add to your journal</p>}
+      </div>
+    </>
   )
 
 };

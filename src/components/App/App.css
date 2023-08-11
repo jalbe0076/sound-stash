@@ -44,14 +44,10 @@ main {
 }
 
 .sub-title {
-  margin: 0 0 1em 1em;
+  margin: 0 0 1rem 1rem;
 }
 
 @media (max-width: 450px) {
-  /* html {
-    margin: 1em 0 0 0;
-  } */
-
   .album--grid {
     padding: 0 2em;
     justify-content: center;
