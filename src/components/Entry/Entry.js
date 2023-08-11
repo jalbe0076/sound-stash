@@ -42,7 +42,7 @@ function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
       </div>
       {!notesHidden && <p className='entry-notes'>{notes}</p>}
     </article>
-    )
+  )
 }
 
 Entry.propTypes = {
