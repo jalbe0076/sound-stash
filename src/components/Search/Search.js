@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './Search.css'
 import { useNavigate } from "react-router-dom";
 
-function Search() {
+function Search({ theme }) {
   const [inputValue, setInput] = useState('')
   const navigate = useNavigate()
 
@@ -13,7 +13,7 @@ function Search() {
   }
 
   return (
-    <form className="search--form" name="search">
+    <form className="search--form" name="search" data-theme={theme}>
       <div className='search--container'>
         <input
           className='search--input'

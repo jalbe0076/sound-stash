@@ -2,7 +2,7 @@
   font-size: 13px;
   text-align: left;
   text-decoration: none;
-  color: white;
+  color: var(--text-primary);
 }
 
 .results--card:hover {

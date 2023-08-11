@@ -18,6 +18,7 @@ import mockUsers from '../MockData/mockusers';
 
 
 function App() {
+  const [theme, setTheme] = useState('purple')
   const [trendingData, setTrendingData] = useState()
   const [currentUser, setCurrentUser] = useState({ userId: null, username: '', password: '', journal: [], collections: [] });
   const [apiError, setApiError] = useState(null)
@@ -45,14 +46,16 @@ function App() {
   const handleApiError = (error) => {
     setApiError(error)
   }
+
+  console.log(theme)
   
   return (
     <UserContext.Provider value={{currentUser, setCurrentUser, isUserLoggedIn, setIsUserLoggedIn}}>
       {apiError ? <h2 style={{color: 'white'}}>{apiError.message}</h2> 
       : <>
-        <Nav />
-        <Search/>
-        <main className="App">
+        <Nav theme={theme} setTheme={setTheme} />
+        <Search theme={theme} />
+        <main className="App" data-theme={theme}>
           <Routes>
             <Route path="/login" element={<Login onLogin={handleLogin} />} />
             <Route path='/' element={<Recommended trendingData={trendingData} />}/>

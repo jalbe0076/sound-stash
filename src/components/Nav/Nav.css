@@ -3,18 +3,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: rgb(134,93,255);
+  color: var(--button-background);
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #191725;
+  background-color: var(--background);
   padding: 1em;
 }
 
 .title {
   display: inline-block;
   text-decoration: none;
-  color: rgb(134,93,255);
+  color: var(--text-secondary);
   font-family: 'frijole';
 }
 
@@ -28,7 +28,7 @@
 
 .nav {
   text-decoration: none;
-  color: rgb(134,93,255);
+  color: var(--text-secondary);
 }
 
 .user-profile {
@@ -42,14 +42,14 @@
 }
 
 .active {
-  color: rgb(227,132,255);
+  color: var(--text-accent);
   text-decoration: underline;
 }
 
 .logout-btn {
   background: none;
   border: none;
-  color: rgb(227,132,255);
+  color: var(--text-accent);
   display: flex;
   align-items: center;
   cursor: pointer;
@@ -72,15 +72,15 @@
 }
 
 @media (max-width: 450px) {
-  .banner-container {
+  /* .banner-container {
     margin: 0 1em 1em 1em;
-  }
+  } */
 }
 
 @media (max-width: 380px) {
-  .banner-container {
+  /* .banner-container {
     margin-bottom: 1em;
-  }
+  } */
 
   .navigation-tabs {
     flex-direction: column;

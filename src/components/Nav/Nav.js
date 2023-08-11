@@ -3,8 +3,9 @@ import { NavLink, Link, Navigate, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import UserContext from '../UserContext/UserContext';
 import { useContext } from 'react';
+import PaletteSelect from '../PaletteSelect/PaletteSelect';
 
-const Nav = () => {
+const Nav = ({ theme, setTheme }) => {
   const {setCurrentUser, isUserLoggedIn, setIsUserLoggedIn} = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -15,7 +16,7 @@ const Nav = () => {
   }
 
   return (
-    <section className='banner-container'>
+    <section className='banner-container' data-theme={theme}>
       <Link to='/' className='title' ><h1>SOUND STASH</h1></Link>
       {isUserLoggedIn && 
       <nav className='navigation-tabs'>
@@ -27,6 +28,7 @@ const Nav = () => {
           <button className='logout-btn' onClick={() => logoutUser()}><img className='user-profile user-icon' src={process.env.PUBLIC_URL + '/images/user-icon.png'}/>LOGOUT</button> 
         : <button className='user-profile standard-btn' onClick={() => navigate('/login')}>LOGIN</button>
       }
+      <PaletteSelect setTheme={setTheme}/>
     </section>
   );
 };

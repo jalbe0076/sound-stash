@@ -5,7 +5,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: var(--text-primary);
 }
 
 .login-container {
@@ -55,15 +55,15 @@
 }
 
 .login-button {
-  background-color: #865DFF;
-  color: white;
+  background-color: var(--button-background);
+  color: var(--text-primary);
   border: none;
   padding: 6px 20px;
   cursor: pointer;
 }
 
 .login-button:hover {
-  background-color: #6546C4;
+  background-color: var(--button-hover);
 }
 
 .username-field,

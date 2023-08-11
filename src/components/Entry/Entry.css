@@ -13,7 +13,7 @@
 .entry-date-container {
   width: 70px;
   height: 70px;
-  border: dashed white;
+  border: dashed var(--text-primary);
   border-radius: 5px;
   font-size: 10px;
   font-weight: bold;
@@ -67,7 +67,7 @@
 
 .entry-notes {
   padding: 12px;
-  border: solid  2px white;
+  border: solid  2px var(--text-primary);
   border-radius: 10px;
   margin-left: 12px;
   margin-right: 12px;

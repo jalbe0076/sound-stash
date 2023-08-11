@@ -5,7 +5,7 @@
 }
 
 html {
-  background-color: #191725;
+  height: 100%;
 }
 
 body {
@@ -15,9 +15,27 @@ body {
   font-family: 'shanti';
 }
 
+[data-theme='purple'] {
+  --background: #191725;
+  --text-primary: white;
+  --text-secondary: #6d45e2;
+  --text-accent: rgb(227,132,255);
+  --button-background: #865DFF;
+  --button-hover: #6546C4;
+}
+
+[data-theme='brown'] {
+  --background: #012b5c;
+  --text-primary: white;
+  --text-secondary: #e5dccf;
+  --text-accent: #ea5355;
+  --button-background: #024694;
+  --button-hover: #036feb;
+}
+
 main {
-    background-color: #191825;
-    color: white;
+    background-color: var(--background);
+    color: var(--text-primary);
 }
 
 .album--grid {
@@ -26,20 +44,19 @@ main {
   width: 100%;
   grid-template-columns: repeat(auto-fit, minmax(130px, max-content));
   grid-gap: 2em;
-  margin-top: 2em;
   justify-content: space-between;
 }
 
 .standard-btn {
-  background-color: #865DFF;
-  color: white;
+  background-color: var(--button-background);
+  color: var(--text-primary);
   border: none;
   padding: 8px 20px;
   cursor: pointer;
 }
 
 .standard-btn:hover {
-  background-color: #6546C4;
+  background-color: var(--button-hover);
 }
 
 @media (max-width: 450px) {
