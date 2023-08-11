@@ -25,6 +25,8 @@
 
 .album-container {
   margin-bottom: 2em;
+  max-width: 500px;
+  margin: auto auto;
 }
 
 .album-title {
@@ -38,32 +40,28 @@
 
 .cover-image {
   width: 100%;
-  max-width: max-content;
 }
 
 .tracklist-container {
   display: flex;
   flex-direction: column;  
   gap: .3em;
-  margin: 2em 0;
+  margin: auto;
 }
 
 .tracklist-container h3 {
-  align-items: center;
+  margin-top: 1.3em;
 }
 
 .tracklist-title {
   color: #6d45e2;
 }
 
-@media (min-width: 630px) {
-  .album-container {
-    display: flex;
-  }
-
-  .tracklist-container {
-    margin: 67.7px 0 0 2em;
-  }
+.video {
+  width: 100%;
+  margin: 1.3em 0;
+  aspect-ratio: 16/9;
+  border: 0;
 }
 
 @media (max-width:370px) {
