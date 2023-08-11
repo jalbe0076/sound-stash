@@ -6,6 +6,7 @@
   justify-content: space-between;
 }
 
+.delete-from-collections-button,
 .add-to-collections-button,
 .journal-button {
   padding: 0.5rem 1rem;
@@ -16,6 +17,7 @@
   cursor: pointer;
 }
 
+.delete-from-collections-button:hover,
 .add-to-collections-button:hover,
 .journal-button:hover {
   background-color: #6d45e2;

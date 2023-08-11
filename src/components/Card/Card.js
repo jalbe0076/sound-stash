@@ -15,7 +15,6 @@ function Card({result, onDelete}) {
       <p className='results--title'>{result.title.length > 20 ? result.title.slice(0, 20) + '...' : result.title}</p>
       <p className='results--artist'>{result.artist.length > 20 ? result.artist.slice(0, 20) + '...' : result.artist}</p>
     </Link>
-    <button className="delete-button" onClick={() => onDelete(result.masterId)}> Remove </button>
   </div>
   )
 }

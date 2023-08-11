@@ -7,14 +7,14 @@ import './Album.css';
 import UserContext from '../UserContext/UserContext';
 import { useNavigate } from 'react-router-dom';
 
-function Album({handleApiError}) {
+function Album({ handleApiError }) {
   const { id } = useParams();
-  const masterId = parseInt(id)
+  const masterId = parseInt(id);
   const [albumDetails, setAlbumDetails] = useState(null);
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
-  const {currentUser, setCurrentUser, isUserLoggedIn} = useContext(UserContext) 
-  const navigate = useNavigate()
+  const { currentUser, setCurrentUser, isUserLoggedIn } = useContext(UserContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -25,38 +25,45 @@ function Album({handleApiError}) {
       })
       .catch(error => {
         handleApiError(error);
-      })
-      
-      return () => setLoading(false);
+      });
+
+    return () => setLoading(false);
   }, [id]);
 
   const handleAddToCollections = () => {
-    const { title, artist, coverImg } = albumDetails
+    const { title, artist, coverImg } = albumDetails;
 
     const newAlbum = {
       masterId,
       title: title,
       artist: artist,
       thumb: coverImg
-    }
+    };
 
     if (!currentUser.collections.length) {
       setCurrentUser(prev => ({
-      ...prev,
-      collections: [...prev.collections, newAlbum]
-      }))
-      navigate('/collections')
+        ...prev,
+        collections: [...prev.collections, newAlbum]
+      }));
+      navigate('/collections');
     }
 
     if (currentUser.collections.length && currentUser.collections.every(item => item.masterId !== masterId)) {
       setCurrentUser(prev => ({
-      ...prev,
-      collections: [...prev.collections, newAlbum]
-      }))
-      navigate('/collections')
+        ...prev,
+        collections: [...prev.collections, newAlbum]
+      }));
+      navigate('/collections');
     }
-  
-  }
+  };
+
+  const handleDeleteFromCollections = () => {
+    const updatedCollections = currentUser.collections.filter(album => album.masterId !== masterId);
+    setCurrentUser(prevUser => ({
+      ...prevUser,
+      collections: updatedCollections
+    }));
+  };
 
   const showModal = () => {
     setModal(prevModal => !prevModal);
@@ -70,41 +77,49 @@ function Album({handleApiError}) {
     return <div>Album not found.</div>;
   }
 
-  const { title, artist, releaseDate, genre, styles, tracklist, coverImg, video} = albumDetails;
+  const { title, artist, releaseDate, genre, styles, tracklist, coverImg, video } = albumDetails;
 
-  if(!isLoading) {
-    return (
-      <div>
-        {isUserLoggedIn && 
-          <div className="buttons-container">
-            <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
+  const isAlbumInCollections = currentUser.collections.some(item => item.masterId === masterId);
 
-            {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
-          </div>
-        }
-        <div className="album-tracklist-container">
-          {tracklist && tracklist.length > 0 && (
-            <div className="tracklist-container">
-              <h3 className="tracklist-title">Tracklist:</h3>
-              {tracklist.map((track, index) => (
-                <p key={index}>{track}</p>
-              ))}
-            </div>
+  return (
+    <div>
+      {isUserLoggedIn && (
+        <div className="buttons-container">
+          {isAlbumInCollections ? (
+             <button className="delete-from-collections-button" onClick={handleDeleteFromCollections}>
+              Delete from Collections
+            </button>
+          ) : (
+            <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>
+              Add to Collections
+            </button>
           )}
-          <div className="album-details-container">
-            <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
-            <h2 className="album-title">{title}</h2>
-            <p>Artist: {artist}</p>
-            <p>Release Date: {releaseDate}</p>
-            <p>Genre: {genre}</p>
-            {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
-          </div>
+
+          {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
         </div>
-        {modal && <Form id={masterId} {...albumDetails} showModal={showModal} />}
-        {video && <iframe className='video' src={video} allowFullScreen/>}
+      )}
+      <div className="album-tracklist-container">
+        {tracklist && tracklist.length > 0 && (
+          <div className="tracklist-container">
+            <h3 className="tracklist-title">Tracklist:</h3>
+            {tracklist.map((track, index) => (
+              <p key={index}>{track}</p>
+            ))}
+          </div>
+        )}
+        <div className="album-details-container">
+          <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
+          <h2 className="album-title">{title}</h2>
+          <p>Artist: {artist}</p>
+          <p>Release Date: {releaseDate}</p>
+          <p>Genre: {genre}</p>
+          {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
+        </div>
       </div>
-    );
-  }
+      {modal && <Form id={masterId} {...albumDetails} showModal={showModal} />}
+      {video && <iframe className='video' src={video} allowFullScreen/>}
+    </div>
+  );
 }
 
 Album.propTypes = {
@@ -112,5 +127,3 @@ Album.propTypes = {
 };
 
 export default Album;
-
-
