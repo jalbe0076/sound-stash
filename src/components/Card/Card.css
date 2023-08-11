@@ -23,3 +23,16 @@
   margin-top: 7px;
   margin-block-end: 0;
 }
+
+.delete-button {
+  color: #5518AB;
+  background-color: transparent;
+  margin-top: 10px;
+  border: 2px solid #5518AB; 
+}
+
+.delete-button:hover {
+  background-color: #5518AB; 
+  color: white; 
+  cursor: pointer;
+}
