@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import './RecommendedAlbum.css'
 
 const RecommendedAlbum = ({ id, title, coverImg }) => {
-console.log(title)
+
     return (
         <Link to={`/albums/${id}`} className='link'>
             <div className='album'>

@@ -49,10 +49,15 @@
 .logout-btn {
   background: none;
   border: none;
-  color: rgb(227,132,255);
+  color: rgb(134,93,255);
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+.nav:hover, h1:hover, .logout-btn:hover {
+  color: #6546C4;
+  filter: invert(31%) sepia(85%) saturate(1049%) hue-rotate(229deg) brightness(86%) contrast(97%);
 }
 
 @media (max-width: 720px) {
