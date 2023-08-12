@@ -5,7 +5,7 @@ import UserContext from '../UserContext/UserContext';
 import { useContext } from 'react';
 import PaletteSelect from '../PaletteSelect/PaletteSelect';
 
-const Nav = ({ theme, setTheme }) => {
+const Nav = ({ setTheme }) => {
   const {setCurrentUser, isUserLoggedIn, setIsUserLoggedIn} = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ const Nav = ({ theme, setTheme }) => {
   }
 
   return (
-    <section className='banner-container' data-theme={theme}>
+    <section className='banner-container'>
       <Link to='/' className='title' ><h1>SOUND STASH</h1></Link>
       {isUserLoggedIn && 
       <nav className='navigation-tabs'>

@@ -52,10 +52,10 @@ function App() {
   return (
     <UserContext.Provider value={{currentUser, setCurrentUser, isUserLoggedIn, setIsUserLoggedIn}}>
       {apiError ? <h2 style={{color: 'white'}}>{apiError.message}</h2> 
-      : <>
-        <Nav theme={theme} setTheme={setTheme} />
-        <Search theme={theme} />
-        <main className="App" data-theme={theme}>
+      : <div data-theme={theme}>
+        <Nav setTheme={setTheme} />
+        <Search />
+        <main className="App" >
           <Routes>
             <Route path="/login" element={<Login onLogin={handleLogin} />} />
             <Route path='/' element={<Recommended trendingData={trendingData} />}/>
@@ -67,7 +67,7 @@ function App() {
             <Route path="*" element={<EmptyState />} />
           </Routes>
         </main>
-      </>}
+      </div>}
     </UserContext.Provider>
   );
 };
