@@ -21,6 +21,8 @@
 .navigation-tabs {
   display: flex;
   flex-wrap: wrap;
+  position:absolute;
+  right: 9em;
   gap: .7rem;
   font-weight: 500;
   font-family: 'quantico'
@@ -52,12 +54,23 @@
   color: rgb(134,93,255);
   display: flex;
   align-items: center;
+  justify-self: end;
   cursor: pointer;
 }
 
-.nav:hover, h1:hover, .logout-btn:hover {
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
+ h1:hover, .logout-btn:hover {
   color: #6546C4;
   filter: invert(31%) sepia(85%) saturate(1049%) hue-rotate(229deg) brightness(86%) contrast(97%);
+}
+
+.nav:hover {
+  color: #6546C4;
+  border: solid 1px #6546C4;
 }
 
 @media (max-width: 720px) {
@@ -73,6 +86,8 @@
     justify-self: flex-start;
     text-align: center;
     margin-top: .7em;
+    position: relative;
+    right: auto;
   }
 }
 

@@ -15,7 +15,7 @@
   border: none;
   cursor: pointer;
   min-width: 153px;
-  margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .add-to-collections-button:hover,
@@ -69,6 +69,5 @@
     flex-direction: column;
     gap: .1em;
     max-width: 153px;
-    margin: auto;
   }
 }

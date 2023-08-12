@@ -75,13 +75,6 @@ function Album({handleApiError}) {
   if(!isLoading) {
     return (
       <div className='album-details'>
-        {isUserLoggedIn && 
-          <div className="buttons-container">
-            <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
-
-            {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
-          </div>
-        }
         <div className="album-container">
           <div className="album-details-container">
             <h2 className="album-title">{title}</h2>
@@ -91,6 +84,12 @@ function Album({handleApiError}) {
             <p>Genre: {genre}</p>
             {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
           </div>
+        {isUserLoggedIn && 
+          <div className="buttons-container">
+            <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
+            {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
+          </div>
+        }
           {tracklist && tracklist.length > 0 && (
             <div className="tracklist-container">
               <h3 className="tracklist-title">Tracklist:</h3>
