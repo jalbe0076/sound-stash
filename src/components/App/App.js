@@ -18,7 +18,7 @@ import mockUsers from '../MockData/mockusers';
 
 
 function App() {
-  const [theme, setTheme] = useState('purple')
+  const [theme, setTheme] = useState('dark')
   const [trendingData, setTrendingData] = useState()
   const [currentUser, setCurrentUser] = useState({ userId: null, username: '', password: '', journal: [], collections: [] });
   const [apiError, setApiError] = useState(null)

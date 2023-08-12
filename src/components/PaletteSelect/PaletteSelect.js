@@ -8,8 +8,8 @@ const PaletteSelect = ({ setTheme }) => {
 
     return (
         <select id='paletteSelect' onChange={toggleTheme}>
-            <option value='purple'>purple</option>
-            <option value='brown'>brown</option>
+            <option value='dark'>purple</option>
+            <option value='light'>brown</option>
         </select>
     )
 }

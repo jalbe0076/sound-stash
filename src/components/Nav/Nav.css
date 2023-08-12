@@ -40,7 +40,7 @@
 .user-icon {
   width: 40px;
   margin-right: .5rem;
-  filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
+  filter: var(--icon-filter)
 }
 
 .active {
@@ -64,12 +64,12 @@
 }
 
  h1:hover, .logout-btn:hover {
-  color: #6546C4;
-  filter: invert(31%) sepia(85%) saturate(1049%) hue-rotate(229deg) brightness(86%) contrast(97%);
+  color: var(--button-hover);
+  filter: var(--icon-hover-filter)
 }
 
 .nav:hover {
-  color: #6546C4;
+  color: var(--button-hover)
 }
 
 @media (max-width: 720px) {

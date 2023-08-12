@@ -27,7 +27,7 @@
   width: 20px;
   background-image: url('../../../public/images/search.png');
   background-size: cover;
-  background-color: var(--text-primary);
+  background-color: white;
   border: none;
 }
 
