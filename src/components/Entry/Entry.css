@@ -1,13 +1,17 @@
+.journal-entry {
+padding: 0 1em;
+}
+
 .entry-date {
-  margin-top: 12px;
-  margin-left: 12px;
+  margin-bottom: .4em;
+  font-size: 1.2rem;
 }
 
 .entry {
   display: flex;
   align-items: center;
   text-align: left;
-  padding: 12px;
+  justify-content: space-between;
 }
 
 .entry-date-container {
@@ -15,7 +19,7 @@
   height: 70px;
   border: dashed var(--text-primary);
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 1.5rem;
   font-weight: bold;
   text-align: center;
   padding: 8px;
@@ -24,9 +28,6 @@
 
 .entry-info {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-right: 24px;
 }
 
 .entry-image {
@@ -35,18 +36,13 @@
   margin-right: 24px;
 }
 
-.entry-image:hover {
-  cursor: pointer;
-}
-
 .entry-title {
   font-weight: bold;
-  font-size: 12px;
+  font-size: 1.1rem;
 }
 
 .entry-artist {
   margin-top: 4px;
-  font-size: 10px;
 }
 
 .entry-rating {
@@ -54,33 +50,26 @@
 }
 
 .entry-delete {
-  margin-left: auto;
-  margin-right: 12px;
   filter: brightness(0) invert(1);
   height: auto;
   width: 24px;
 }
 
-.entry-delete:hover {
-  cursor: pointer;
+.journal-actions {
+  display: flex;
+  gap: 1em;
 }
 
 .entry-notes {
   padding: 12px;
   border: solid  2px var(--text-primary);
   border-radius: 10px;
-  margin-left: 12px;
-  margin-right: 12px;
+  margin-top: .8em;
 }
 
 .notes-icon {
   height: auto;
   width: 24px;
-  margin-right: 24px;
-}
-
-.notes-icon:hover {
-  cursor: pointer;
 }
 
 .icon-pink {
@@ -89,4 +78,16 @@
 
 .icon-white {
   filter: brightness(0) invert(1);
+}
+
+.entry-delete:hover, .entry-image:hover, .notes-icon:hover {
+  cursor: pointer;
+  scale: 1.1;
+}
+
+@media (max-width: 380px) {
+  .journal-actions {
+    flex-direction: column;
+    gap: .5em;
+  }
 }

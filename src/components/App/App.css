@@ -6,6 +6,8 @@
 
 html {
   height: 100%;
+  background-color: #191725;
+  width: 100%;
 }
 
 body {
@@ -41,9 +43,10 @@ main {
 .album--grid {
   display: grid;
   padding-bottom: 4em;
-  width: 100%;
+  width: 90%;
   grid-template-columns: repeat(auto-fit, minmax(130px, max-content));
   grid-gap: 2em;
+  margin: auto;
   justify-content: space-between;
 }
 
@@ -59,11 +62,11 @@ main {
   background-color: var(--button-hover);
 }
 
-@media (max-width: 450px) {
-  /* html {
-    margin: 1em 0 0 0;
-  } */
+.sub-title {
+  margin: 0 0 1rem 1rem;
+}
 
+@media (max-width: 450px) {
   .album--grid {
     padding: 0 2em;
     justify-content: center;

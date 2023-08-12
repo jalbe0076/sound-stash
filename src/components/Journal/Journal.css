@@ -6,4 +6,5 @@
   min-height: 90vh;
   width: 100%;
   overflow-wrap: break-word;
+  gap: 1.2em;
 }

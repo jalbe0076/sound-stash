@@ -71,9 +71,10 @@ export function getAlbumDetails(albumID) {
         genre: data.genres,
         styles: data.styles,
         tracklist: data.tracklist?.map(track =>{
-          return `${track.position} ${track.title} ${track.duration}`  
+          return track.type_ === 'track' && `${track.position} - ${track.title} ${track.duration &&` - ${track.duration}`}`  
         }) ?? [],
-        coverImg: data.images[0] ? data.images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"
+        coverImg: data.images ? data.images[0].uri : process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png",
+        video: data.videos ? data.videos[0].uri.replace('watch?v=', 'embed/') : ''
       };
     })
 }

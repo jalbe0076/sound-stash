@@ -3,7 +3,6 @@ import Entry from '../Entry/Entry'
 import UserContext from '../UserContext/UserContext';
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PropTypes from 'prop-types';
 
 const Journal = () => {
   const {currentUser, isUserLoggedIn} = useContext(UserContext)
@@ -15,11 +14,16 @@ const Journal = () => {
   }, [])
 
   return (
-    <div className='journal'>
-      {journal.length ?
-      journal.sort((a, b) => new Date(b.date) - new Date(a.date)).map(entry => <Entry key={entry.id} {...entry}/>)
-      : <p className='no-entries'>Search an album to add to your journal</p>}
-    </div>
+    <>
+      <h2 className='sub-title'>My Journal</h2>
+        {journal.length ?
+          <div className='journal'>
+            {journal.sort((a, b) => new Date(b.date) - new Date(a.date)).map(entry => <Entry key={entry.id} {...entry}/>)}
+          </div>
+        : <div className='album--grid'>
+            <h3>Search an album to add to your journal</h3>
+          </div>}
+    </>
   )
 
 };
