@@ -24,21 +24,25 @@ function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
   }
 
   return (
-    <>
+    <article className='journal-entry'>
       <p className='entry-date'>{date}</p>
       <div className='entry'>
-        <img className='entry-image'src={image} alt={`${title} by ${artists}`} onClick={()=> navigate(`../albums/${masterId}`)}/>
         <div className='entry-info'>
+        < img className='entry-image'src={image} alt={`${title} by ${artists}`} onClick={()=> navigate(`../albums/${masterId}`)}/>
+        <div className='entry-details'>
           <p className='entry-title'>{title}</p>
           <p className='entry-artist'>{artists}</p>
-          {rating>0 && <Rating className='rating' initialValue={rating} readonly={true} allowFraction={true} size='12'/>}
+          {rating>0 && <Rating className='rating' initialValue={rating} readonly={true} allowFraction={true} size='20'/>}
         </div>
-        {!notes ? null : <img className={`notes-icon`} src={notesIcon} alt='notes-icon' onClick={showNotes}/>}
-        <img id={id} className='entry-delete' src={process.env.PUBLIC_URL + "/images/trash.png"} alt='trash-can-icon' onClick={handleDelete}/>
+        </div>
+        <div className='journal-actions'>
+          {!notes ? null : <img className={`notes-icon`} src={notesIcon} alt='notes-icon' onClick={showNotes}/>}
+          <img id={id} className='entry-delete' src={process.env.PUBLIC_URL + "/images/trash.png"} alt='trash-can-icon' onClick={handleDelete}/>
+        </div>
       </div>
       {!notesHidden && <p className='entry-notes'>{notes}</p>}
-    </>
-    )
+    </article>
+  )
 }
 
 Entry.propTypes = {
