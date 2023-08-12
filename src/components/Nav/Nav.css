@@ -70,7 +70,6 @@
 
 .nav:hover {
   color: #6546C4;
-  border: solid 1px #6546C4;
 }
 
 @media (max-width: 720px) {
