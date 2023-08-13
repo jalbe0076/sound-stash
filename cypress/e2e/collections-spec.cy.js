@@ -39,7 +39,7 @@ describe('should be able to view collections', () => {
         .url().should('include', '/')
         .get('[href="/collections"]').click()
         .get('.album--grid').find('.results--card').should('have.length', 0)
-        .get('h2').contains('No albums in collection')
+        .get('h3').contains('No albums in collection')
     })
   })
 })

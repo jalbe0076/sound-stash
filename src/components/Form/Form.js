@@ -40,48 +40,52 @@ function Form ({title, artist, coverImg, id, showModal}) {
   }
 
   return (
-    <form name='journal-form' className='journal-form'>
-      <div className='form-container'>
-        <img className='form-image' src={coverImg} alt={`${title} by ${artist}`} onError={onImageError}/>
-        <div className='form-info'>
-          <p><span className='form-title'>{title}</span>  {artist}</p>
-          <p className='form-listen'>Listened</p>
-          <div className='date-container'>
-            <Flatpickr 
-              name='date-input'
-              className='date-input'
-              value={date}
-              options={
-                { altFormat: true,
-                  dateFormat: "F j, Y",
-                  maxDate: "today",
-                  disableMobile: true,
-                  onChange: function updateDate (selectedDates, dateStr) {
-                    setDate(dateStr)
-                  }
-                }}
-              placeholder={formattedDate}/>
-            <img className='calendar-icon'  src={process.env.PUBLIC_URL + "/images/calendar.png"} alt='calendar-icon'/>
+    <div className='main-form-container'>
+      <form name='journal-form' className='journal-form'>
+        <div className='form-container'>
+          <img className='form-image' src={coverImg} alt={`${title} by ${artist}`} onError={onImageError}/>
+          <div className='form-info'>
+            <p><span className='form-title'>{title}</span></p>
+            <p>{artist}</p>
+            <p className='form-listen'>Listened</p>
+            <div className='date-container'>
+              <Flatpickr 
+                name='date-input'
+                className='date-input'
+                value={date}
+                options={
+                  { altFormat: true,
+                    dateFormat: "F j, Y",
+                    maxDate: "today",
+                    disableMobile: true,
+                    onChange: function updateDate (selectedDates, dateStr) {
+                      setDate(dateStr)
+                    }
+                  }}
+                placeholder={formattedDate}/>
+                <img className='calendar-icon'  src={process.env.PUBLIC_URL + "/images/calendar.png"} alt='calendar-icon'
+              />
+            </div>
           </div>
+          <img className='form-escape' src={process.env.PUBLIC_URL + "/images/escape-white.png"} alt='escape-icon' onClick={showModal} tabIndex={1}/>
         </div>
-        <img className='form-escape' src={process.env.PUBLIC_URL + "/images/escape-white.png"} alt='escape-icon' onClick={showModal}/>
-      </div>
-      <Rating className='form-rating' value={rating} size='24' allowFraction={true} onClick={(rate) => setRating(rate)}/>
-      <label className='form-notes-label' htmlFor='form-notes'>Listening Notes</label>
-      <textarea 
-        value={notes}
-        onChange={(event) => setNotes(event.target.value)}
-        className='form-notes'
-        name='notes'
-        rows = "10"
-        cols = "20"
-        minLength="1"
-        maxLength="1000"
-        placeholder='Add some notes...'
-        id='form-notes'>
-      </textarea>
-      <button name='journal-form' className='form-submit' type='submit' onClick={handleSubmit}>Submit</button>
-    </form>
+        <Rating className='form-rating' value={rating} size='24' allowFraction={true} onClick={(rate) => setRating(rate)}/>
+        <label className='form-notes-label' htmlFor='form-notes'>Listening Notes</label>
+        <textarea 
+          value={notes}
+          onChange={(event) => setNotes(event.target.value)}
+          className='form-notes'
+          name='notes'
+          rows = "10"
+          cols = "20"
+          minLength="1"
+          maxLength="1000"
+          placeholder='Add some notes...'
+          id='form-notes'>
+        </textarea>
+        <button name='journal-form' className='form-submit' type='submit' onClick={handleSubmit}>Submit</button>
+      </form>
+    </div>
   )
 }
 

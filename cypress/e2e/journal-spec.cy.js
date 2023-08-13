@@ -145,7 +145,7 @@ describe('Journal userflow test', () => {
       });
     
     cy.get('[href="/journal"]').click()
-      .get('.no-entries').should('be.visible').contains('Search an album to add to your journal')
+      .get('h3').should('be.visible').contains('Search an album to add to your journal')
   })
 
 })

@@ -81,45 +81,39 @@ function Album({ handleApiError }) {
 
   const isAlbumInCollections = currentUser.collections.some(item => item.masterId === masterId);
 
-  return (
-    <div>
-      {isUserLoggedIn && (
-        <div className="buttons-container">
-          {isAlbumInCollections ? (
-             <button className="delete-from-collections-button" onClick={handleDeleteFromCollections}>
-              Delete from Collections
-            </button>
-          ) : (
-            <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>
-              Add to Collections
-            </button>
-          )}
+  if(!isLoading) {
+    return (
+      <div>
+        {isUserLoggedIn && 
+          <div className="buttons-container">
+            <button className="add-to-collections-button" onClick={() => handleAddToCollections()}>Add to Collections</button>
 
-          {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
-        </div>
-      )}
-      <div className="album-tracklist-container">
-        {tracklist && tracklist.length > 0 && (
-          <div className="tracklist-container">
-            <h3 className="tracklist-title">Tracklist:</h3>
-            {tracklist.map((track, index) => (
-              <p key={index}>{track}</p>
-            ))}
+            {!modal && <button className="journal-button" onClick={showModal}>Add to Journal Entry</button>}
           </div>
-        )}
-        <div className="album-details-container">
-          <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
-          <h2 className="album-title">{title}</h2>
-          <p>Artist: {artist}</p>
-          <p>Release Date: {releaseDate}</p>
-          <p>Genre: {genre}</p>
-          {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
+        }
+        <div className="album-tracklist-container">
+          {tracklist && tracklist.length > 0 && (
+            <div className="tracklist-container">
+              <h3 className="tracklist-title">Tracklist:</h3>
+              {tracklist.map((track, index) => (
+                <p key={index}>{track}</p>
+              ))}
+            </div>
+          )}
+          <div className="album-details-container">
+            <img className="cover-image" src={coverImg} alt={`Cover art for ${title}`} />
+            <h2 className="album-title">{title}</h2>
+            <p>Artist: {artist}</p>
+            <p>Release Date: {releaseDate}</p>
+            <p>Genre: {genre}</p>
+            {styles && styles.length > 0 && <p>Styles: {styles.join(', ')}</p>}
+          </div>
         </div>
+        {modal && <Form id={masterId} {...albumDetails} showModal={showModal} />}
+        {video && <iframe className='video' src={video} allowFullScreen/>}
       </div>
-      {modal && <Form id={masterId} {...albumDetails} showModal={showModal} />}
-      {video && <iframe className='video' src={video} allowFullScreen/>}
-    </div>
-  );
+    );
+  }
 }
 
 Album.propTypes = {

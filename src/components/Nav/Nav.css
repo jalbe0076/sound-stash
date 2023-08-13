@@ -21,6 +21,8 @@
 .navigation-tabs {
   display: flex;
   flex-wrap: wrap;
+  position:absolute;
+  right: 9em;
   gap: .7rem;
   font-weight: 500;
   font-family: 'quantico'
@@ -49,10 +51,25 @@
 .logout-btn {
   background: none;
   border: none;
-  color: rgb(227,132,255);
+  color: rgb(134,93,255);
   display: flex;
   align-items: center;
+  justify-self: end;
   cursor: pointer;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+
+ h1:hover, .logout-btn:hover {
+  color: #6546C4;
+  filter: invert(31%) sepia(85%) saturate(1049%) hue-rotate(229deg) brightness(86%) contrast(97%);
+}
+
+.nav:hover {
+  color: #6546C4;
 }
 
 @media (max-width: 720px) {
@@ -68,20 +85,18 @@
     justify-self: flex-start;
     text-align: center;
     margin-top: .7em;
+    position: relative;
+    right: auto;
   }
 }
 
 @media (max-width: 450px) {
   .banner-container {
-    margin: 0 1em 1em 1em;
+    margin: 0 1em 0 0;
   }
 }
 
 @media (max-width: 380px) {
-  .banner-container {
-    margin-bottom: 1em;
-  }
-
   .navigation-tabs {
     flex-direction: column;
     justify-self: center;
