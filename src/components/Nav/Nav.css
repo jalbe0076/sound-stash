@@ -11,6 +11,12 @@
   padding: 1em;
 }
 
+.banner-container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .title {
   display: inline-block;
   text-decoration: none;

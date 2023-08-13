@@ -1,16 +1,19 @@
 import './PaletteSelect.css'
+import { DarkModeSwitch } from 'react-toggle-dark-mode';
 
-const PaletteSelect = ({ setTheme }) => {
-   
-    const toggleTheme = (e) => {
-        setTheme(e.target.value)
-    }
+const PaletteSelect = ({ isDark, setIsDark }) => {
+
+    const toggleDarkMode = (checked) => {
+        setIsDark(checked)
+    };
 
     return (
-        <select id='paletteSelect' onChange={toggleTheme}>
-            <option value='dark'>purple</option>
-            <option value='light'>brown</option>
-        </select>
+        <DarkModeSwitch
+            style={{ marginLeft: '2rem' }}
+            checked={isDark}
+            onChange={toggleDarkMode}
+            size={30}
+        />
     )
 }
 

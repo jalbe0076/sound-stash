@@ -18,7 +18,7 @@ import mockUsers from '../MockData/mockusers';
 
 
 function App() {
-  const [theme, setTheme] = useState('dark')
+  const [isDark, setIsDark] = useState(true)
   const [trendingData, setTrendingData] = useState()
   const [currentUser, setCurrentUser] = useState({ userId: null, username: '', password: '', journal: [], collections: [] });
   const [apiError, setApiError] = useState(null)
@@ -46,14 +46,12 @@ function App() {
   const handleApiError = (error) => {
     setApiError(error)
   }
-
-  console.log(theme)
   
   return (
     <UserContext.Provider value={{currentUser, setCurrentUser, isUserLoggedIn, setIsUserLoggedIn}}>
       {apiError ? <h2 style={{color: 'white'}}>{apiError.message}</h2> 
-      : <div data-theme={theme}>
-        <Nav setTheme={setTheme} />
+      : <div data-theme={isDark ? 'dark' : 'light'}>
+        <Nav isDark={isDark} setIsDark={setIsDark} />
         <Search />
         <main className="App" >
           <Routes>
