@@ -26,6 +26,9 @@ body {
   --button-hover: #6546C4;
   --icon-filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
   --icon-hover-filter: invert(31%) sepia(85%) saturate(1049%) hue-rotate(229deg) brightness(86%) contrast(97%);
+  --journal-icon-filter: brightness(0) invert(1);
+  --journal-active-filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
+  --trash-icon-filter: invert(100%);
 }
 
 [data-theme='light'] {
@@ -37,6 +40,7 @@ body {
   --button-hover: #ea5355;
   --icon-filter: sepia(44%);
   --icon-hover-filter: invert(31%);
+  --journal-icon-filter: invert(100%);
 }
 
 main {
