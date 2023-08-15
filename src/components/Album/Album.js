@@ -3,9 +3,10 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
 import Form from '../Form/Form';
+import 'react-toastify/dist/ReactToastify.css';
 import './Album.css';
 import UserContext from '../UserContext/UserContext';
-import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function Album({ handleApiError }) {
   const { id } = useParams();
@@ -14,7 +15,6 @@ function Album({ handleApiError }) {
   const [isLoading, setLoading] = useState(true);
   const [modal, setModal] = useState(false);
   const { currentUser, setCurrentUser, isUserLoggedIn } = useContext(UserContext);
-  const navigate = useNavigate();
 
   useEffect(() => {
     setLoading(true);
@@ -25,14 +25,16 @@ function Album({ handleApiError }) {
       })
       .catch(error => {
         handleApiError(error);
-        setLoading(false); // Set loading to false on error as well
+        setLoading(false); 
       });
 
     return () => {
-      // Clean up function should also cancel the ongoing request if any
       setLoading(false);
     };
   }, [id]);
+  
+  const notifySaved = () => toast('Event Saved!')
+  const notifyDelete = () => toast('Event Deleted!')
 
   const handleAddToCollections = () => {
     const { title, artist, coverImg } = albumDetails;
@@ -49,7 +51,7 @@ function Album({ handleApiError }) {
         ...prev,
         collections: [...prev.collections, newAlbum],
       }));
-      navigate('/collections');
+      notifySaved();
     }
   };
 
@@ -59,6 +61,7 @@ function Album({ handleApiError }) {
       ...prevUser,
       collections: updatedCollections,
     }));
+    notifyDelete();
   };
 
   const showModal = () => {

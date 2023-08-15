@@ -14,8 +14,7 @@ import Album from '../Album/Album'
 import Login from '../Login/Login';
 import UserContext from '../UserContext/UserContext'
 import mockUsers from '../MockData/mockusers';
-
-
+import { ToastContainer } from 'react-toastify'
 
 function App() {
   const [trendingData, setTrendingData] = useState()
@@ -63,6 +62,11 @@ function App() {
             <Route path='/albums/:id' element={<Album handleApiError={handleApiError} />}/>
             <Route path="*" element={<EmptyState />} />
           </Routes>
+          <ToastContainer 
+            position="bottom-center"
+            autoClose={3000}
+            theme="dark" 
+          />
         </main>
       </>}
     </UserContext.Provider>
