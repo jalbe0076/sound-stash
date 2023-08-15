@@ -28,7 +28,7 @@ function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
       <p className='entry-date'>{date}</p>
       <div className='entry'>
         <div className='entry-info'>
-        < img className='entry-image'src={image} alt={`${title} by ${artists}`} onClick={()=> navigate(`../albums/${masterId}`)}/>
+        <img className='entry-image' src={image} alt={`${title} by ${artists}`} onClick={()=> navigate(`../albums/${masterId}`)}/>
         <div className='entry-details'>
           <p className='entry-title'>{title}</p>
           <p className='entry-artist'>{artists}</p>
@@ -36,7 +36,7 @@ function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
         </div>
         </div>
         <div className='journal-actions'>
-          {!notes ? null : <img className={`notes-icon`} src={notesIcon} alt='notes-icon' onClick={showNotes}/>}
+          {!notes ? null : <img className={`notes-icon ${notesHidden ? "" : "active-note"}`} src={notesIcon} alt='notes-icon' onClick={showNotes}/>}
           <img id={id} className='entry-delete' src={process.env.PUBLIC_URL + "/images/trash.png"} alt='trash-can-icon' onClick={handleDelete}/>
         </div>
       </div>

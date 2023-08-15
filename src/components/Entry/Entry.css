@@ -17,7 +17,7 @@ padding: 0 1em;
 .entry-date-container {
   width: 70px;
   height: 70px;
-  border: dashed white;
+  border: dashed var(--text-primary);
   border-radius: 5px;
   font-size: 1.5rem;
   font-weight: bold;
@@ -50,7 +50,7 @@ padding: 0 1em;
 }
 
 .entry-delete {
-  filter: brightness(0) invert(1);
+  filter: var(--trash-icon-filter);
   height: auto;
   width: 24px;
 }
@@ -62,7 +62,7 @@ padding: 0 1em;
 
 .entry-notes {
   padding: 12px;
-  border: solid  2px white;
+  border: solid 2px var(--text-primary);
   border-radius: 10px;
   margin-top: .8em;
 }
@@ -70,14 +70,11 @@ padding: 0 1em;
 .notes-icon {
   height: auto;
   width: 24px;
+  filter: var(--journal-icon-filter);
 }
 
-.icon-pink {
-  filter: hue-rotate(330deg);
-}
-
-.icon-white {
-  filter: brightness(0) invert(1);
+.active-note {
+  filter: var(--journal-active-filter)
 }
 
 .entry-delete:hover, .entry-image:hover, .notes-icon:hover {

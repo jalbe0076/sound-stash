@@ -1,6 +1,6 @@
 .results {
-  background-color: #191725;
-  color: white;
+  background-color: var(--background);
+  color: var(--text-primary);
   display: flex;
   flex-direction: column;
   min-height: 100vh;
@@ -14,17 +14,17 @@
 }
 
 .results--last:hover, .results--next:hover {
-  color: #FFA3FD;
+  color: var(--text-accent);
 }
 
 .results--card:hover {
-  color: #FFA3FD;
+  color: var(--text-accent);
 }
 
 .results--loading, .results--none {
   height: 100vh;
-  background-color: #191725;
-  color: white;
+  background-color: var(--background);
+  color: var(--text-primary);
   padding-top: 60px;
   text-align: center;
 }
