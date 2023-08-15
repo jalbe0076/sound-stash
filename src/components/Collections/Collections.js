@@ -1,21 +1,20 @@
-import './Collections.css';
+import React, { useContext, useEffect } from 'react';
 import Card from '../Card/Card';
 import UserContext from '../UserContext/UserContext';
-import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Collections = () => {
-  const { currentUser, isUserLoggedIn } = useContext(UserContext)
+  const { currentUser, isUserLoggedIn } = useContext(UserContext);
   const { collections } = currentUser;
   const navigate = useNavigate();
 
   useEffect(() => {
-    !isUserLoggedIn && navigate('/')
-  }, [])
+    !isUserLoggedIn && navigate('/');
+  }, []);
 
-  const savedAlbums = collections.map(album => {
-    return (<Card key={album.masterId} result={album} />)
-  });
+  const savedAlbums = collections.map(album => (
+    <Card key={album.masterId} result={album} />
+  ));
 
   return (
     <>
