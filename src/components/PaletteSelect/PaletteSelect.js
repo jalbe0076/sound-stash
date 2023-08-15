@@ -13,6 +13,7 @@ const PaletteSelect = ({ isDark, setIsDark }) => {
             checked={isDark}
             onChange={toggleDarkMode}
             size={30}
+            sunColor={'#024694'}
         />
     )
 }

@@ -6,8 +6,13 @@
 
 html {
   height: 100%;
-  background-color: #191725;
+  background-color: var(--background);
   width: 100%;
+}
+
+:root {
+  --background-dark: #191725;
+  --background-light: white;
 }
 
 body {

@@ -43,6 +43,11 @@ function App() {
     return () => handleApiError(null)
   }, [])
 
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty('--background', isDark ? 'var(--background-dark)' : 'var(--background-light)');
+  }, [isDark]);
+
   const handleApiError = (error) => {
     setApiError(error)
   }
