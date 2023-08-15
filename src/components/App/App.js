@@ -17,6 +17,7 @@ import mockUsers from '../MockData/mockusers';
 import { ToastContainer } from 'react-toastify'
 
 function App() {
+  const [isDark, setIsDark] = useState(true)
   const [trendingData, setTrendingData] = useState()
   const [currentUser, setCurrentUser] = useState({ userId: null, username: '', password: '', journal: [], collections: [] });
   const [apiError, setApiError] = useState(null)
@@ -41,6 +42,11 @@ function App() {
     return () => handleApiError(null)
   }, [])
 
+  useEffect(() => {
+    const root = document.documentElement;
+    root.style.setProperty('--background', isDark ? 'var(--background-dark)' : 'var(--background-light)');
+  }, [isDark]);
+
   const handleApiError = (error) => {
     setApiError(error)
   }
@@ -48,10 +54,10 @@ function App() {
   return (
     <UserContext.Provider value={{currentUser, setCurrentUser, isUserLoggedIn, setIsUserLoggedIn}}>
       {apiError ? <h2 style={{color: 'white'}}>{apiError.message}</h2> 
-      : <>
-        <Nav />
-        <Search/>
-        <main className="App">
+      : <div data-theme={isDark ? 'dark' : 'light'}>
+        <Nav isDark={isDark} setIsDark={setIsDark} />
+        <Search />
+        <main className="App" >
           <Routes>
             <Route path="/login" element={<Login onLogin={handleLogin} />} />
             <Route path='/' element={<Recommended trendingData={trendingData} />}/>
@@ -68,7 +74,7 @@ function App() {
             theme="dark" 
           />
         </main>
-      </>}
+      </div>}
     </UserContext.Provider>
   );
 };

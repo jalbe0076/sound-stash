@@ -11,8 +11,8 @@
 .add-to-collections-button,
 .journal-button {
   padding: 0.5rem 1rem;
-  background-color: #865dff;
-  color: white;
+  background-color: var(--button-background);
+  color: var(--text-primary);
   border: none;
   cursor: pointer;
   min-width: 153px;
@@ -22,7 +22,7 @@
 .delete-from-collections-button:hover,
 .add-to-collections-button:hover,
 .journal-button:hover {
-  background-color: #6d45e2;
+  background-color: var(--button-hover);
 }
 
 .album-container {
@@ -32,7 +32,7 @@
 }
 
 .album-title {
-  color: #6d45e2; 
+  color: var(--text-secondary);  
   margin-bottom: .1em;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .tracklist-title {
-  color: #6d45e2;
+  color: var(--text-secondary);
 }
 
 .video {

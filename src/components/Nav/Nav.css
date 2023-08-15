@@ -3,18 +3,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: rgb(134,93,255);
+  color: var(--button-background);
   position: sticky;
   top: 0;
   z-index: 1;
-  background-color: #191725;
+  background-color: var(--background);
   padding: 1em;
+}
+
+.banner-container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .title {
   display: inline-block;
   text-decoration: none;
-  color: rgb(134,93,255);
+  color: var(--text-secondary);
   font-family: 'frijole';
 }
 
@@ -30,7 +36,7 @@
 
 .nav {
   text-decoration: none;
-  color: rgb(134,93,255);
+  color: var(--text-secondary);
 }
 
 .user-profile {
@@ -40,18 +46,18 @@
 .user-icon {
   width: 40px;
   margin-right: .5rem;
-  filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
+  filter: var(--icon-filter)
 }
 
 .active {
-  color: rgb(227,132,255);
+  color: var(--text-accent);
   text-decoration: underline;
 }
 
 .logout-btn {
   background: none;
   border: none;
-  color: rgb(134,93,255);
+  color: var(--text-accent);
   display: flex;
   align-items: center;
   justify-self: end;
@@ -64,12 +70,12 @@
 }
 
  h1:hover, .logout-btn:hover {
-  color: #6546C4;
-  filter: invert(31%) sepia(85%) saturate(1049%) hue-rotate(229deg) brightness(86%) contrast(97%);
+  color: var(--button-hover);
+  filter: var(--icon-hover-filter)
 }
 
 .nav:hover {
-  color: #6546C4;
+  color: var(--button-hover)
 }
 
 @media (max-width: 720px) {

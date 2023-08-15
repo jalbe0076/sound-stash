@@ -1,12 +1,12 @@
 .recommendedContainer {
     width: 100%;
-    background-color: #191725;
+    background-color: var(--background);
     display: flex;
     margin-top: 3em;
     align-items: center;
     justify-content: center;
     padding: 10px;
-    color: white;
+    color: var(--text-primary);
     font-family: 'quantico';
     gap: 1em;
     flex-wrap: wrap;
@@ -19,7 +19,7 @@
     align-items: center;
     border: solid;
     border-radius: 25px;
-    border-color: #865dff;
+    border-color: var(--button-background);
     padding: 1.5em;
     margin-bottom: 5%;
     max-width: 200px;

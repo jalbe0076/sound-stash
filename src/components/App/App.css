@@ -5,8 +5,14 @@
 }
 
 html {
-  background-color: #191725;
+  height: 100%;
+  background-color: var(--background);
   width: 100%;
+}
+
+:root {
+  --background-dark: #191725;
+  --background-light: white;
 }
 
 body {
@@ -16,9 +22,35 @@ body {
   font-family: 'shanti';
 }
 
+[data-theme='dark'] {
+  --background: #191725;
+  --text-primary: white;
+  --text-secondary: #6d45e2;
+  --text-accent: rgb(227,132,255);
+  --button-background: #865DFF;
+  --button-hover: #6546C4;
+  --icon-filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
+  --icon-hover-filter: invert(31%) sepia(85%) saturate(1049%) hue-rotate(229deg) brightness(86%) contrast(97%);
+  --journal-icon-filter: brightness(0) invert(1);
+  --journal-active-filter: invert(44%) sepia(100%) saturate(3445%) hue-rotate(235deg) brightness(100%) contrast(104%);
+  --trash-icon-filter: invert(100%);
+}
+
+[data-theme='light'] {
+  --background: white;
+  --text-primary: #012b5c;
+  --text-secondary: #024694;
+  --text-accent: #ea5355;
+  --button-background: #e5dccf; 
+  --button-hover: #ea5355;
+  --icon-filter: sepia(44%);
+  --icon-hover-filter: invert(31%);
+  --journal-icon-filter: invert(100%);
+}
+
 main {
-    background-color: #191825;
-    color: white;
+    background-color: var(--background);
+    color: var(--text-primary);
 }
 
 .album--grid {
@@ -32,15 +64,15 @@ main {
 }
 
 .standard-btn {
-  background-color: #865DFF;
-  color: white;
+  background-color: var(--button-background);
+  color: var(--text-primary);
   border: none;
   padding: 8px 20px;
   cursor: pointer;
 }
 
 .standard-btn:hover {
-  background-color: #6546C4;
+  background-color: var(--button-hover);
 }
 
 .sub-title {
