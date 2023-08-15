@@ -33,8 +33,8 @@ function Album({ handleApiError }) {
     };
   }, [id]);
   
-  const notifySaved = () => toast('Event Saved!')
-  const notifyDelete = () => toast('Event Deleted!')
+  const notifySaved = () => toast('Album Saved!')
+  const notifyDelete = () => toast('Album Deleted!')
 
   const handleAddToCollections = () => {
     const { title, artist, coverImg } = albumDetails;
