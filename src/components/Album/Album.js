@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { getAlbumDetails } from '../../api';
 import Form from '../Form/Form';
-import 'react-toastify/dist/ReactToastify.css';
 import './Album.css';
 import UserContext from '../UserContext/UserContext';
 import { toast } from 'react-toastify';

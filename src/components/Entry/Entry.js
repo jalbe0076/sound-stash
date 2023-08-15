@@ -2,12 +2,11 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { Rating } from 'react-simple-star-rating'
-import 'react-toastify/dist/ReactToastify.css';
 import'./Entry.css'
 import UserContext from '../UserContext/UserContext'
 import { toast } from 'react-toastify';
 
-const notifyDelete = () => toast('Album Deleted!')
+const notifyDelete = () => toast('Journal Entry Deleted!')
 
 function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
   const {setCurrentUser} = useContext(UserContext);

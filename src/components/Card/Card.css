@@ -1,12 +1,16 @@
 .results--card {
   font-size: 13px;
   text-align: left;
+  max-width: 300px;
+}
+
+.results--card a {
   text-decoration: none;
-  color: var(--text-primary);
 }
 
 .results--card:hover {
   cursor: pointer;
+  scale: 1.1;
 }
 
 .results--image {
@@ -17,9 +21,11 @@
   font-weight: bold;
   margin-top: 7px;
   margin-block-end: 7px;
+  color: var(--text-primary);
 }
 
 .results--artist {
   margin-top: 7px;
   margin-block-end: 0;
+  color: var(--text-primary);
 }
