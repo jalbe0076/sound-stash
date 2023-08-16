@@ -66,6 +66,10 @@
   border: 0;
 }
 
+.album:hover {
+  scale: 1.03;
+}
+
 @media (max-width:370px) {
   .buttons-container {
     flex-direction: column;

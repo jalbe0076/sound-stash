@@ -4,6 +4,9 @@ import PropTypes from 'prop-types';
 import { Rating } from 'react-simple-star-rating'
 import'./Entry.css'
 import UserContext from '../UserContext/UserContext'
+import { toast } from 'react-toastify';
+
+const notifyDelete = () => toast('Journal Entry Deleted!')
 
 function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
   const {setCurrentUser} = useContext(UserContext);
@@ -21,6 +24,7 @@ function Entry ({id, title, artists, date, notes, image, rating, masterId}) {
       ...prevUser,
       journal: prevUser.journal.filter(entry => entry.id !== parseInt(event.target.id))
     }))
+    notifyDelete();
   }
 
   return (

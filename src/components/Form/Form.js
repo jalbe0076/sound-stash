@@ -3,9 +3,11 @@ import PropTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import Flatpickr from 'react-flatpickr'
 import { Rating } from 'react-simple-star-rating'
+import 'react-toastify/dist/ReactToastify.css';
 import "flatpickr/dist/themes/dark.css"
 import './Form.css'
 import UserContext from '../UserContext/UserContext'
+import { toast } from 'react-toastify';
 
 function Form ({title, artist, coverImg, id, showModal}) {
   const {setCurrentUser} = useContext(UserContext);
@@ -15,6 +17,8 @@ function Form ({title, artist, coverImg, id, showModal}) {
   const [date, setDate] = useState(formattedDate)
   const [notes, setNotes] = useState('')
   const [rating, setRating] = useState(0)
+
+  const notifyAddedJournal = () => toast('Journal Entry Added!')
   
   const onImageError = (e) => {
     e.target.src = process.env.PUBLIC_URL + "/images/broken-record-lightcoral.png"
@@ -36,7 +40,8 @@ function Form ({title, artist, coverImg, id, showModal}) {
       ...prev,
       journal: [...prev.journal, newEntry]
     }))
-    navigate('/journal')
+    notifyAddedJournal();
+    navigate('/journal');
   }
 
   return (
