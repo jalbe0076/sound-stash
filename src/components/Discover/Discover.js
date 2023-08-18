@@ -17,25 +17,26 @@ const Discover = ({ trendingData, handleApiError }) => {
   }, [])
 
   useEffect(() => {
-    if (!currentUser || !currentUser.collections.length) {
-      setRecommendedData(trendingData.results)
-    } else {
-      const randomAlbum = currentUser.collections[Math.floor(Math.random() * currentUser.collections.length)]
-      getAlbumsByMasterId(randomAlbum.masterId)
-      .then(data => getAlbumsByGenre(data.genres[0]))
-      .then(data => {
-        const maxResults = data.results.length < 10 ? data.results.length : 10
-        const recommendedAlbumsData = []
-        for (let i = 0; recommendedAlbumsData.length < maxResults; i++) {
-          const randomAlbum = data.results[Math.floor(Math.random() * data.results.length)]
-          if (!recommendedAlbumsData.find(album => album.id === randomAlbum.id)) {
-            recommendedAlbumsData.push(randomAlbum)
+    if (trendingData) {
+      if (!currentUser || !currentUser.collections.length) {
+        setRecommendedData(trendingData.results)
+      } else {
+        const randomAlbum = currentUser.collections[Math.floor(Math.random() * currentUser.collections.length)]
+        getAlbumsByMasterId(randomAlbum.masterId)
+        .then(data => getAlbumsByGenre(data.genres[0]))
+        .then(data => {
+          const maxResults = data.results.length < 10 ? data.results.length : 10
+          const recommendedAlbumsData = []
+          for (let i = 0; recommendedAlbumsData.length < maxResults; i++) {
+            const randomAlbum = data.results[Math.floor(Math.random() * data.results.length)]
+            if (!recommendedAlbumsData.find(album => album.id === randomAlbum.id)) {
+              recommendedAlbumsData.push(randomAlbum)
+            }
           }
-        }
-
-        setRecommendedData(recommendedAlbumsData)
-      })
-      .catch(error => handleApiError(error))
+          setRecommendedData(recommendedAlbumsData)
+        })
+        .catch(error => handleApiError(error))
+      }
     }
   }, [])
   
