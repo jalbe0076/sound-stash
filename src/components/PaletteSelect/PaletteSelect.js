@@ -9,7 +9,7 @@ const PaletteSelect = ({ isDark, setIsDark }) => {
 
     return (
         <DarkModeSwitch
-            style={{ marginLeft: '2rem' }}
+            style={{ marginLeft: '2rem', marginRight: '1rem' }}
             checked={isDark}
             onChange={toggleDarkMode}
             size={30}

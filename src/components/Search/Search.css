@@ -34,3 +34,9 @@
 .search--button:hover {
   cursor: pointer;
 }
+
+.invalid-query {
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  margin-left: 16px;
+}

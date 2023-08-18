@@ -31,8 +31,8 @@ padding: 0 1em;
 }
 
 .entry-image {
-  height: auto;
-  width: 64px;
+  height: 64px;
+  width: auto;
   margin-right: 24px;
 }
 
