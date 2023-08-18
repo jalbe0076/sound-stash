@@ -9,7 +9,7 @@ function Search() {
 
   function handleClick(event) {
     event.preventDefault()
-    if (inputValue !== '') {
+    if (inputValue) {
       setInvalidQuery(false)
       setInput('')
       navigate(`/search/${inputValue}/1`)
