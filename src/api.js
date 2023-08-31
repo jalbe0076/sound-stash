@@ -6,7 +6,7 @@ function handleError(res) {
 }
 
 const getRecommendedAlbums = (albumID) => {
-  return fetch(`https://api.discogs.com/masters/${albumID}?key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ`)
+  return fetch(`https://api.discogs.com/masters/${albumID}?key=${process.env.REACT_APP_API_KEY}`)
     .then(res => handleError(res))
     .then(data => fetch(`https://api.discogs.com/database/search?type=master&format=vinyl&key=GimREdkHlKcSjALMSwEP&secret=RZbpExNDRyTdbTAaiVxiJpiYgOcydrMJ&page=1&per_page=5&genre=${data.genres[0]}`))
     .then(res => {
