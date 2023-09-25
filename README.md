@@ -17,6 +17,8 @@ A vinyl collectors resource
 [DEPLOYED LINK](https://sound-stash-mu.vercel.app/) <!-- LINK TO BE ADDED ONCE DEPLOYED-->
 </div>
 
+## Demo Comp:
+This was one of 4 finalist selected for one of [Turing School of Software and Design](https://turing.edu/) Demo Comp. A fun, fast-paced competition that simulates the kind of sprints professional developers often engage in on the job.
 
 ## Abstract: 
 This is a vinyl collectors website that uses the fetch API to get information from the [discogs-api](https://www.discogs.com/developers) and diplay that data to our users. The web app allows users to login using demo users, search for music, save vinyl albums to a collection, add journal entries for specific albums, and discover new music aligned with the users saved music preferences. If there is no user logged in, the public can still search for vinyl albums and view the albums details. The app features network requests to access information about vinyl albums and utilizes react router to create a multi-page experience, tested using Cypress.
